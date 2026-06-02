@@ -61,19 +61,19 @@ def _send_telegram(
     timeout = settings.get("run", {}).get("request_timeout_seconds", 30)
 
     if not jobs:
-        _post_telegram_message(token, chat_id, "No new jobs found.", timeout)
+        post_telegram_message(token, chat_id, "No new jobs found.", timeout)
         return
 
     for job in jobs[:max_jobs]:
-        message = _format_telegram_message(job)
+        message = format_telegram_job_message(job)
         try:
-            _post_telegram_message(token, chat_id, message, timeout)
+            post_telegram_message(token, chat_id, message, timeout)
         except Exception:
             logger.exception("Failed to send Telegram alert.")
             break
 
 
-def _format_telegram_message(job: Job) -> str:
+def format_telegram_job_message(job: Job) -> str:
     lines = [
         f"{ROCKET} New job found",
         "",
@@ -97,10 +97,10 @@ def _format_telegram_message(job: Job) -> str:
     return "\n".join(lines)
 
 
-def _post_telegram_message(
+def post_telegram_message(
     token: str, chat_id: str, message: str, timeout: float | int
 ) -> None:
     url = f"https://api.telegram.org/bot{token}/sendMessage"
-    payload = {"chat_id": chat_id, "text": message}
+    payload = {"chat_id": chat_id, "text": message, "parse_mode": "HTML"}
     response = requests.post(url, data=payload, timeout=timeout)
     response.raise_for_status()

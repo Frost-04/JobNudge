@@ -102,19 +102,16 @@ def export_jobs_to_send(
     path.parent.mkdir(parents=True, exist_ok=True)
 
     if not matching_jobs:
-        # Still write an empty file with headers so the user knows it ran
-        fieldnames = list(all_jobs[0].keys()) if all_jobs else [
-            "job_id", "company", "title", "location", "url",
-            "posted_date", "description", "matched_keywords", "scraped_at",
-        ]
+        # Clear the file entirely (same behavior as new_jobs.csv when empty)
+        path.write_text("", encoding="utf-8")
     else:
         fieldnames = list(matching_jobs[0].keys())
 
-    with path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fieldnames)
-        writer.writeheader()
-        for job in matching_jobs:
-            writer.writerow(job)
+        with path.open("w", newline="", encoding="utf-8") as handle:
+            writer = csv.DictWriter(handle, fieldnames=fieldnames)
+            writer.writeheader()
+            for job in matching_jobs:
+                writer.writerow(job)
 
     logger = logging.getLogger("job_alert_bot")
     logger.info(
@@ -149,11 +146,19 @@ def filter_and_export_with_ai(
     jobs = read_jobs_from_csv(new_jobs_csv_path)
     if not jobs:
         logger.info("No new jobs to filter with AI. Skipping.")
+        # Clear jobs_to_send.csv since there's nothing to send
+        path = Path(jobs_to_send_csv_path)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text("", encoding="utf-8")
         return 0
 
     # Check API key
     if not api_key:
         logger.error("GEMINI_API_KEY is not set in .env. Skipping AI filtering.")
+        # Clear jobs_to_send.csv since we couldn't filter
+        path = Path(jobs_to_send_csv_path)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text("", encoding="utf-8")
         return 0
 
     # 2. Build prompt

@@ -3,20 +3,55 @@
 # Use {jobs_json} as a placeholder — it will be replaced with the actual job data.
 
 prompt: |
-  You are a job filtering assistant. Below is a list of job postings in JSON format.
-  Each job object has these fields: job_id, company, title, url, description.
+  You are a job eligibility classifier.
 
-  Your task: Review each job carefully and return ONLY the job_ids of jobs that are relevant for an early-career software engineer (0-2 years of experience).
+  Each job object has these fields:
+  - job_id
+  - company
+  - title
+  - url
+  - description
 
-  Relevancy criteria:
-  - The role should be a software engineering, software development, or related coding role.
-  - Exclude roles that are purely hardware engineering, network engineering, IT support, silicon/ chip design, or non-software roles.
-  - The role should be suitable for someone early in their career (look for keywords like "I", "II", "early career", "university graduate", "new grad", "entry level"; avoid "senior", "staff", "principal", "III+" unless the description suggests otherwise).
-  - Prefer roles that involve general-purpose programming (Python, Java, C++, JavaScript, etc.) over niche or specialized areas.
+  Task:
+  Identify jobs that are potentially suitable for a fresher candidate (0–6 months of experience).
 
-  Return ONLY a valid JSON array of the job_ids that match, like: ["job_id_1", "job_id_2"]
-  If no jobs match, return an empty array: []
-  Do NOT include any explanation, markdown, or additional text — ONLY the JSON array.
+  Inclusion criteria:
+  - Explicitly states no experience required.
+  - Explicitly states 0 years experience.
+  - Explicitly states up to 6 months experience.
+  - Mentions fresher, entry-level, graduate, new graduate, graduate trainee, trainee, apprentice, internship, intern, student, campus hiring, or equivalent early-career terms.
+  - Experience requirement is missing, unclear, ambiguous, or cannot be confidently determined.
+  - Provides multiple qualification paths and at least one path does not require more than 6 months of experience.
+    Examples:
+    - "1 year experience OR Bachelor's degree"
+    - "Master's degree OR 1 year experience"
+    - "Experience preferred but not required"
+    - "Equivalent combination of education and experience"
+
+  Exclusion criteria:
+  - Clearly requires more than 6 months of professional experience with no alternative fresher-eligible path.
+  - Clearly requires 1+ years, 2+ years, 3+ years, or more experience as a mandatory requirement.
+  - Clearly targets experienced candidates only.
+  - Clearly requires senior, lead, principal, staff, manager, architect, or equivalent non-entry-level experience.
+
+  Decision policy:
+  - When uncertain, INCLUDE the job.
+  - When qualification requirements are ambiguous, INCLUDE the job.
+  - When multiple interpretations are possible, choose the interpretation most favorable to fresher eligibility.
+  - Exclude only when the description clearly and unambiguously disqualifies a fresher candidate.
+  - Do not exclude based solely on the job title.
+  - Use the description as the primary source of truth.
+
+  Output:
+  Return ONLY a valid JSON array of matching job_id values.
+
+  Example:
+  ["job_id_1","job_id_2"]
+
+  If no jobs match:
+  []
+
+  Do NOT return any explanation, reasoning, markdown, code fences, or additional text.
 
   Jobs:
   {jobs_json}
