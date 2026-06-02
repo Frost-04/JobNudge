@@ -1,0 +1,23 @@
+run:
+  headless: true
+  request_timeout_seconds: 30
+  page_load_timeout_seconds: 45
+  delay_between_companies_seconds: 3
+  max_jobs_per_company: 100
+
+storage:
+  database_path: "data/seen_jobs.db"
+  latest_csv_path: "data/latest_jobs.csv"
+  new_jobs_csv_path: "data/new_jobs.csv"
+
+logging:
+  log_file_path: "data/logs/scraper.log"
+  log_level: "INFO"
+
+notifications:
+  channel: "console"
+  send_empty_report: false
+  max_jobs_per_alert: 20
+
+health_check:
+  max_sample_jobs_per_company: 5

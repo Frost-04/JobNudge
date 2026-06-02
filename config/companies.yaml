@@ -1,0 +1,10 @@
+companies:
+  - name: Google
+    scraper: google
+    url: "https://www.google.com/about/careers/applications/jobs/results/?q=software%20Engineer&hl=en&location=India&target_level=EARLY"
+    enabled: true
+
+  - name: Amazon
+    scraper: amazon
+    url: "https://www.amazon.jobs/en/search?offset=0&result_limit=10&sort=recent&distanceType=Mi&radius=24km&industry_experience=less_than_1_year&latitude=&longitude=&loc_group_id=&loc_query=India&base_query=software%20engineer&city=&country=IND&region=&county=&query_options=&"
+    enabled: true

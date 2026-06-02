@@ -1,0 +1,42 @@
+include:
+  - software engineer
+  - software developer
+  - sde
+  - software development engineer
+  - associate software engineer
+  - university graduate
+  - graduate
+  - new grad
+  - early career
+  - fresher
+  - intern
+  - backend
+  - frontend
+  - full stack
+
+exclude:
+  - senior
+  - sr.
+  - staff
+  - principal
+  - manager
+  - engineering manager
+  - architect
+  - lead
+  - director
+  - 5+ years
+  - 7+ years
+  - 10+ years
+
+locations:
+  - india
+  - bangalore
+  - bengaluru
+  - hyderabad
+  - pune
+  - chennai
+  - gurgaon
+  - gurugram
+  - noida
+  - mumbai
+  - remote

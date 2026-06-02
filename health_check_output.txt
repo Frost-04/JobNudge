@@ -1,0 +1,178 @@
+Health Check Output
+===================
+Output file: health_check_output.txt
+
+== Config ==
+- Loading settings.yaml, companies.yaml, keywords.yaml
+CONFIG: PASS
+
+== Database ==
+- Initializing SQLite database
+DATABASE: PASS
+
+== Playwright ==
+PLAYWRIGHT: PASS
+
+== Scrapers ==
+- Starting company scrapers
+
+Google
+------
+- Creating scraper instance
+- Running scrape()
+Extracted jobs: 10
+
+Sample Jobs:
+
+[1]
+Job(
+  job_id='104752603035771590',
+  company='Google',
+  title='Software Engineer II',
+  location='Hyderabad, Telangana, India',
+  url='https://www.google.com/about/careers/applications/jobs/results/104752603035771590-software-engineer-ii?q=software+Engineer&hl=en&location=India&target_level=EARLY',
+  source_url='https://www.google.com/about/careers/applications/jobs/results/?q=software%20Engineer&hl=en&location=India&target_level=EARLY',
+  posted_date=None,
+  description='Minimum qualifications Bachelor’s degree or equivalent practical experience. 1 year of experience with software development in one or more programming languages (e.g., Python, C, C++, Java, JavaScript). Experience in developing and maintaining both the front-end and back-end components of software applications. Experience with a variety of web technologies and programming languages. Experience managing system interfaces and dependencies. Experience integrating systems and subsystems.',
+  scraped_at='2026-06-02T19:17:04.600875+00:00',
+  matched_keywords=[],
+)
+
+[2]
+Job(
+  job_id='127461458781840070',
+  company='Google',
+  title='Network Test Engineer, Global Network Technologies',
+  location='Bengaluru, Karnataka, India',
+  url='https://www.google.com/about/careers/applications/jobs/results/127461458781840070-network-test-engineer-global-network-technologies?q=software+Engineer&hl=en&location=India&target_level=EARLY',
+  source_url='https://www.google.com/about/careers/applications/jobs/results/?q=software%20Engineer&hl=en&location=India&target_level=EARLY',
+  posted_date=None,
+  description='Minimum qualifications Bachelor’s degree in computer science, electrical engineering, a related field, or equivalent practical experience. 1 year of experience with network equipment and network protocols testing and debugging. Experience in test automation using Python or C++. Experience with test methodologies, writing test plans and creating test cases.',
+  scraped_at='2026-06-02T19:17:04.600875+00:00',
+  matched_keywords=[],
+)
+
+[3]
+Job(
+  job_id='96334278157050566',
+  company='Google',
+  title='Forward Deployed Engineer, Generative AI, Google Cloud',
+  location='Mumbai, Maharashtra, India',
+  url='https://www.google.com/about/careers/applications/jobs/results/96334278157050566-forward-deployed-engineer-generative-ai-google-cloud?q=software+Engineer&hl=en&location=India&target_level=EARLY',
+  source_url='https://www.google.com/about/careers/applications/jobs/results/?q=software%20Engineer&hl=en&location=India&target_level=EARLY',
+  posted_date=None,
+  description='Minimum qualifications Bachelor’s degree in Engineering, Computer Science, a related field, or equivalent practical experience. 1 year of experience with software development using Python or similar coding languages. Experience taking production-grade AI-driven solutions from conception to launch and architecting AI systems on cloud platforms (e.g., GCP). Experience building pipelines for structured and unstructured data using both vector databases and RAG-like architectures to power enterprise...',
+  scraped_at='2026-06-02T19:17:04.611298+00:00',
+  matched_keywords=[],
+)
+
+[4]
+Job(
+  job_id='84348961464165062',
+  company='Google',
+  title='Silicon Design Verification Engineer',
+  location='Bengaluru, Karnataka, India',
+  url='https://www.google.com/about/careers/applications/jobs/results/84348961464165062-silicon-design-verification-engineer?q=software+Engineer&hl=en&location=India&target_level=EARLY',
+  source_url='https://www.google.com/about/careers/applications/jobs/results/?q=software%20Engineer&hl=en&location=India&target_level=EARLY',
+  posted_date=None,
+  description="Minimum qualifications Bachelor's degree in Electrical Engineering, Computer Engineering, Computer Science, a related field, or equivalent practical experience. 1 year of experience with Universal Verification Methodology (UVM), System Verilog and test planning.",
+  scraped_at='2026-06-02T19:17:04.611298+00:00',
+  matched_keywords=[],
+)
+
+[5]
+Job(
+  job_id='73379279982731974',
+  company='Google',
+  title='Silicon Engineer, Platform and Devices, University Graduate, 2026',
+  location='Bengaluru, Karnataka, India',
+  url='https://www.google.com/about/careers/applications/jobs/results/73379279982731974-silicon-engineer-platform-and-devices-university-graduate-2026?q=software+Engineer&hl=en&location=India&target_level=EARLY',
+  source_url='https://www.google.com/about/careers/applications/jobs/results/?q=software%20Engineer&hl=en&location=India&target_level=EARLY',
+  posted_date=None,
+  description="Minimum qualifications Bachelor's degree in Electrical, Electronics and Communication Engineering, a relevant technical field, or equivalent practical experience. Experience with design concepts and computer hardware architecture.",
+  scraped_at='2026-06-02T19:17:04.612649+00:00',
+  matched_keywords=[],
+)
+
+Amazon
+------
+- Creating scraper instance
+- Running scrape()
+Extracted jobs: 10
+
+Sample Jobs:
+
+[1]
+Job(
+  job_id='10432823',
+  company='Amazon',
+  title='Software Development Engineer I, FinOps FP&A',
+  location='Bengaluru, KA, IND',
+  url='https://www.amazon.jobs/en/jobs/10432823/software-development-engineer-i-finops-fp-a',
+  source_url='https://www.amazon.jobs/en/search?offset=0&result_limit=10&sort=recent&distanceType=Mi&radius=24km&industry_experience=less_than_1_year&latitude=&longitude=&loc_group_id=&loc_query=India&base_query=software%20engineer&city=&country=IND&region=&county=&query_options=&',
+  posted_date='Posted May 28, 2026',
+  description='Basic qualifications:Experience programming with at least one software programming language1+ years of non-internship professional software development experience',
+  scraped_at='2026-06-02T19:17:15.292235+00:00',
+  matched_keywords=[],
+)
+
+[2]
+Job(
+  job_id='10437482',
+  company='Amazon',
+  title='Application Software Engineer, Payments Acceptance and Experience',
+  location='Bengaluru, KA, IND',
+  url='https://www.amazon.jobs/en/jobs/10437482/application-software-engineer-payments-acceptance-and-experience',
+  source_url='https://www.amazon.jobs/en/search?offset=0&result_limit=10&sort=recent&distanceType=Mi&radius=24km&industry_experience=less_than_1_year&latitude=&longitude=&loc_group_id=&loc_query=India&base_query=software%20engineer&city=&country=IND&region=&county=&query_options=&',
+  posted_date='Posted June 2, 2026',
+  description="Basic qualifications:2+ years of software development, or 2+ years of technical support experienceExperience scripting in modern program languagesExperience troubleshooting and debugging technical systemsBachelor's degree in Computer Science or related technical field",
+  scraped_at='2026-06-02T19:17:15.293236+00:00',
+  matched_keywords=[],
+)
+
+[3]
+Job(
+  job_id='10429802',
+  company='Amazon',
+  title='Software Dev Engineer I, L4 (FTC), Amazon Pay - Merchant Tech',
+  location='Bengaluru, KA, IND',
+  url='https://www.amazon.jobs/en/jobs/10429802/software-dev-engineer-i-l4-ftc-amazon-pay-merchant-tech',
+  source_url='https://www.amazon.jobs/en/search?offset=0&result_limit=10&sort=recent&distanceType=Mi&radius=24km&industry_experience=less_than_1_year&latitude=&longitude=&loc_group_id=&loc_query=India&base_query=software%20engineer&city=&country=IND&region=&county=&query_options=&',
+  posted_date='Posted May 26, 2026',
+  description='Basic qualifications:1+ years of non-internship professional software development experienceExperience programming with at least one software programming language3+ years of software development engineer or related occupational experience',
+  scraped_at='2026-06-02T19:17:15.293236+00:00',
+  matched_keywords=[],
+)
+
+[4]
+Job(
+  job_id='10428417',
+  company='Amazon',
+  title='SDE-1 Contractual',
+  location='Bengaluru, KA, IND',
+  url='https://www.amazon.jobs/en/jobs/10428417/sde-1-contractual',
+  source_url='https://www.amazon.jobs/en/search?offset=0&result_limit=10&sort=recent&distanceType=Mi&radius=24km&industry_experience=less_than_1_year&latitude=&longitude=&loc_group_id=&loc_query=India&base_query=software%20engineer&city=&country=IND&region=&county=&query_options=&',
+  posted_date='Posted May 22, 2026',
+  description='Basic qualifications:1+ years of non-internship professional software development experienceExperience programming with at least one software programming language',
+  scraped_at='2026-06-02T19:17:15.293236+00:00',
+  matched_keywords=[],
+)
+
+[5]
+Job(
+  job_id='10428410',
+  company='Amazon',
+  title='SDE-1 Contractual',
+  location='Bengaluru, KA, IND',
+  url='https://www.amazon.jobs/en/jobs/10428410/sde-1-contractual',
+  source_url='https://www.amazon.jobs/en/search?offset=0&result_limit=10&sort=recent&distanceType=Mi&radius=24km&industry_experience=less_than_1_year&latitude=&longitude=&loc_group_id=&loc_query=India&base_query=software%20engineer&city=&country=IND&region=&county=&query_options=&',
+  posted_date='Posted May 22, 2026',
+  description='Basic qualifications:1+ years of non-internship professional software development experienceExperience programming with at least one software programming language',
+  scraped_at='2026-06-02T19:17:15.294236+00:00',
+  matched_keywords=[],
+)
+
+== Summary ==
+Completed in 15.2s
+
+Final status: PASS

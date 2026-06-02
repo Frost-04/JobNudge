@@ -1,0 +1,11 @@
+.env
+venv/
+__pycache__/
+*.pyc
+data/*.db
+data/*.csv
+data/logs/*.log
+.playwright/
+.DS_Store
+/*.md
+!/README.md
