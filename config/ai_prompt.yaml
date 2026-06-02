@@ -1,0 +1,22 @@
+# AI Prompt Configuration
+# The prompt below is sent to Gemini along with the list of new jobs.
+# Use {jobs_json} as a placeholder — it will be replaced with the actual job data.
+
+prompt: |
+  You are a job filtering assistant. Below is a list of job postings in JSON format.
+  Each job object has these fields: job_id, company, title, url, description.
+
+  Your task: Review each job carefully and return ONLY the job_ids of jobs that are relevant for an early-career software engineer (0-2 years of experience).
+
+  Relevancy criteria:
+  - The role should be a software engineering, software development, or related coding role.
+  - Exclude roles that are purely hardware engineering, network engineering, IT support, silicon/ chip design, or non-software roles.
+  - The role should be suitable for someone early in their career (look for keywords like "I", "II", "early career", "university graduate", "new grad", "entry level"; avoid "senior", "staff", "principal", "III+" unless the description suggests otherwise).
+  - Prefer roles that involve general-purpose programming (Python, Java, C++, JavaScript, etc.) over niche or specialized areas.
+
+  Return ONLY a valid JSON array of the job_ids that match, like: ["job_id_1", "job_id_2"]
+  If no jobs match, return an empty array: []
+  Do NOT include any explanation, markdown, or additional text — ONLY the JSON array.
+
+  Jobs:
+  {jobs_json}

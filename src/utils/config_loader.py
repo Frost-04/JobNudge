@@ -31,5 +31,9 @@ def load_keywords() -> dict[str, Any]:
     return load_yaml(CONFIG_DIR / "keywords.yaml")
 
 
+def load_ai_prompt() -> dict[str, Any]:
+    return load_yaml(CONFIG_DIR / "ai_prompt.yaml")
+
+
 def load_settings() -> dict[str, Any]:
     return load_yaml(CONFIG_DIR / "settings.yaml")

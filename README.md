@@ -24,17 +24,19 @@ Future companies can be added by creating new scraper files.
 
 ## Project Structure
 ```
-job-alert-bot/
+JobNudge/
 ├── README.md
 ├── HOW_TO_RUN.md
-├── SCRAPER_TUNING.md
+├── HOW_IT_WORKS.md
+├── changes.md
 ├── requirements.txt
-├── .env.example
-├── .gitignore
+├── LICENSE
 ├── config/
 ├── data/
-├── src/
-└── .github/
+│   ├── latest_jobs.csv
+│   ├── new_jobs.csv
+│   └── logs/
+└── src/
 ```
 
 ## Configuration Overview
@@ -45,9 +47,10 @@ job-alert-bot/
 ## Example Alert Output
 ```
 Started job scraper
-Google: raw jobs=8, filtered jobs=3, new jobs=1
-Amazon: raw jobs=12, filtered jobs=4, new jobs=2
+Google: raw jobs=8
+Amazon: raw jobs=12
 Exported latest jobs to data/latest_jobs.csv
+Exported 3 new jobs to data/new_jobs.csv
 
 New jobs found: 3
 
@@ -58,24 +61,24 @@ Link: https://...
 
 2. Amazon
 Role: Software Development Engineer I
+Job ID: 10432823
 Location: Hyderabad, India
 Link: https://...
 ```
 
 ## How to Add a New Company-Specific Scraper
-1. Create src/scrapers/companyname_scraper.py
-2. Subclass BaseScraper and implement async scrape()
-3. Return a list of Job objects
-4. Register it in src/scrapers/scraper_factory.py
-5. Add the company in config/companies.yaml
-6. Document tuning notes in SCRAPER_TUNING.md
-7. Run python -m src.health_check
+1. Create `src/scrapers/companyname_scraper.py`
+2. Subclass `BaseScraper` and implement `async scrape()`
+3. Return a list of `Job` objects
+4. Register it in `src/scrapers/scraper_factory.py`
+5. Add the company in `config/companies.yaml`
+6. Run `python -m src.health_check` to verify
 
 ## Troubleshooting
-- If a scraper returns 0 jobs, check SCRAPER_TUNING.md for manual tuning steps.
-- Increase timeouts in config/settings.yaml if pages are slow to load.
-- Run with headless: false during debugging.
-- Check data/logs/scraper.log for detailed logs.
+- If a scraper returns 0 jobs, the page structure may have changed — inspect the page DOM and update the selectors in the scraper.
+- Increase timeouts in `config/settings.yaml` if pages are slow to load.
+- Run with `headless: false` during debugging.
+- Check `data/logs/scraper.log` for detailed logs.
 
 ## Disclaimer
 This tool only checks public career pages. It does not bypass captchas, login walls, bot protections, or rate limits. Use reasonable frequencies and respect the target sites' terms of service.

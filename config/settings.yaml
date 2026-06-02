@@ -9,6 +9,7 @@ storage:
   database_path: "data/seen_jobs.db"
   latest_csv_path: "data/latest_jobs.csv"
   new_jobs_csv_path: "data/new_jobs.csv"
+  jobs_to_send_csv_path: "data/jobs_to_send.csv"
 
 logging:
   log_file_path: "data/logs/scraper.log"
@@ -21,3 +22,7 @@ notifications:
 
 health_check:
   max_sample_jobs_per_company: 5
+
+ai:
+  model: "gemini-2.0-flash"
+  max_jobs_per_batch: 50
