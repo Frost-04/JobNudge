@@ -9,3 +9,4 @@ data/logs/*.log
 .DS_Store
 /*.md
 !/README.md
+/companies_list_later_to_make_scrapers.txt

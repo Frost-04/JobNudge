@@ -6,6 +6,8 @@ from typing import Any
 from src.scrapers.amazon_scraper import AmazonScraper
 from src.scrapers.base_scraper import BaseScraper
 from src.scrapers.google_scraper import GoogleScraper
+from src.scrapers.jpmorganchase_scraper import JPMorganChaseScraper
+from src.scrapers.microsoft_scraper import MicrosoftScraper
 
 
 def get_scraper(
@@ -17,6 +19,10 @@ def get_scraper(
         return GoogleScraper(company_config, settings)
     if scraper_name == "amazon":
         return AmazonScraper(company_config, settings)
+    if scraper_name == "microsoft":
+        return MicrosoftScraper(company_config, settings)
+    if scraper_name == "jpmorgan":
+        return JPMorganChaseScraper(company_config, settings)
 
     logging.getLogger("job_alert_bot").warning(
         "Unsupported scraper: %s", company_config.get("scraper")

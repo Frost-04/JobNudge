@@ -66,7 +66,7 @@ def _file_step(file: TextIO, message: str) -> None:
     file.write(f"- {message}\n")
 
 
-def _safe_repr(value: object, max_length: int = 500) -> str:
+def _safe_repr(value: object, max_length: int = 5000) -> str:
     """
     Returns a readable repr, truncating very long strings like descriptions.
     """

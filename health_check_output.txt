@@ -16,163 +16,85 @@ PLAYWRIGHT: PASS
 == Scrapers ==
 - Starting company scrapers
 
-Google
-------
+JPMorgan Chase
+--------------
 - Creating scraper instance
 - Running scrape()
-Extracted jobs: 10
+Extracted jobs: 25
 
 Sample Jobs:
 
 [1]
 Job(
-  job_id='104752603035771590',
-  company='Google',
-  title='Software Engineer II',
-  location='Hyderabad, Telangana, India',
-  url='https://www.google.com/about/careers/applications/jobs/results/104752603035771590-software-engineer-ii?q=software+Engineer&hl=en&location=India&target_level=EARLY',
-  source_url='https://www.google.com/about/careers/applications/jobs/results/?q=software%20Engineer&hl=en&location=India&target_level=EARLY',
-  posted_date=None,
-  description='Minimum qualifications Bachelor’s degree or equivalent practical experience. 1 year of experience with software development in one or more programming languages (e.g., Python, C, C++, Java, JavaScript). Experience in developing and maintaining both the front-end and back-end components of software applications. Experience with a variety of web technologies and programming languages. Experience managing system interfaces and dependencies. Experience integrating systems and subsystems.',
-  scraped_at='2026-06-02T19:17:04.600875+00:00',
+  job_id='210733928',
+  company='JPMorgan Chase',
+  title='Senior Lead Software Engineer - Python Backend Developer',
+  location='Block D, Parcel 8, Embassy Tech Village, Outer Ring Road, Devarabeesanahalli Village, Bengaluru, IN-KA, 560103, IN',
+  url='https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210733928/?keyword=Software+Engineer&location=India&locationId=300000000289360&locationLevel=country&mode=location&sortBy=POSTING_DATES_DESC',
+  source_url='https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/jobs?keyword=Software+Engineer&location=India&locationId=300000000289360&locationLevel=country&mode=location&sortBy=POSTING_DATES_DESC',
+  posted_date='06/03/2026, 12:12 PM',
+  description="Job Identification: 210733928 Job Category: Software Engineering Business Unit: Commercial & Investment Bank Posting Date: 06/03/2026, 12:12 PM Apply Before: 06/19/2026, 09:30 AM Job Schedule: Full time Locations: Block D, Parcel 8, Embassy Tech Village, Outer Ring Road, Devarabeesanahalli Village, Bengaluru, IN-KA, 560103, IN  Be an integral part of an agile team that's constantly pushing the envelope to enhance, build, and deliver top-notch technology products. As a Senior Lead Software Engineer - Python Backend Developer at JPMorgan Chase within the Commercial & Investment Bank, you'll be an integral part of an agile team that works to enhance, build, and deliver trusted market-leading technology products in a secure, stable, and scalable way. Drive significant business impact through your capabilities and contributions, and apply deep technical expertise and problem-solving methodologies to tackle a diverse array of challenges that span multiple technologies and applications. We are building the next generation of trade structuring tools and components needed by teams across Markets and used globally by our trading desks and support teams. This position will work closely with our Athena Trade Risk & Services function, as a member of a highly skilled, agile development team. Job responsibilities Write awesome, high quality Backend Python code following the principles of SOLID, YAGNI and KISS Participate in requirements meetings with our users and propose technical solutions Evangelize and seek new opportunities for our product to be used by other development teams not already using the platform. Complete full lifecycle development projects as well as post-production maintenance and enhancements Support other development teams using our components by answering questions, researching system issues, identifying root causes, and resolving problems Required qualifications, capabilities, and skills Formal training or certification on software engineering concepts and 5+ years applied experience Strong technology background with experience in object-oriented programming, test driven development viz Python. Experience in building and debugging application build on distributed computing architecture. Good understanding of event based architecture. Strong Analytical and problem-solving skills. Good interpersonal skills and able to work effectively in a global team. Self-starter and willing to work in a dynamic environment with constantly evolving priorities. Knowledge of AWS. Hands-on, delivery-focused, technical position involving a lot of analysis, coding, testing and interfacing with our end users. There will be a high degree of teamwork and technical peer interaction involved. Preferred qualifications, capabilities, and skills Knowledge of GraphQL is good to have. A good knowledge of Investment Banking and Markets is highly desirable but a thirst for knowledge and the knack to apply that knowledge is just as good to us.",
+  scraped_at='2026-06-03T22:28:55.764903+00:00',
   matched_keywords=[],
 )
 
 [2]
 Job(
-  job_id='127461458781840070',
-  company='Google',
-  title='Network Test Engineer, Global Network Technologies',
-  location='Bengaluru, Karnataka, India',
-  url='https://www.google.com/about/careers/applications/jobs/results/127461458781840070-network-test-engineer-global-network-technologies?q=software+Engineer&hl=en&location=India&target_level=EARLY',
-  source_url='https://www.google.com/about/careers/applications/jobs/results/?q=software%20Engineer&hl=en&location=India&target_level=EARLY',
-  posted_date=None,
-  description='Minimum qualifications Bachelor’s degree in computer science, electrical engineering, a related field, or equivalent practical experience. 1 year of experience with network equipment and network protocols testing and debugging. Experience in test automation using Python or C++. Experience with test methodologies, writing test plans and creating test cases.',
-  scraped_at='2026-06-02T19:17:04.600875+00:00',
+  job_id='210724160',
+  company='JPMorgan Chase',
+  title='Lead Software Engineer',
+  location='6TH & 7TH FLRS,WINGA & 6TH 7TH,8TH, & 9TH FLRS, WING B,PARADIGM TOWERS, , MINDSPACE L.RD,MALAD(W), Mumbai, IN-MH, 400064, IN',
+  url='https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210724160/?keyword=Software+Engineer&location=India&locationId=300000000289360&locationLevel=country&mode=location&sortBy=POSTING_DATES_DESC',
+  source_url='https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/jobs?keyword=Software+Engineer&location=India&locationId=300000000289360&locationLevel=country&mode=location&sortBy=POSTING_DATES_DESC',
+  posted_date='06/03/2026, 03:06 PM',
+  description="Job Identification: 210724160 Job Category: Software Engineering Business Unit: Asset & Wealth Management Posting Date: 06/03/2026, 03:06 PM Job Schedule: Full time Locations: 6TH & 7TH FLRS,WINGA & 6TH 7TH,8TH, & 9TH FLRS, WING B,PARADIGM TOWERS, , MINDSPACE L.RD,MALAD(W), Mumbai, IN-MH, 400064, IN  We have an opportunity to impact your career and provide an adventure where you can push the limits of what's possible. As a Lead Software Engineer at JPMorganChase within the Asset and Wealth Management for Performance and Attribution Insights Team, you are an integral part of an agile team that works to enhance, build, and deliver trusted market-leading technology products in a secure, stable, and scalable way. As a core technical contributor, you are responsible for conducting critical technology solutions across multiple technical areas within various business functions in support of the firm’s business objectives. Job responsibilities Executes creative software solutions, design, development, and technical troubleshooting with ability to think beyond routine or conventional approaches to build solutions or break down technical problems. Develops secure high-quality production code, and reviews and debugs code written by others. Identifies opportunities to eliminate or automate remediation of recurring issues to improve overall operational stability of software applications and systems. Leads, mentors, and guides a team of UI developers, fostering a culture of technical excellence, high code quality, and best practices. Works closely with UI/UX designers to translate prototypes into pixel-perfect code and align with backend engineers on API contracts. Leads evaluation sessions with internal teams to drive outcomes-oriented probing of architectural designs, technical credentials, and applicability for use within existing systems and information architecture. Leads communities of practice across Software Engineering to drive awareness and use of new and leading-edge technologies. Adds to team culture of diversity, opportunity, inclusion, and respect. Required qualifications, capabilities, and skills Formal training or certification on software engineering concepts and 5+ years applied experience Hands-on practical experience delivering system design, application development, testing, and operational stability Advanced in one or more programming language(s) : React , Typescript Strong proficiency in JavaScript (ES6+), TypeScript, HTML5, and CSS3/SASS. Demonstrated experience leading and mentoring front-end teams. Excellent client communication skills and experience in stake holder management Proficiency in automation and continuous delivery methods Proficient in all aspects of the Software Development Life Cycle Advanced understanding of agile methodologies such as CI/CD, Application Resiliency, and Security Demonstrated proficiency in software applications and technical processes within a technical discipline (e.g., cloud, artificial intelligence, machine learning, mobile, etc.) In-depth knowledge of the financial services industry and their IT systems Practical cloud native experience Using AI assistant tools in their daily SDLC workflow Preferred qualifications, capabilities, and skills Any backend skills like Java, Python, SQL Investment Banking domain",
+  scraped_at='2026-06-03T22:28:58.849257+00:00',
   matched_keywords=[],
 )
 
 [3]
 Job(
-  job_id='96334278157050566',
-  company='Google',
-  title='Forward Deployed Engineer, Generative AI, Google Cloud',
-  location='Mumbai, Maharashtra, India',
-  url='https://www.google.com/about/careers/applications/jobs/results/96334278157050566-forward-deployed-engineer-generative-ai-google-cloud?q=software+Engineer&hl=en&location=India&target_level=EARLY',
-  source_url='https://www.google.com/about/careers/applications/jobs/results/?q=software%20Engineer&hl=en&location=India&target_level=EARLY',
-  posted_date=None,
-  description='Minimum qualifications Bachelor’s degree in Engineering, Computer Science, a related field, or equivalent practical experience. 1 year of experience with software development using Python or similar coding languages. Experience taking production-grade AI-driven solutions from conception to launch and architecting AI systems on cloud platforms (e.g., GCP). Experience building pipelines for structured and unstructured data using both vector databases and RAG-like architectures to power enterprise...',
-  scraped_at='2026-06-02T19:17:04.611298+00:00',
+  job_id='210717750',
+  company='JPMorgan Chase',
+  title='Software Engineer II -AWS',
+  location='MAGMA,UNIT-1,PHASE-IV,SY NO.83/1,PLOT NO 2, GR Floor TO 2 Floor and 5 Floor TO 16 Floor,Basement 1,2, Hyderabad, IN-TG, 500081, IN',
+  url='https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210717750/?keyword=Software+Engineer&location=India&locationId=300000000289360&locationLevel=country&mode=location&sortBy=POSTING_DATES_DESC',
+  source_url='https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/jobs?keyword=Software+Engineer&location=India&locationId=300000000289360&locationLevel=country&mode=location&sortBy=POSTING_DATES_DESC',
+  posted_date='06/03/2026, 10:49 AM',
+  description='Job Identification: 210717750 Job Category: Software Engineering Business Unit: Consumer & Community Banking Posting Date: 06/03/2026, 10:49 AM Apply Before: 06/10/2026, 09:30 AM Job Schedule: Full time Locations: MAGMA,UNIT-1,PHASE-IV,SY NO.83/1,PLOT NO 2, GR Floor TO 2 Floor and 5 Floor TO 16 Floor,Basement 1,2, Hyderabad, IN-TG, 500081, IN  You’re ready to gain the skills and experience needed to grow within your role and advance your career — and we have the perfect software engineering opportunity for you. As a Software Engineer II - DevOps at JPMorgan Chase within the Consumer Banking team, you are part of an agile team that works to enhance, design, and deliver the software components of the firm’s state-of-the-art technology products in a secure, stable, and scalable way. As an emerging member of a software engineering team, you execute software solutions through the design, development, and technical troubleshooting of multiple components within a technical product, application, or system, while gaining the skills and experience needed to grow within your role. Job responsibilities Executes standard software solutions, design, development, and technical troubleshooting. Designs, develops, codes, and troubleshoots with consideration of upstream and downstream systems and technical implications. Applies knowledge of tools within the Software Development Life Cycle toolchain to improve the value realized by automation. Applies technical troubleshooting to break down solutions and solve technical problems of basic complexity. Gathers, analyzes, and draws conclusions from large, diverse data sets to identify problems and contribute to decision-making in service of secure, stable application development. Design, implement, and manage AWS infrastructure to support scalable and reliable applications. Collaborate with development teams to integrate and automate deployment processes. Monitor system performance and troubleshoot issues using tools like Splunk, Dynatrace, and Grafana. Implement observability practices to ensure comprehensive monitoring and alerting and to enhance system reliability and performance. Provide hands-on production support and resolve incidents promptly. Participate in on-call rotations to ensure 24/7 system availability. Required qualifications, capabilities, and skills Formal training or certification on software engineering concepts and 2+ years applied experience Experience in developing, debugging, and maintaining code in a large corporate environment with one or more modern programming languages and database querying languages. Experience across the whole Software Development Life Cycle. Experience with continuous integration and continuous delivery tools like Jenkins, GitLab, or Terraform and Application Resiliency & Security. Emerging knowledge of software applications and technical processes within a technical discipline (e.g., cloud, artificial intelligence, machine learning, etc.). Strong experience with AWS infrastructure and services. Proficiency in logging, monitoring and observability tools such as Splunk, Dynatrace, and Grafana. Hands-on experience in production support and incident management. Excellent problem-solving skills and attention to detail. Strong communication and collaboration skills. Ability to work in a fast-paced and dynamic environment. Preferred qualifications, capabilities, and skills Familiarity with modern front-end technologies Exposure to cloud technologies AWS Familiarity with CI/CD pipelines and automation tools Knowledge of scripting languages (e.g., Python, Bash)',
+  scraped_at='2026-06-03T22:29:01.894794+00:00',
   matched_keywords=[],
 )
 
 [4]
 Job(
-  job_id='84348961464165062',
-  company='Google',
-  title='Silicon Design Verification Engineer',
-  location='Bengaluru, Karnataka, India',
-  url='https://www.google.com/about/careers/applications/jobs/results/84348961464165062-silicon-design-verification-engineer?q=software+Engineer&hl=en&location=India&target_level=EARLY',
-  source_url='https://www.google.com/about/careers/applications/jobs/results/?q=software%20Engineer&hl=en&location=India&target_level=EARLY',
-  posted_date=None,
-  description="Minimum qualifications Bachelor's degree in Electrical Engineering, Computer Engineering, Computer Science, a related field, or equivalent practical experience. 1 year of experience with Universal Verification Methodology (UVM), System Verilog and test planning.",
-  scraped_at='2026-06-02T19:17:04.611298+00:00',
+  job_id='210740033',
+  company='JPMorgan Chase',
+  title='Lead Software Engineer - Java & AWS',
+  location='Parcel 9, Embassy Tech Village, Outer Ring Road, Deverabeesanhalli Village, Varthur Hobli, Bengaluru, IN-KA, 560103, IN',
+  url='https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210740033/?keyword=Software+Engineer&location=India&locationId=300000000289360&locationLevel=country&mode=location&sortBy=POSTING_DATES_DESC',
+  source_url='https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/jobs?keyword=Software+Engineer&location=India&locationId=300000000289360&locationLevel=country&mode=location&sortBy=POSTING_DATES_DESC',
+  posted_date='06/03/2026, 11:55 AM',
+  description="Job Identification: 210740033 Job Category: Software Engineering Business Unit: Consumer & Community Banking Posting Date: 06/03/2026, 11:55 AM Apply Before: 06/05/2026, 09:30 AM Job Schedule: Full time Locations: Parcel 9, Embassy Tech Village, Outer Ring Road, Deverabeesanhalli Village, Varthur Hobli, Bengaluru, IN-KA, 560103, IN  We have an opportunity to impact your career and provide an adventure where you can push the limits of what's possible. As a Lead Software Engineer at JPMorganChase within the Consumer & Community Banking Technology Team, you are an integral part of an agile team that works to enhance, build, and deliver trusted market-leading technology products in a secure, stable, and scalable way. As a core technical contributor, you are responsible for conducting critical technology solutions across multiple technical areas within various business functions in support of the firm’s business objectives. Job responsibilities Executes creative software solutions, design, development, and technical troubleshooting with ability to think beyond routine or conventional approaches to build solutions or break down technical problems Develops secure high-quality production code, and reviews and debugs code written by others Identifies opportunities to eliminate or automate remediation of recurring issues to improve overall operational stability of software applications and systems Leads evaluation sessions with external vendors, startups, and internal teams to drive outcomes-oriented probing of architectural designs, technical credentials, and applicability for use within existing systems and information architecture Leads communities of practice across Software Engineering to drive awareness and use of new and leading-edge technologies Adds to team culture of diversity, opportunity, inclusion, and respect Required qualifications, capabilities, and skills Formal training or certification on software engineering concepts and 5+ years applied experience in system design, application development, testing, and operational stability Core Skills - Java/J2EE, Spring Boot, Microservice architecture, AWS, Terraform, Github, Copilot, Jenkins, Data Science, Graph SQL Databases: Proficiency with relational databases (e.g., PostgreSQL, MySQL) and NoSQL databases (e.g., DynamoDB, Redis, Cassandra) and Graph SQL. Containerization: Experience with Docker and container orchestration (ECS, EKS, or Kubernetes). Experience in developing, debugging, and maintaining code in a large corporate environment with one or more modern programming languages and database querying languages Demonstrable ability to code in one or more languages Experience across the whole Software Development Life Cycle Exposure to agile methodologies such as CI/CD, Application Resiliency, and Security Emerging knowledge of software applications and technical processes within a technical discipline (e.g., cloud, artificial intelligence, machine learning, mobile, etc.) Demonstrated expertise with monitoring/observability tools (e.g., Splunk, Datadog, Dynatrace, CloudWatch) and proven capability to lead high-performing teams—driving innovation, maintaining strong team health, and owning the end-to-end team performance cycle. Preferred qualifications, capabilities, and skills Familiarity with modern front-end technologies AWS Certification (e.g., Solutions Architect – Associate/Professional, Developer – Associate). Exposure to cloud technologies",
+  scraped_at='2026-06-03T22:29:04.781712+00:00',
   matched_keywords=[],
 )
 
 [5]
 Job(
-  job_id='73379279982731974',
-  company='Google',
-  title='Silicon Engineer, Platform and Devices, University Graduate, 2026',
-  location='Bengaluru, Karnataka, India',
-  url='https://www.google.com/about/careers/applications/jobs/results/73379279982731974-silicon-engineer-platform-and-devices-university-graduate-2026?q=software+Engineer&hl=en&location=India&target_level=EARLY',
-  source_url='https://www.google.com/about/careers/applications/jobs/results/?q=software%20Engineer&hl=en&location=India&target_level=EARLY',
-  posted_date=None,
-  description="Minimum qualifications Bachelor's degree in Electrical, Electronics and Communication Engineering, a relevant technical field, or equivalent practical experience. Experience with design concepts and computer hardware architecture.",
-  scraped_at='2026-06-02T19:17:04.612649+00:00',
-  matched_keywords=[],
-)
-
-Amazon
-------
-- Creating scraper instance
-- Running scrape()
-Extracted jobs: 10
-
-Sample Jobs:
-
-[1]
-Job(
-  job_id='10432823',
-  company='Amazon',
-  title='Software Development Engineer I, FinOps FP&A',
-  location='Bengaluru, KA, IND',
-  url='https://www.amazon.jobs/en/jobs/10432823/software-development-engineer-i-finops-fp-a',
-  source_url='https://www.amazon.jobs/en/search?offset=0&result_limit=10&sort=recent&distanceType=Mi&radius=24km&industry_experience=less_than_1_year&latitude=&longitude=&loc_group_id=&loc_query=India&base_query=software%20engineer&city=&country=IND&region=&county=&query_options=&',
-  posted_date='Posted May 28, 2026',
-  description='Basic qualifications:Experience programming with at least one software programming language1+ years of non-internship professional software development experience',
-  scraped_at='2026-06-02T19:17:15.292235+00:00',
-  matched_keywords=[],
-)
-
-[2]
-Job(
-  job_id='10437482',
-  company='Amazon',
-  title='Application Software Engineer, Payments Acceptance and Experience',
-  location='Bengaluru, KA, IND',
-  url='https://www.amazon.jobs/en/jobs/10437482/application-software-engineer-payments-acceptance-and-experience',
-  source_url='https://www.amazon.jobs/en/search?offset=0&result_limit=10&sort=recent&distanceType=Mi&radius=24km&industry_experience=less_than_1_year&latitude=&longitude=&loc_group_id=&loc_query=India&base_query=software%20engineer&city=&country=IND&region=&county=&query_options=&',
-  posted_date='Posted June 2, 2026',
-  description="Basic qualifications:2+ years of software development, or 2+ years of technical support experienceExperience scripting in modern program languagesExperience troubleshooting and debugging technical systemsBachelor's degree in Computer Science or related technical field",
-  scraped_at='2026-06-02T19:17:15.293236+00:00',
-  matched_keywords=[],
-)
-
-[3]
-Job(
-  job_id='10429802',
-  company='Amazon',
-  title='Software Dev Engineer I, L4 (FTC), Amazon Pay - Merchant Tech',
-  location='Bengaluru, KA, IND',
-  url='https://www.amazon.jobs/en/jobs/10429802/software-dev-engineer-i-l4-ftc-amazon-pay-merchant-tech',
-  source_url='https://www.amazon.jobs/en/search?offset=0&result_limit=10&sort=recent&distanceType=Mi&radius=24km&industry_experience=less_than_1_year&latitude=&longitude=&loc_group_id=&loc_query=India&base_query=software%20engineer&city=&country=IND&region=&county=&query_options=&',
-  posted_date='Posted May 26, 2026',
-  description='Basic qualifications:1+ years of non-internship professional software development experienceExperience programming with at least one software programming language3+ years of software development engineer or related occupational experience',
-  scraped_at='2026-06-02T19:17:15.293236+00:00',
-  matched_keywords=[],
-)
-
-[4]
-Job(
-  job_id='10428417',
-  company='Amazon',
-  title='SDE-1 Contractual',
-  location='Bengaluru, KA, IND',
-  url='https://www.amazon.jobs/en/jobs/10428417/sde-1-contractual',
-  source_url='https://www.amazon.jobs/en/search?offset=0&result_limit=10&sort=recent&distanceType=Mi&radius=24km&industry_experience=less_than_1_year&latitude=&longitude=&loc_group_id=&loc_query=India&base_query=software%20engineer&city=&country=IND&region=&county=&query_options=&',
-  posted_date='Posted May 22, 2026',
-  description='Basic qualifications:1+ years of non-internship professional software development experienceExperience programming with at least one software programming language',
-  scraped_at='2026-06-02T19:17:15.293236+00:00',
-  matched_keywords=[],
-)
-
-[5]
-Job(
-  job_id='10428410',
-  company='Amazon',
-  title='SDE-1 Contractual',
-  location='Bengaluru, KA, IND',
-  url='https://www.amazon.jobs/en/jobs/10428410/sde-1-contractual',
-  source_url='https://www.amazon.jobs/en/search?offset=0&result_limit=10&sort=recent&distanceType=Mi&radius=24km&industry_experience=less_than_1_year&latitude=&longitude=&loc_group_id=&loc_query=India&base_query=software%20engineer&city=&country=IND&region=&county=&query_options=&',
-  posted_date='Posted May 22, 2026',
-  description='Basic qualifications:1+ years of non-internship professional software development experienceExperience programming with at least one software programming language',
-  scraped_at='2026-06-02T19:17:15.294236+00:00',
+  job_id='210746817',
+  company='JPMorgan Chase',
+  title='Software Engineer III - UX/UI',
+  location='Ground to Fifth Floor G,H Block, EMBASSYTECH VILLAGE-PARCEL 5 OUTER RING RD DEVERABEESANAHALLI VILLA, Bengaluru, IN-KA, 560103, IN',
+  url='https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210746817/?keyword=Software+Engineer&location=India&locationId=300000000289360&locationLevel=country&mode=location&sortBy=POSTING_DATES_DESC',
+  source_url='https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/jobs?keyword=Software+Engineer&location=India&locationId=300000000289360&locationLevel=country&mode=location&sortBy=POSTING_DATES_DESC',
+  posted_date='06/03/2026, 09:57 AM',
+  description='Job Identification: 210746817 Job Category: Software Engineering Business Unit: Corporate Sector Posting Date: 06/03/2026, 09:57 AM Apply Before: 06/04/2026, 09:30 AM Job Schedule: Full time Locations: Ground to Fifth Floor G,H Block, EMBASSYTECH VILLAGE-PARCEL 5 OUTER RING RD DEVERABEESANAHALLI VILLA, Bengaluru, IN-KA, 560103, IN  Job summary As a Software Engineer III (UX/UI) at JP MorganChase within Infrastructure Platforms Team, you help design and deliver trusted, market-leading technology products in a secure, stable, and scalable way. You deliver critical technology solutions across multiple technical areas and business functions, translating business requirements into high-quality user experiences across enterprise platforms and related applications. You continuously improve usability, efficiency, and personalization through modern front-end engineering and AI-augmented practices. Job responsibilities Design and deliver intuitive, user-centric digital experiences across enterprise platforms by translating business requirements into effective interaction and visual design. Build reusable UI components and front-end applications using modern frameworks (React, Angular, or similar) and core web technologies (JavaScript, HTML5, CSS3). Leverage AI-assisted design and development practices, including AI-driven prototyping and ideation, design automation, AI copilots, automated UX recommendations, and personalization informed by user behavior insights. Integrate front-end solutions with application programming interfaces (APIs) and back-end services, delivering secure, stable, and scalable production code that supports business objectives. Troubleshoot and execute software solutions that break down complex problems beyond routine approaches while improving code quality and strengthening system architecture. Produce architecture and design artifacts for complex applications and ensure design constraints are met through high-quality software development. (Raw Posting-1.docx) Analyze large, diverse data sets and develop visualizations and reporting to drive continuous improvement, contribute to engineering communities of practice, and strengthen a culture of diversity, opportunity, inclusion, and respect. Required qualifications, capabilities, and skills Formal training or certification on software engineering concepts and 3+ years applied experience Relevant experience designing and delivering intuitive, user-centric UX/UI experiences across enterprise platforms. Demonstrated understanding of UX/UI principles, usability, and interaction design, including translating requirements into high-quality user experiences. Hands-on experience with JavaScript, HTML5, and CSS3. Hands-on experience with a modern front-end framework such as React, Angular, or similar. Experience leveraging AI-assisted development or design tools (for example, AI copilots and design automation tools) to support UX/UI work. Experience integrating front-end applications with APIs and back-end services in a production environment. Experience delivering secure, stable, and scalable code within an agile delivery model. Preferred qualifications, capabilities, and skills Experience building and maintaining enterprise design systems and reusable component libraries. Experience applying accessibility best practices (for example, WCAG-aligned design and development). Experience with data visualization techniques to support reporting and product insights. Experience applying AI-assisted personalization approaches informed by user behavior insights. Note: Replace citation placeholders with the correct segment IDs when they are provided.',
+  scraped_at='2026-06-03T22:29:07.978115+00:00',
   matched_keywords=[],
 )
 
 == Summary ==
-Completed in 15.2s
+Completed in 84.0s
 
 Final status: PASS

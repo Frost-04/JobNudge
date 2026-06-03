@@ -2,9 +2,19 @@ companies:
   - name: Google
     scraper: google
     url: "https://www.google.com/about/careers/applications/jobs/results/?q=software%20Engineer&hl=en&location=India&target_level=EARLY"
-    enabled: true
+    enabled: false
 
   - name: Amazon
     scraper: amazon
     url: "https://www.amazon.jobs/en/search?offset=0&result_limit=10&sort=recent&distanceType=Mi&radius=24km&industry_experience=less_than_1_year&latitude=&longitude=&loc_group_id=&loc_query=India&base_query=software%20engineer&city=&country=IND&region=&county=&query_options=&"
+    enabled: false
+
+  - name: Microsoft
+    scraper: microsoft
+    url: "https://apply.careers.microsoft.com/careers?query=Software+Engineer&start=0&location=India%2C+Multiple+Locations%2C+Multiple+Locations&pid=1970393556871135&sort_by=timestamp&filter_include_remote=1&filter_seniority=Entry"
+    enabled: false
+
+  - name: JPMorgan Chase
+    scraper: jpmorgan
+    url: "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/jobs?keyword=Software+Engineer&location=India&locationId=300000000289360&locationLevel=country&mode=location&sortBy=POSTING_DATES_DESC"
     enabled: true
