@@ -4,6 +4,7 @@ run:
   page_load_timeout_seconds: 45
   delay_between_companies_seconds: 3
   max_jobs_per_company: 100
+  browser_channel: chrome
 
 storage:
   database_path: "data/seen_jobs.db"
@@ -21,6 +22,7 @@ notifications:
 
 health_check:
   max_sample_jobs_per_company: 5
+  scraper_timeout_seconds: 300
 
 ai:
   model: "gemini-2.5-flash"

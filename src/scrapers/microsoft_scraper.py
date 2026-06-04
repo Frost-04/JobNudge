@@ -253,8 +253,29 @@ class MicrosoftScraper(BaseScraper):
 
         return extract_job_id(link) if link else ""
 
+    async def _get_detail_page(self) -> Page:
+        """Return a new page for detail scraping.
+
+        Tries the shared ``self.context`` first.  If that context has been
+        closed or is otherwise unusable the old browser stack is torn down
+        and a fresh one is spun up so that one bad detail page cannot poison
+        all subsequent enrichments.
+        """
+        if self.context:
+            try:
+                return await self.context.new_page()
+            except Exception:
+                self.logger.debug(
+                    "Shared browser context is no longer usable; discarding and creating a fresh one."
+                )
+                # Close the stale browser stack before creating a new one
+                # to avoid leaking Playwright resources.
+                await self.close_browser()
+
+        return await self.new_page()
+
     async def _scrape_detail_page(self, job_url: str) -> dict[str, str]:
-        detail_page = await self.context.new_page() if self.context else await self.new_page()
+        detail_page = await self._get_detail_page()
 
         try:
             detail_page.set_default_timeout(10000)

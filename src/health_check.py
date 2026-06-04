@@ -192,84 +192,83 @@ async def run() -> int:
         _section("Scrapers")
         _file_section(output, "Scrapers")
 
-        _step("Starting company scrapers")
-        _file_step(output, "Starting company scrapers")
+        _step("Starting company scrapers (parallel)")
+        _file_step(output, "Starting company scrapers (parallel)")
 
-        for company in companies:
-            if not company.get("enabled", True):
-                continue
-
+        # ── Phase 1: Launch all enabled scrapers in parallel ───────────
+        async def _scrape_one_health(company):
+            """Scrape one company for health check. Returns (name, jobs_or_None, error_str_or_None)."""
             name = company.get("name", "Unknown")
+            scraper = get_scraper(company, settings)
+            if not scraper:
+                return (name, None, "Unsupported scraper")
 
+            scraper_timeout = settings.get("health_check", {}).get(
+                "scraper_timeout_seconds", 120
+            )
+            try:
+                jobs = await asyncio.wait_for(scraper.scrape(), timeout=scraper_timeout)
+                return (name, jobs, None)
+            except asyncio.TimeoutError:
+                logger.exception("Health check scraper timed out for %s", name)
+                # Explicitly close the scraper's browser so Playwright's
+                # internal pending futures are cleaned up instead of being
+                # orphaned and producing "Future exception was never retrieved"
+                # warnings.
+                try:
+                    await asyncio.wait_for(scraper.close_browser(), timeout=10)
+                except Exception:
+                    pass
+                return (name, None, "scraper timed out")
+            except Exception as exc:
+                logger.exception("Health check scraper failed for %s", name)
+                return (name, None, str(exc))
+
+        enabled = [c for c in companies if c.get("enabled", True)]
+        scrape_tasks = [_scrape_one_health(c) for c in enabled]
+        scrape_results: list[tuple] = await asyncio.gather(*scrape_tasks)
+
+        # ── Phase 2: Print/output results sequentially ─────────────────
+        max_samples = settings.get("health_check", {}).get(
+            "max_sample_jobs_per_company", 5
+        )
+
+        for name, jobs, error in scrape_results:
             print(_color(f"\n{name}", _Colors.BOLD))
             output.write(f"\n{name}\n")
             output.write("-" * len(name) + "\n")
 
-            _step("Creating scraper instance")
-            _file_step(output, "Creating scraper instance")
-
-            scraper = get_scraper(company, settings)
-
-            if not scraper:
-                message = "Unsupported scraper."
-                print(_color(message, _Colors.YELLOW))
-                output.write(message + "\n")
+            if error:
+                print(_color(error, _Colors.YELLOW))
+                output.write(f"Error: {error}\n")
                 continue
 
-            try:
-                _step("Running scrape()")
-                _file_step(output, "Running scrape()")
+            if jobs is None:
+                continue
 
-                scraper_timeout = settings.get("health_check", {}).get(
-                    "scraper_timeout_seconds",
-                    120,
-                )
+            print(f"Extracted jobs: {len(jobs)}")
+            output.write(f"Extracted jobs: {len(jobs)}\n")
 
-                jobs = await asyncio.wait_for(
-                    scraper.scrape(),
-                    timeout=scraper_timeout,
-                )
+            if jobs:
+                print("Sample:")
+                output.write("\nSample Jobs:\n")
 
-                print(f"Extracted jobs: {len(jobs)}")
-                output.write(f"Extracted jobs: {len(jobs)}\n")
+                for index, job in enumerate(jobs[:max_samples], start=1):
+                    job_id_suffix = (
+                        f" | {job.job_id}"
+                        if job.job_id and job.job_id != "0"
+                        else ""
+                    )
 
-                max_samples = settings.get("health_check", {}).get(
-                    "max_sample_jobs_per_company",
-                    5,
-                )
+                    print(
+                        f"- {job.title} | {job.location} | {job.url}{job_id_suffix}"
+                    )
 
-                if jobs:
-                    print("Sample:")
-                    output.write("\nSample Jobs:\n")
+                    output.write(f"\n[{index}]\n")
+                    output.write(_format_job(job))
+                    output.write("\n")
 
-                    for index, job in enumerate(jobs[:max_samples], start=1):
-                        job_id_suffix = (
-                            f" | {job.job_id}"
-                            if job.job_id and job.job_id != "0"
-                            else ""
-                        )
-
-                        print(
-                            f"- {job.title} | {job.location} | {job.url}{job_id_suffix}"
-                        )
-
-                        output.write(f"\n[{index}]\n")
-                        output.write(_format_job(job))
-                        output.write("\n")
-
-                output.flush()
-
-            except asyncio.TimeoutError:
-                print("Extracted jobs: 0")
-                output.write("Extracted jobs: 0\n")
-                output.write("Error: scraper timed out\n")
-                logger.exception("Health check scraper timed out for %s", name)
-
-            except Exception as exc:
-                print("Extracted jobs: 0")
-                output.write("Extracted jobs: 0\n")
-                output.write(f"Error: {exc!r}\n")
-                logger.exception("Health check scraper failed for %s", name)
+            output.flush()
 
         elapsed = time.perf_counter() - start_ts
 

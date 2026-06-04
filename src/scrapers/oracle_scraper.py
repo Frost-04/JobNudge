@@ -13,30 +13,32 @@ from src.scrapers.base_scraper import BaseScraper
 from src.utils.url_utils import extract_job_id, make_absolute_url
 
 
-class JPMorganChaseScraper(BaseScraper):
+class OracleScraper(BaseScraper):
     """
-    Scraper for JPMorgan Chase Oracle Cloud Candidate Experience pages.
+    Scraper for Oracle Careers job search pages.
+
+    Oracle uses the same Oracle Cloud Candidate Experience platform as
+    JPMorgan Chase.  The DOM structure is nearly identical.
 
     Expected search card structure:
 
-    ul#panel-list.jobs-grid__list
-      li[data-qa="searchResultItem"]
-        div.job-tile.job-grid-item.search-results
-          a.job-grid-item__link[href*="/job/{id}/"]
-          span.job-tile__title
-          div.job-list-item__job-info-value
-          p.job-grid-item__description
+        ul#panel-list.jobs-grid__list
+          li[data-qa="searchResultItem"]
+            a.job-grid-item__link[href*="/job/{id}/"]
+            span.job-tile__title
+            posting-locations  (location info in primaryLocation / aria-label)
+            p.job-grid-item__description
 
     Expected detail page / overlay structure:
 
-    h1.job-details__title
-    div.job-details__subtitle
-    ul.job-meta__list
-      li.job-meta__item
-        span.job-meta__title
-        span.job-meta__subitem
-
-    div.job-details__description-content
+        h1.job-details__title
+        div.job-details__subtitle  (posting-locations)
+        ul.job-meta__list
+          li.job-meta__item
+            span.job-meta__title
+            span.job-meta__subitem
+        div.job-details__description-content  (one per section:
+            Job Description / Responsibilities / Qualifications / About Us)
     """
 
     JOB_CARD_SELECTORS = [
@@ -50,6 +52,7 @@ class JPMorganChaseScraper(BaseScraper):
     TITLE_SELECTOR = "span.job-tile__title"
     DESCRIPTION_SELECTOR = "p.job-grid-item__description"
 
+    # Oracle card job-info items (locations, etc.)
     JOB_INFO_ITEM_SELECTOR = "li.job-list-item__job-info-item"
     JOB_INFO_VALUE_SELECTOR = "div.job-list-item__job-info-value"
 
@@ -59,6 +62,7 @@ class JPMorganChaseScraper(BaseScraper):
     DETAIL_META_TITLE_SELECTOR = "span.job-meta__title"
     DETAIL_META_VALUE_SELECTOR = "span.job-meta__subitem"
     DETAIL_DESCRIPTION_SELECTOR = "div.job-details__description-content"
+    DETAIL_SECTION_SELECTOR = "div.job-details__section"
 
     async def scrape(self) -> list[Job]:
         page = await self.new_page()
@@ -100,8 +104,8 @@ class JPMorganChaseScraper(BaseScraper):
                     continue
 
                 # Enrich card data by opening the direct job URL.
-                # This avoids having to interact with the overlay and is usually
-                # more stable for Oracle Cloud Candidate Experience pages.
+                # Oracle Career pages support deep-linking to job detail pages
+                # and the detail page has the same DOM as the overlay.
                 try:
                     detail_data = await self._scrape_detail_page(job.url)
 
@@ -132,7 +136,7 @@ class JPMorganChaseScraper(BaseScraper):
 
                 except Exception as exc:
                     self.logger.warning(
-                        "Failed to enrich JPMorgan Chase job detail page %s: %s",
+                        "Failed to enrich Oracle job detail page %s: %s",
                         job.url,
                         exc,
                     )
@@ -166,6 +170,10 @@ class JPMorganChaseScraper(BaseScraper):
 
         return None
 
+    # ------------------------------------------------------------------
+    # Card parsing
+    # ------------------------------------------------------------------
+
     def _parse_card(self, card: Tag, source_url: str) -> Job | None:
         link = self._extract_link(card, source_url)
         title = self._extract_title(card)
@@ -179,7 +187,7 @@ class JPMorganChaseScraper(BaseScraper):
 
         return Job(
             job_id=job_id,
-            company=self.company_config.get("name", "JPMorgan Chase"),
+            company=self.company_config.get("name", "Oracle"),
             title=title,
             location=location,
             url=link,
@@ -201,7 +209,7 @@ class JPMorganChaseScraper(BaseScraper):
         if not href:
             return ""
 
-        return self._make_jpmc_job_url(source_url, str(href))
+        return self._make_oracle_job_url(source_url, str(href))
 
     def _extract_title(self, card: Tag) -> str:
         el = card.select_one(self.TITLE_SELECTOR)
@@ -209,17 +217,18 @@ class JPMorganChaseScraper(BaseScraper):
 
     def _extract_job_id(self, card: Tag, link: str) -> str:
         """
-        JPMorgan Chase Oracle Cloud URLs look like:
+        Oracle Careers URLs look like:
 
-        https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210733928/?...
+        https://careers.oracle.com/en/sites/jobsearch/job/327846/?...
         """
 
         if link:
-            job_id = self._extract_jpmc_job_id_from_url(link)
+            job_id = self._extract_oracle_job_id_from_url(link)
 
             if job_id:
                 return job_id
 
+        # Aria-labelledby on the anchor often holds the numeric job id.
         labelled_link = card.select_one("[aria-labelledby]")
 
         if labelled_link:
@@ -228,6 +237,7 @@ class JPMorganChaseScraper(BaseScraper):
             if aria_labelledby and str(aria_labelledby).isdigit():
                 return str(aria_labelledby)
 
+        # search-result-item-header[id] also holds the numeric job id.
         header = card.select_one("search-result-item-header[id]")
 
         if header:
@@ -246,7 +256,7 @@ class JPMorganChaseScraper(BaseScraper):
         3. Job Family
 
         Location can include hidden/tooltip text such as:
-        aria-label="Locations,Mumbai, Maharashtra, India,Bengaluru, Karnataka, India"
+        aria-label="Locations,India,BENGALURU, KARNATAKA, India,..."
         """
 
         locations: list[str] = []
@@ -282,22 +292,31 @@ class JPMorganChaseScraper(BaseScraper):
                 locations.append(primary_text)
 
         # Secondary locations are often available in aria-label:
-        # "Locations,Mumbai, Maharashtra, India,Bengaluru, Karnataka, India"
+        # "Locations,India,BENGALURU, KARNATAKA, India,..."
         for el in node.select("[aria-label]"):
             aria_label = self._clean_text(str(el.get("aria-label", "")))
 
             if not aria_label:
                 continue
 
+            # The tooltip anchor aria-label starts with "Locations,".
             if aria_label.lower().startswith("locations,"):
                 raw_locations = aria_label.split(",", 1)[1]
                 locations.extend(self._split_location_text(raw_locations))
+
+            # Alternative: the count span's aria-label has all locations.
+            # e.g. "India,BENGALURU, KARNATAKA, India,..."
+            if not locations and aria_label and "," in aria_label:
+                # Check if this looks like a location string (contains city/country).
+                parts = [p.strip() for p in aria_label.split(",")]
+                if len(parts) >= 2:
+                    locations.extend(self._split_location_text(aria_label))
 
         return self._dedupe_preserve_order(locations)
 
     def _extract_posted_date(self, card: Tag) -> str:
         """
-        Main cards in the supplied HTML do not always show posted date.
+        Cards in the Oracle listing do not always show a posted date.
         Similar-job cards can show:
         Posted on 03/06/2026
         """
@@ -319,6 +338,10 @@ class JPMorganChaseScraper(BaseScraper):
         el = card.select_one(self.DESCRIPTION_SELECTOR)
         return self._clean_text(el.get_text() if el else "")
 
+    # ------------------------------------------------------------------
+    # Detail page enrichment
+    # ------------------------------------------------------------------
+
     async def _get_detail_page(self) -> Page:
         """Return a new page for detail scraping.
 
@@ -334,8 +357,6 @@ class JPMorganChaseScraper(BaseScraper):
                 self.logger.debug(
                     "Shared browser context is no longer usable; discarding and creating a fresh one."
                 )
-                # Close the stale browser stack before creating a new one
-                # to avoid leaking Playwright resources.
                 await self.close_browser()
 
         return await self.new_page()
@@ -352,7 +373,7 @@ class JPMorganChaseScraper(BaseScraper):
                 detail_page,
                 [
                     self.DETAIL_TITLE_SELECTOR,
-                    self.DETAIL_DESCRIPTION_SELECTOR,
+                    self.DETAIL_SECTION_SELECTOR,
                     self.DETAIL_META_ITEM_SELECTOR,
                 ],
             )
@@ -440,20 +461,37 @@ class JPMorganChaseScraper(BaseScraper):
         return detail_data
 
     def _extract_detail_description(self, soup) -> str:
-        container = soup.select_one(self.DETAIL_DESCRIPTION_SELECTOR)
+        """
+        Oracle detail pages have multiple description-content blocks:
+        - Job Description
+        - Responsibilities
+        - Qualifications
+        - About Us
 
-        if not container:
+        Collect them all and join with section separators.
+        """
+        containers = soup.select(self.DETAIL_DESCRIPTION_SELECTOR)
+
+        if not containers:
             return ""
 
-        for unwanted in container.select("script, style, noscript"):
-            unwanted.decompose()
+        sections: list[str] = []
 
-        text = container.get_text(separator="\n")
-        return self._clean_multiline_text(text)
+        for container in containers:
+            for unwanted in container.select("script, style, noscript"):
+                unwanted.decompose()
+
+            text = container.get_text(separator="\n")
+            cleaned = self._clean_multiline_text(text)
+
+            if cleaned:
+                sections.append(cleaned)
+
+        return "\n\n".join(sections)
 
     def _format_detail_metadata(self, detail_data: dict[str, str]) -> str:
         """
-        Job model has no separate metadata fields, so preserve useful JPMC
+        Job model has no separate metadata fields, so preserve useful Oracle
         detail fields inside description.
         """
 
@@ -465,10 +503,10 @@ class JPMorganChaseScraper(BaseScraper):
         preferred_order = [
             "job identification",
             "job category",
-            "business unit",
             "posting date",
-            "apply before",
-            "job schedule",
+            "role",
+            "job type",
+            "years",
             "locations",
         ]
 
@@ -485,7 +523,11 @@ class JPMorganChaseScraper(BaseScraper):
         cleaned_parts = [part.strip() for part in parts if part and part.strip()]
         return "\n\n".join(cleaned_parts)
 
-    def _make_jpmc_job_url(self, source_url: str, href: str) -> str:
+    # ------------------------------------------------------------------
+    # URL helpers
+    # ------------------------------------------------------------------
+
+    def _make_oracle_job_url(self, source_url: str, href: str) -> str:
         href = html.unescape(href).strip()
 
         if href.startswith("http://") or href.startswith("https://"):
@@ -494,15 +536,9 @@ class JPMorganChaseScraper(BaseScraper):
         parsed_source = urlparse(source_url)
         origin = f"{parsed_source.scheme}://{parsed_source.netloc}"
 
-        if href.startswith("/hcmUI/"):
-            return f"{origin}{href}"
+        return make_absolute_url(origin, href)
 
-        if href.startswith("hcmUI/"):
-            return f"{origin}/{href}"
-
-        return make_absolute_url(source_url, href)
-
-    def _extract_jpmc_job_id_from_url(self, url: str) -> str:
+    def _extract_oracle_job_id_from_url(self, url: str) -> str:
         if not url:
             return ""
 
@@ -513,13 +549,17 @@ class JPMorganChaseScraper(BaseScraper):
 
         return extract_job_id(url) or ""
 
+    # ------------------------------------------------------------------
+    # Location helpers
+    # ------------------------------------------------------------------
+
     def _split_location_text(self, text: str) -> list[str]:
         """
         Handles both:
-        - "Bengaluru, Karnataka, India"
-        - "Mumbai, Maharashtra, India,Bengaluru, Karnataka, India"
+        - "BENGALURU, KARNATAKA, India"
+        - "India,BENGALURU, KARNATAKA, India,HYDERABAD, TELANGANA, India"
 
-        Since all examples are India locations, split after each "India".
+        Split after each "India".
         """
 
         text = self._clean_location_text(text)
@@ -561,6 +601,10 @@ class JPMorganChaseScraper(BaseScraper):
 
         return text
 
+    # ------------------------------------------------------------------
+    # Text cleaning
+    # ------------------------------------------------------------------
+
     def _clean_text(self, text: str) -> str:
         if not text:
             return ""
@@ -587,6 +631,10 @@ class JPMorganChaseScraper(BaseScraper):
                 lines.append(clean_line)
 
         return "\n".join(lines).strip()
+
+    # ------------------------------------------------------------------
+    # General helpers
+    # ------------------------------------------------------------------
 
     def _dedupe_preserve_order(self, values: list[str]) -> list[str]:
         seen: set[str] = set()
@@ -628,8 +676,8 @@ class JPMorganChaseScraper(BaseScraper):
             if not href:
                 continue
 
-            job_url = self._make_jpmc_job_url(source_url, str(href))
-            job_id = self._extract_jpmc_job_id_from_url(job_url)
+            job_url = self._make_oracle_job_url(source_url, str(href))
+            job_id = self._extract_oracle_job_id_from_url(job_url)
 
             if job_id and job_id in seen_job_ids:
                 continue
@@ -664,7 +712,7 @@ class JPMorganChaseScraper(BaseScraper):
             results.append(
                 Job(
                     job_id=job_id,
-                    company=self.company_config.get("name", "JPMorgan Chase"),
+                    company=self.company_config.get("name", "Oracle"),
                     title=title,
                     location=location,
                     url=job_url,

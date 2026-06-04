@@ -17,4 +17,20 @@ companies:
   - name: JPMorgan Chase
     scraper: jpmorgan
     url: "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/jobs?keyword=Software+Engineer&location=India&locationId=300000000289360&locationLevel=country&mode=location&sortBy=POSTING_DATES_DESC"
+    enabled: false
+
+
+  - name: Salesforce
+    scraper: salesforce
+    url: "https://www.salesforce.com/company/careers/jobs/?team=Software+Engineering&contractTypes=Full+time&employeeTypes=New+Grads&employeeTypes=Regular&country=India&page=1"
+    enabled: false
+
+  - name: Oracle
+    scraper: oracle
+    url: "https://careers.oracle.com/en/sites/jobsearch/jobs?lastSelectedFacet=AttributeChar4&location=India&locationId=300000000106947&selectedCategoriesFacet=300000001917356&selectedFlexFieldsFacets=%22AttributeChar29%7CIndividual+Contributor%7C%7CAttributeChar4%7CEmployee%22&selectedLocationsFacet=300000000106947&selectedPostingDatesFacet=7"
+    enabled: false
+
+  - name: ServiceNow
+    scraper: servicenow
+    url: "https://careers.servicenow.com/jobs/?search=&team=Engineering%2C+Infrastructure+and+Operations&country=India&pagesize=20#results"
     enabled: true

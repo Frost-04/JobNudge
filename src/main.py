@@ -3,6 +3,8 @@ from __future__ import annotations
 import asyncio
 import logging
 import sys
+from dataclasses import dataclass
+from typing import Optional
 
 from dotenv import load_dotenv
 
@@ -15,8 +17,56 @@ from src.utils.config_loader import load_companies, load_settings
 from src.utils.logger import setup_logging
 
 
+@dataclass
+class _ScrapeResult:
+    """Result from scraping a single company."""
+    company_name: str
+    company_url: str
+    jobs: list
+    fault: Optional[dict] = None
+
+
+async def _scrape_one(name: str, url: str, scraper, logger) -> _ScrapeResult:
+    """Scrape one company and return the result.
+
+    Exceptions are caught internally — never propagated.
+    """
+    try:
+        jobs = await scraper.scrape()
+        logger.info("%s: raw jobs=%s", name, len(jobs))
+
+        if len(jobs) == 0:
+            return _ScrapeResult(
+                company_name=name,
+                company_url=url,
+                jobs=[],
+                fault={
+                    "company": name,
+                    "url": url,
+                    "reason": "0 job postings returned (page structure may have changed or no matching listings)",
+                },
+            )
+        return _ScrapeResult(company_name=name, company_url=url, jobs=jobs)
+    except Exception:
+        logger.exception("Scraper failed for %s", name)
+        return _ScrapeResult(
+            company_name=name,
+            company_url=url,
+            jobs=[],
+            fault={
+                "company": name,
+                "url": url,
+                "reason": "scraping error (network issue, page change, or selector mismatch)",
+            },
+        )
+
+
 async def run() -> tuple[int, list[dict]]:
     """Run the full scraping pipeline.
+
+    All enabled companies are scraped in parallel via asyncio.gather().
+    Deduplication, DB persistence, CSV export, and notifications happen
+    sequentially after all scraping results are collected.
 
     Returns:
         (exit_code, faulty_companies) — exit_code 0 on success, 1 on config/DB failure.
@@ -47,48 +97,45 @@ async def run() -> tuple[int, list[dict]]:
 
     logger.info("Started job scraper")
 
-    all_new_jobs = []
-    all_jobs = []
-    faulty_companies: list[dict] = []
-    delay = settings.get("run", {}).get("delay_between_companies_seconds", 0)
-
-    enabled_companies = [company for company in companies if company.get("enabled", True)]
-    for index, company in enumerate(enabled_companies):
+    # ── Phase 1: Scrape all enabled companies in parallel ──────────────
+    enabled_companies = [c for c in companies if c.get("enabled", True)]
+    tasks = []
+    for company in enabled_companies:
         name = company.get("name", "Unknown")
         url = company.get("url", "")
         scraper = get_scraper(company, settings)
         if not scraper:
+            logger.warning("Skipping %s (unsupported scraper: %s)", name, company.get("scraper"))
+            continue
+        tasks.append(_scrape_one(name, url, scraper, logger))
+
+    if not tasks:
+        logger.warning("No enabled companies with valid scrapers found.")
+        return 0, []
+
+    results: list[_ScrapeResult] = await asyncio.gather(*tasks)
+
+    # ── Phase 2: Process results sequentially (dedup, DB, faulty tracking) ──
+    all_new_jobs = []
+    all_jobs = []
+    faulty_companies: list[dict] = []
+
+    for result in results:
+        if result.fault:
+            faulty_companies.append(result.fault)
+
+        if not result.jobs:
             continue
 
-        try:
-            jobs = await scraper.scrape()
-            logger.info("%s: raw jobs=%s", name, len(jobs))
+        deduped = deduplicate_jobs(result.jobs)
+        new_jobs = get_new_jobs(deduped, settings)
+        if new_jobs:
+            save_jobs(new_jobs, settings)
 
-            if len(jobs) == 0:
-                faulty_companies.append({
-                    "company": name,
-                    "url": url,
-                    "reason": "0 job postings returned (page structure may have changed or no matching listings)",
-                })
+        all_new_jobs.extend(new_jobs)
+        all_jobs.extend(deduped)
 
-            deduped = deduplicate_jobs(jobs)
-            new_jobs = get_new_jobs(deduped, settings)
-            if new_jobs:
-                save_jobs(new_jobs, settings)
-
-            all_new_jobs.extend(new_jobs)
-            all_jobs.extend(deduped)
-        except Exception:
-            logger.exception("Scraper failed for %s", name)
-            faulty_companies.append({
-                "company": name,
-                "url": url,
-                "reason": "scraping error (network issue, page change, or selector mismatch)",
-            })
-
-        if delay and index < len(enabled_companies) - 1:
-            await asyncio.sleep(delay)
-
+    # ── Phase 3: Export & notify (sequential, after all results are in) ──
     try:
         new_jobs_path = settings.get("storage", {}).get("new_jobs_csv_path", "data/new_jobs.csv")
         export_latest_jobs_to_csv(all_new_jobs, new_jobs_path)
