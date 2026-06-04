@@ -5,6 +5,7 @@ run:
   delay_between_companies_seconds: 3
   max_jobs_per_company: 100
   browser_channel: chrome
+  scraper_timeout_seconds: 180
 
 storage:
   database_path: "data/seen_jobs.db"

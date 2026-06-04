@@ -26,13 +26,22 @@ class _ScrapeResult:
     fault: Optional[dict] = None
 
 
-async def _scrape_one(name: str, url: str, scraper, logger) -> _ScrapeResult:
+async def _scrape_one(name: str, url: str, scraper, settings: dict, logger) -> _ScrapeResult:
     """Scrape one company and return the result.
 
     Exceptions are caught internally — never propagated.
+    Each scraper is wrapped with asyncio.wait_for to prevent a slow/hung
+    scraper from stalling the entire pipeline. The timeout is read from:
+      1. Per-company ``timeout_seconds`` in companies.yaml (if set)
+      2. Global ``run.scraper_timeout_seconds`` in settings.yaml (default: 180)
     """
+    timeout = int(
+        scraper.company_config.get("timeout_seconds")
+        or settings.get("run", {}).get("scraper_timeout_seconds", 180)
+    )
+
     try:
-        jobs = await scraper.scrape()
+        jobs = await asyncio.wait_for(scraper.scrape(), timeout=timeout)
         logger.info("%s: raw jobs=%s", name, len(jobs))
 
         if len(jobs) == 0:
@@ -47,6 +56,22 @@ async def _scrape_one(name: str, url: str, scraper, logger) -> _ScrapeResult:
                 },
             )
         return _ScrapeResult(company_name=name, company_url=url, jobs=jobs)
+    except asyncio.TimeoutError:
+        logger.warning("Scraper timed out for %s (limit: %ss)", name, timeout)
+        try:
+            await asyncio.wait_for(scraper.close_browser(), timeout=10)
+        except Exception:
+            pass
+        return _ScrapeResult(
+            company_name=name,
+            company_url=url,
+            jobs=[],
+            fault={
+                "company": name,
+                "url": url,
+                "reason": f"scraper timed out after {timeout}s (page may be slow or unresponsive)",
+            },
+        )
     except Exception:
         logger.exception("Scraper failed for %s", name)
         return _ScrapeResult(
@@ -107,7 +132,7 @@ async def run() -> tuple[int, list[dict]]:
         if not scraper:
             logger.warning("Skipping %s (unsupported scraper: %s)", name, company.get("scraper"))
             continue
-        tasks.append(_scrape_one(name, url, scraper, logger))
+        tasks.append(_scrape_one(name, url, scraper, settings, logger))
 
     if not tasks:
         logger.warning("No enabled companies with valid scrapers found.")

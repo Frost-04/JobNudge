@@ -2,50 +2,50 @@ companies:
   - name: Google
     scraper: google
     url: "https://www.google.com/about/careers/applications/jobs/results/?q=software%20Engineer&hl=en&location=India&target_level=EARLY"
-    enabled: false
+    enabled: true
 
   - name: Amazon
     scraper: amazon
     url: "https://www.amazon.jobs/en/search?offset=0&result_limit=10&sort=recent&distanceType=Mi&radius=24km&industry_experience=less_than_1_year&latitude=&longitude=&loc_group_id=&loc_query=India&base_query=software%20engineer&city=&country=IND&region=&county=&query_options=&"
-    enabled: false
+    enabled: true
 
   - name: Microsoft
     scraper: microsoft
     url: "https://apply.careers.microsoft.com/careers?query=Software+Engineer&start=0&location=India%2C+Multiple+Locations%2C+Multiple+Locations&pid=1970393556871135&sort_by=timestamp&filter_include_remote=1&filter_seniority=Entry"
-    enabled: false
+    enabled: true
 
   - name: JPMorgan Chase
     scraper: jpmorgan
     url: "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/jobs?keyword=Software+Engineer&location=India&locationId=300000000289360&locationLevel=country&mode=location&sortBy=POSTING_DATES_DESC"
-    enabled: false
+    enabled: true
 
 
   - name: Salesforce
     scraper: salesforce
     url: "https://www.salesforce.com/company/careers/jobs/?team=Software+Engineering&contractTypes=Full+time&employeeTypes=New+Grads&employeeTypes=Regular&country=India&page=1"
-    enabled: false
+    enabled: true
 
   - name: Oracle
     scraper: oracle
     url: "https://careers.oracle.com/en/sites/jobsearch/jobs?lastSelectedFacet=AttributeChar4&location=India&locationId=300000000106947&selectedCategoriesFacet=300000001917356&selectedFlexFieldsFacets=%22AttributeChar29%7CIndividual+Contributor%7C%7CAttributeChar4%7CEmployee%22&selectedLocationsFacet=300000000106947&selectedPostingDatesFacet=7"
-    enabled: false
+    enabled: true
 
   - name: ServiceNow
     scraper: servicenow
     url: "https://careers.servicenow.com/jobs/?search=&team=Engineering%2C+Infrastructure+and+Operations&country=India&pagesize=20#results"
-    enabled: false
+    enabled: true
 
   - name: Intuit
     scraper: intuit
     url: "https://jobs.intuit.com/search-jobs?k=Software+Enginner&l=Yelahanka%2C+Karnataka%2C+India&orgIds=27595"
     filter_category: "Software Engineering"
     filter_country: "India"
-    enabled: false
+    enabled: true
 
   - name: Qualcomm
     scraper: qualcomm
     url: "https://careers.qualcomm.com/careers?query=engineer&start=0&location=india&pid=446718629365&sort_by=timestamp&filter_include_remote=0&filter_job_family=software+engineering%2Csystems+engineering%2Cit+engineering&filter_seniority=Entry"
-    enabled: false
+    enabled: true
 
   - name: Goldman Sachs
     scraper: goldman_sachs
