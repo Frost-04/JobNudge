@@ -44,8 +44,8 @@ def _print_console(jobs: list[Job]) -> None:
             print(f"Job ID: {job.job_id}")
         print(f"Location: {job.location}")
         print(f"Link: {job.url}")
-        if job.matched_keywords:
-            print(f"Matched keywords: {', '.join(job.matched_keywords)}")
+        if job.extracted_experience_parts:
+            print(f"Experience snippets: {job.extracted_experience_parts}")
         print("")
 
 
@@ -91,8 +91,8 @@ def format_telegram_job_message(job: Job) -> str:
         ]
     )
 
-    if job.matched_keywords:
-        lines.extend(["", f"Matched keywords: {', '.join(job.matched_keywords)}"])
+    if job.extracted_experience_parts:
+        lines.extend(["", f"Experience snippets: {job.extracted_experience_parts}"])
 
     return "\n".join(lines)
 

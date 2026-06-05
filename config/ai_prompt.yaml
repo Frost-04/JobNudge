@@ -15,32 +15,33 @@ prompt: |
   Task:
   Identify jobs that are potentially suitable for a fresher candidate (0–6 months of experience).
 
-  Inclusion criteria:
-  - Explicitly states no experience required.
-  - Explicitly states 0 years experience.
-  - Explicitly states up to 6 months experience.
-  - Mentions fresher, entry-level, graduate, new graduate, graduate trainee, trainee, apprentice, internship, intern, student, campus hiring, or equivalent early-career terms.
-  - Experience requirement is missing, unclear, ambiguous, or cannot be confidently determined.
-  - Provides multiple qualification paths and at least one path does not require more than 6 months of experience.
-    Examples:
-    - "1 year experience OR Bachelor's degree"
-    - "Master's degree OR 1 year experience"
-    - "Experience preferred but not required"
-    - "Equivalent combination of education and experience"
+  Inclusion criteria (ALL of the following must be satisfied):
+  - The job explicitly targets freshers, new graduates, or candidates with 0–6 months of experience.
+  - At least ONE unambiguous signal is present in the description:
+    - Explicitly states no experience required, 0 years experience, or up to 6 months experience.
+    - Mentions fresher, entry-level, graduate, new graduate, graduate trainee, trainee, apprentice, internship, intern, student, campus hiring, or equivalent early-career terms.
+    - Provides multiple qualification paths and at least one path does not require more than 6 months of experience.
+      Examples:
+      - "1 year experience OR Bachelor's degree"
+      - "Master's degree OR 1 year experience"
+      - "Experience preferred but not required"
+      - "Equivalent combination of education and experience"
 
-  Exclusion criteria:
-  - Clearly requires more than 6 months of professional experience with no alternative fresher-eligible path.
-  - Clearly requires 1+ years, 2+ years, 3+ years, or more experience as a mandatory requirement.
-  - Clearly targets experienced candidates only.
-  - Clearly requires senior, lead, principal, staff, manager, architect, or equivalent non-entry-level experience.
+  Exclusion criteria (ANY of the following disqualifies the job):
+  - Requires more than 6 months of professional experience as a mandatory requirement with no alternative fresher-eligible path.
+  - Requires 1+ years, 2+ years, 3+ years, or more experience as a mandatory requirement.
+  - Targets experienced candidates, senior, lead, principal, staff, manager, director, vice president, architect, or equivalent non-entry-level experience.
+  - The description mentions role levels like Vice President, VP, Associate, Senior Associate, Director, Managing Director, or similar financial/professional services hierarchy titles.
+  - The description is empty, missing, or contains only boilerplate company information (e.g., "About Us", "Who We Are", "Our Culture") without any concrete job requirements.
+  - The experience requirement cannot be confidently determined from the description.
 
   Decision policy:
-  - When uncertain, INCLUDE the job.
-  - When qualification requirements are ambiguous, INCLUDE the job.
-  - When multiple interpretations are possible, choose the interpretation most favorable to fresher eligibility.
-  - Exclude only when the description clearly and unambiguously disqualifies a fresher candidate.
-  - Do not exclude based solely on the job title.
-  - Use the description as the primary source of truth.
+  - When uncertain, EXCLUDE the job.
+  - When qualification requirements are ambiguous, EXCLUDE the job.
+  - When the description is missing, empty, or only contains generic company boilerplate, EXCLUDE the job.
+  - When multiple interpretations are possible, choose the interpretation LEAST favorable to fresher eligibility (be conservative).
+  - Include ONLY when the description clearly and unambiguously confirms fresher eligibility.
+  - Use the description as the primary source of truth. If the description provides no useful signal about experience requirements, EXCLUDE.
 
   Output:
   Return ONLY a valid JSON array of matching job_id values.

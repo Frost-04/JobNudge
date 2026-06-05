@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import hashlib
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 
 from src.utils.text_utils import normalize_location, normalize_text
 from src.utils.url_utils import normalize_url
@@ -18,7 +18,7 @@ class Job:
     posted_date: str | None = None
     description: str | None = None
     scraped_at: str = ""
-    matched_keywords: list[str] = field(default_factory=list)
+    extracted_experience_parts: str = ""
 
     def unique_key(self) -> str:
         base = "|".join(

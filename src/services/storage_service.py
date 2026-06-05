@@ -15,8 +15,8 @@ def _get_db_path(settings: dict) -> Path:
     return Path(settings.get("storage", {}).get("database_path", "data/seen_jobs.db"))
 
 
-def _serialize_keywords(job: Job) -> str:
-    return ", ".join(job.matched_keywords)
+def _serialize_parts(job: Job) -> str:
+    return job.extracted_experience_parts
 
 
 def _ensure_column(conn: sqlite3.Connection, column_name: str, column_type: str) -> None:
@@ -48,13 +48,14 @@ def init_db(settings: dict) -> None:
                 description TEXT,
                 first_seen_at TEXT,
                 last_seen_at TEXT,
-                matched_keywords TEXT
+                extracted_experience_parts TEXT
             )
             """
         )
         # Migrations for existing databases that lack these columns.
         _ensure_column(conn, "job_id", "TEXT")
         _ensure_column(conn, "description", "TEXT")
+        _ensure_column(conn, "extracted_experience_parts", "TEXT")
         conn.commit()
 
 
@@ -89,7 +90,7 @@ def save_jobs(jobs: list[Job], settings: dict) -> None:
             job.description,
             now,
             now,
-            _serialize_keywords(job),
+            _serialize_parts(job),
         )
         for job in jobs
     ]
@@ -109,12 +110,12 @@ def save_jobs(jobs: list[Job], settings: dict) -> None:
                 description,
                 first_seen_at,
                 last_seen_at,
-                matched_keywords
+                extracted_experience_parts
             )
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             ON CONFLICT(job_key) DO UPDATE SET
                 last_seen_at = excluded.last_seen_at,
-                matched_keywords = excluded.matched_keywords
+                extracted_experience_parts = excluded.extracted_experience_parts
             """,
             rows,
         )

@@ -109,7 +109,7 @@ class QualcommScraper(BaseScraper):
                         posted_date=detail_posted_date or job.posted_date,
                         description=combined or job.description,
                         scraped_at=datetime.now(timezone.utc).isoformat(),
-                        matched_keywords=[],
+                        extracted_experience_parts="",
                     )
                 except Exception as exc:
                     self.logger.warning(
@@ -153,7 +153,7 @@ class QualcommScraper(BaseScraper):
             posted_date=posted_date or None,
             description=None,
             scraped_at=datetime.now(timezone.utc).isoformat(),
-            matched_keywords=[],
+            extracted_experience_parts="",
         )
 
     def _extract_link(self, card: Tag, source_url: str) -> str:
@@ -329,7 +329,7 @@ class QualcommScraper(BaseScraper):
                 url=url,
                 source_url=source_url,
                 scraped_at=datetime.now(timezone.utc).isoformat(),
-                matched_keywords=[],
+                extracted_experience_parts="",
             ))
 
         return jobs

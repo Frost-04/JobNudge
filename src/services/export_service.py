@@ -18,7 +18,7 @@ def export_latest_jobs_to_csv(jobs: list[Job], path: str) -> None:
         "url",
         "posted_date",
         "description",
-        "matched_keywords",
+        "extracted_experience_parts",
         "scraped_at",
     ]
 
@@ -35,7 +35,7 @@ def export_latest_jobs_to_csv(jobs: list[Job], path: str) -> None:
                     "url": job.url,
                     "posted_date": job.posted_date or "",
                     "description": job.description or "",
-                    "matched_keywords": ", ".join(job.matched_keywords),
+                    "extracted_experience_parts": job.extracted_experience_parts,
                     "scraped_at": job.scraped_at,
                 }
             )

@@ -100,7 +100,7 @@ class SalesforceScraper(BaseScraper):
                         posted_date=job.posted_date,
                         description=detail_description or job.description,
                         scraped_at=datetime.now(timezone.utc).isoformat(),
-                        matched_keywords=[],
+                        extracted_experience_parts="",
                     )
                 except Exception as exc:
                     self.logger.warning(
@@ -157,7 +157,7 @@ class SalesforceScraper(BaseScraper):
             posted_date=None,
             description=short_description or None,
             scraped_at=datetime.now(timezone.utc).isoformat(),
-            matched_keywords=[],
+            extracted_experience_parts="",
         )
 
     def _extract_link(self, card: Tag, source_url: str) -> str:
@@ -388,7 +388,7 @@ class SalesforceScraper(BaseScraper):
                     posted_date=None,
                     description=description or None,
                     scraped_at=datetime.now(timezone.utc).isoformat(),
-                    matched_keywords=[],
+                    extracted_experience_parts="",
                 )
             )
 

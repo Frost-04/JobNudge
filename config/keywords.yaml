@@ -1,42 +1,102 @@
-include:
-  - software engineer
-  - software developer
-  - sde
-  - software development engineer
-  - associate software engineer
-  - university graduate
-  - graduate
-  - new grad
-  - early career
-  - fresher
+# Experience-related keywords used to extract contextual snippets
+# from job descriptions. Each snippet captures up to 8 words before
+# and 3 words after the matched keyword in the description text.
+experience_keywords:
+  - experience
+  - years of experience
+  - year of experience
+  - work experience
+  - industry experience
+  - professional experience
+  - prior experience
+  - relevant experience
+  - hands-on experience
+  - internship
   - intern
-  - backend
-  - frontend
-  - full stack
+  - co-op
+  - co op
+  - fresher
+  - new grad
+  - graduate
+  - entry.level
+  - early career
+  - campus
+  - 0.year
+  - 1.year
+  - 2.year
+  - 3.year
+  - 4.year
+  - 5.year
+  - 6.year
 
-exclude:
-  - senior
-  - sr.
-  - staff
-  - principal
-  - manager
-  - engineering manager
-  - architect
-  - lead
-  - director
-  - 5+ years
-  - 7+ years
-  - 10+ years
+# ── Pre-AI Filtering ───────────────────────────────────────────────────
+# Jobs are classified into three buckets BEFORE they reach the AI:
+#   1. auto_accept  → skip AI, go directly to jobs_to_send.csv
+#   2. auto_reject  → discard (never shown to user)
+#   3. uncertain    → send to AI for final judgment
+#
+# Rules are evaluated in order (first match wins):
+#   1. auto_accept keywords (title + description)
+#   2. auto_reject title_blacklist (title only)
+#   3. auto_reject year_pattern (description only — X to 20 years)
 
-locations:
-  - india
-  - bangalore
-  - bengaluru
-  - hyderabad
-  - pune
-  - chennai
-  - gurgaon
-  - gurugram
-  - noida
-  - mumbai
-  - remote
+auto_reject:
+  # If ANY of these words/phrases appear in the job TITLE (case-insensitive,
+  # whole-word match), the job is rejected.
+  title_blacklist:
+    - principal
+    - staff
+    - senior
+    - sr.
+    - lead
+    - manager
+    - director
+    - architect
+    - head
+    - vice president
+    - vp
+    - associate
+  # Year-pattern rejection: job descriptions mentioning "X+ years", "X years",
+  # "X-year", "X+year" etc. where X is between 2 and 20 (inclusive) are
+  # rejected.  Patterns like "0-2 years" are NOT rejected because the
+  # auto-accept list typically catches them first.
+  # The min/max bounds are defined here so they can be tweaked without code
+  # changes.
+  year_min: 2
+  year_max: 20
+
+auto_accept:
+  # If ANY of these appear in the job title OR description (case-insensitive),
+  # the job is auto-accepted and will NOT be sent to the AI.
+  keywords:
+    - intern
+    - internship
+    - new grad
+    - new graduate
+    - fresher
+    - entry level
+    - entry-level
+    - early career
+    - early-career
+    - campus hire
+    - campus hiring
+    - university graduate
+    - university grad
+    - graduate trainee
+    - trainee
+    - apprentice
+    - apprenticeship
+    - 0-1 year
+    - 0 year
+    - recent graduate
+    - recent grad
+    - associate engineer
+    - junior engineer
+    - junior developer
+    - software engineer i
+    - sde i
+    - sde 1
+    - sde-1
+    - sde-i
+    - software engineer 1
+    - software development engineer i

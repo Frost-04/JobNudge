@@ -11,9 +11,10 @@ from dotenv import load_dotenv
 from src.scrapers.scraper_factory import get_scraper
 from src.services.dedup_service import deduplicate_jobs
 from src.services.export_service import export_latest_jobs_to_csv
+from src.services.filter_service import extract_experience_from_jobs
 from src.services.notification_service import notify_new_jobs
 from src.services.storage_service import get_new_jobs, init_db, save_jobs
-from src.utils.config_loader import load_companies, load_settings
+from src.utils.config_loader import load_companies, load_keywords, load_settings
 from src.utils.logger import setup_logging
 
 
@@ -115,6 +116,13 @@ async def run() -> tuple[int, list[dict]]:
         return 1, []
 
     try:
+        keywords_config = load_keywords()
+        experience_keywords = keywords_config.get("experience_keywords", []) or []
+    except Exception:
+        logger.exception("Failed to load keywords configuration.")
+        return 1, []
+
+    try:
         init_db(settings)
     except Exception:
         logger.exception("Failed to initialize database.")
@@ -153,6 +161,11 @@ async def run() -> tuple[int, list[dict]]:
             continue
 
         deduped = deduplicate_jobs(result.jobs)
+
+        # Extract experience snippets from job descriptions.
+        if experience_keywords:
+            extract_experience_from_jobs(deduped, experience_keywords)
+
         new_jobs = get_new_jobs(deduped, settings)
         if new_jobs:
             save_jobs(new_jobs, settings)

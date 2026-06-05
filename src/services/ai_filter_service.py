@@ -8,6 +8,8 @@ import re
 from pathlib import Path
 from typing import Any
 
+from src.services.filter_service import pre_filter_jobs
+
 
 def read_jobs_from_csv(csv_path: str) -> list[dict[str, str]]:
     """Read jobs from a CSV file and return as a list of dicts."""
@@ -130,13 +132,15 @@ def filter_and_export_with_ai(
     prompt_template: str,
     api_key: str,
     settings: dict,
+    keywords_config: dict[str, Any] | None = None,
 ) -> int:
     """
-    Full AI filtering pipeline:
+    Full AI filtering pipeline with optional pre-filtering:
+
     1. Read jobs from new_jobs.csv
-    2. Build prompt and call Gemini
-    3. Parse matching job_ids from response
-    4. Export matching jobs to jobs_to_send.csv
+    2. Pre-filter into auto_accept / auto_reject / uncertain (if keywords_config provided)
+    3. Send uncertain jobs to Gemini AI
+    4. Export auto_accepted + AI-matched jobs to jobs_to_send.csv
 
     Returns the number of jobs exported.
     """
@@ -146,54 +150,90 @@ def filter_and_export_with_ai(
     jobs = read_jobs_from_csv(new_jobs_csv_path)
     if not jobs:
         logger.info("No new jobs to filter with AI. Skipping.")
-        # Clear jobs_to_send.csv since there's nothing to send
         path = Path(jobs_to_send_csv_path)
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text("", encoding="utf-8")
         return 0
+
+    # ── Pre-filter: classify jobs before AI ──────────────────────────
+    auto_accepted: list[dict[str, str]] = []
+    auto_rejected: list[dict[str, str]] = []
+    uncertain: list[dict[str, str]] = jobs  # default: all go to AI
+
+    if keywords_config:
+        auto_accepted, auto_rejected, uncertain = pre_filter_jobs(
+            jobs, keywords_config
+        )
+        logger.info(
+            "Pre-filter: %d auto-accepted, %d auto-rejected, %d uncertain → AI",
+            len(auto_accepted),
+            len(auto_rejected),
+            len(uncertain),
+        )
+        # Print summary to console
+        if auto_accepted:
+            print(f"\n✅ Auto-accepted {len(auto_accepted)} job(s) — skipping AI")
+        if auto_rejected:
+            print(f"❌ Auto-rejected {len(auto_rejected)} job(s) — not eligible")
+        if uncertain:
+            print(f"🤖 {len(uncertain)} job(s) need AI review")
+    else:
+        logger.info("No keywords config provided — sending all %d jobs to AI.", len(jobs))
 
     # Check API key
     if not api_key:
         logger.error("GEMINI_API_KEY is not set in .env. Skipping AI filtering.")
-        # Clear jobs_to_send.csv since we couldn't filter
         path = Path(jobs_to_send_csv_path)
         path.parent.mkdir(parents=True, exist_ok=True)
+        # If we have auto-accepted jobs, export them even without AI
+        if auto_accepted and keywords_config:
+            logger.info("Exporting %d auto-accepted jobs (AI skipped).", len(auto_accepted))
+            return export_jobs_to_send(auto_accepted, [j.get("job_id", "") for j in auto_accepted], jobs_to_send_csv_path)
         path.write_text("", encoding="utf-8")
         return 0
 
-    # 2. Build prompt
-    jobs_json = build_jobs_json(jobs)
+    # ── AI filtering on uncertain jobs only ──────────────────────────
+    ai_matched_ids: list[str] = []
 
-    # Handle batching if there are too many jobs
-    ai_config = settings.get("ai", {})
-    max_batch = int(ai_config.get("max_jobs_per_batch", 50))
-    model_name = str(ai_config.get("model", "gemini-2.0-flash"))
+    if uncertain:
+        ai_config = settings.get("ai", {})
+        max_batch = int(ai_config.get("max_jobs_per_batch", 50))
+        model_name = str(ai_config.get("model", "gemini-2.0-flash"))
 
-    if len(jobs) <= max_batch:
-        all_matching_ids = _process_single_batch(
-            jobs, jobs_json, prompt_template, api_key, model_name
-        )
-    else:
-        logger.info(
-            "Batching %d jobs into chunks of %d.", len(jobs), max_batch
-        )
-        all_matching_ids = []
-        for i in range(0, len(jobs), max_batch):
-            batch = jobs[i : i + max_batch]
-            batch_json = build_jobs_json(batch)
-            matching_ids = _process_single_batch(
-                batch, batch_json, prompt_template, api_key, model_name
+        if len(uncertain) <= max_batch:
+            uncertain_json = build_jobs_json(uncertain)
+            ai_matched_ids = _process_single_batch(
+                uncertain, uncertain_json, prompt_template, api_key, model_name
             )
-            all_matching_ids.extend(matching_ids)
-
-    # 4. Export
-    count = export_jobs_to_send(jobs, all_matching_ids, jobs_to_send_csv_path)
-
-    # Print summary to console
-    if count > 0:
-        print(f"\n🤖 AI selected {count} jobs for sending. See {jobs_to_send_csv_path}")
+        else:
+            logger.info("Batching %d uncertain jobs into chunks of %d.", len(uncertain), max_batch)
+            ai_matched_ids = []
+            for i in range(0, len(uncertain), max_batch):
+                batch = uncertain[i : i + max_batch]
+                batch_json = build_jobs_json(batch)
+                matching_ids = _process_single_batch(
+                    batch, batch_json, prompt_template, api_key, model_name
+                )
+                ai_matched_ids.extend(matching_ids)
     else:
-        print("\n🤖 AI did not select any jobs for sending.")
+        logger.info("No uncertain jobs to send to AI.")
+
+    # ── Export: auto_accepted + AI-matched ───────────────────────────
+    # Use the original full job list for export (preserves all columns).
+    # Build a combined matching-ID set from auto_accept + AI results.
+    ai_matched_set = set(ai_matched_ids)
+    auto_accept_ids = {j.get("job_id", "") for j in auto_accepted}
+
+    all_matched_ids = list(auto_accept_ids | ai_matched_set)
+
+    count = export_jobs_to_send(jobs, all_matched_ids, jobs_to_send_csv_path)
+
+    if count > 0:
+        print(f"\n🤖 Final: {count} job(s) exported to {jobs_to_send_csv_path}")
+        if auto_accepted:
+            print(f"   ({len(auto_accept_ids)} auto-accepted, {len(ai_matched_set)} AI-selected)")
+    else:
+        print("\n🤖 No jobs selected for sending.")
 
     return count
 

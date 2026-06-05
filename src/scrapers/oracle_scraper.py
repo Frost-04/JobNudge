@@ -131,7 +131,7 @@ class OracleScraper(BaseScraper):
                         posted_date=detail_posted_date or job.posted_date,
                         description=combined_description or job.description,
                         scraped_at=datetime.now(timezone.utc).isoformat(),
-                        matched_keywords=[],
+                        extracted_experience_parts="",
                     )
 
                 except Exception as exc:
@@ -195,7 +195,7 @@ class OracleScraper(BaseScraper):
             posted_date=posted_date or None,
             description=description or None,
             scraped_at=datetime.now(timezone.utc).isoformat(),
-            matched_keywords=[],
+            extracted_experience_parts="",
         )
 
     def _extract_link(self, card: Tag, source_url: str) -> str:
@@ -720,7 +720,7 @@ class OracleScraper(BaseScraper):
                     posted_date=posted_date or None,
                     description=description or None,
                     scraped_at=datetime.now(timezone.utc).isoformat(),
-                    matched_keywords=[],
+                    extracted_experience_parts="",
                 )
             )
 

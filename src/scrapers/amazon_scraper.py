@@ -128,7 +128,7 @@ class AmazonScraper(BaseScraper):
             posted_date=posted_date or None,
             description=description or None,
             scraped_at=datetime.now(timezone.utc).isoformat(),
-            matched_keywords=[],
+            extracted_experience_parts="",
         )
 
     def _extract_job_id(self, card: Tag, link: str) -> str:
@@ -328,7 +328,7 @@ class AmazonScraper(BaseScraper):
                     posted_date=posted_date or None,
                     description=description or None,
                     scraped_at=datetime.now(timezone.utc).isoformat(),
-                    matched_keywords=[],
+                    extracted_experience_parts="",
                 )
             )
 

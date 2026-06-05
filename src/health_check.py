@@ -99,7 +99,7 @@ def _format_job(job: Job) -> str:
         posted_date
         description
         scraped_at
-        matched_keywords
+        extracted_experience_parts
     """
 
     return (
@@ -113,7 +113,7 @@ def _format_job(job: Job) -> str:
         f"  posted_date={_safe_repr(job.posted_date)},\n"
         f"  description={_safe_repr(job.description)},\n"
         f"  scraped_at={_safe_repr(job.scraped_at)},\n"
-        f"  matched_keywords={_safe_repr(job.matched_keywords)},\n"
+        f"  extracted_experience_parts={_safe_repr(job.extracted_experience_parts)},\n"
         ")"
     )
 

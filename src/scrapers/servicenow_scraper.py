@@ -91,7 +91,7 @@ class ServiceNowScraper(BaseScraper):
                             posted_date=job.posted_date,
                             description=detail_desc,
                             scraped_at=datetime.now(timezone.utc).isoformat(),
-                            matched_keywords=[],
+                            extracted_experience_parts="",
                         )
                 except Exception as exc:
                     self.logger.warning(
@@ -159,7 +159,7 @@ class ServiceNowScraper(BaseScraper):
             posted_date=None,
             description=None,
             scraped_at=datetime.now(timezone.utc).isoformat(),
-            matched_keywords=[],
+            extracted_experience_parts="",
         )
 
     # ------------------------------------------------------------------

@@ -22,7 +22,7 @@ import sys
 from dotenv import load_dotenv
 
 from src.services.ai_filter_service import filter_and_export_with_ai
-from src.utils.config_loader import load_ai_prompt, load_settings
+from src.utils.config_loader import load_ai_prompt, load_keywords, load_settings
 
 
 async def run_ai_pipeline() -> tuple[int, list[dict]]:
@@ -57,6 +57,7 @@ async def run_ai_pipeline() -> tuple[int, list[dict]]:
     try:
         settings = load_settings()
         prompt_config = load_ai_prompt()
+        keywords_config = load_keywords()
     except Exception:
         logging.exception("Failed to load config for AI pipeline.")
         return 1, faulty_companies
@@ -79,7 +80,7 @@ async def run_ai_pipeline() -> tuple[int, list[dict]]:
         "jobs_to_send_csv_path", "data/jobs_to_send.csv"
     )
 
-    # ── Step 3: AI filtering and export ────────────────────────────────
+    # ── Step 3: Pre-filter + AI filtering and export ──────────────────
     try:
         count = filter_and_export_with_ai(
             new_jobs_csv_path=new_jobs_path,
@@ -87,6 +88,7 @@ async def run_ai_pipeline() -> tuple[int, list[dict]]:
             prompt_template=prompt_template,
             api_key=api_key,
             settings=settings,
+            keywords_config=keywords_config,
         )
     except Exception:
         logging.exception("AI filtering pipeline failed.")
