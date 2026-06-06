@@ -94,38 +94,41 @@ class AmdScraper(BaseScraper):
                     continue
 
                 # Enrich by opening the job detail page.
-                try:
-                    detail_data = await self._scrape_detail_page(job.url)
+                if self._should_exclude(job.title):
+                    self.logger.debug("Skipping detail enrichment for: %s", job.title)
+                else:
+                    try:
+                        detail_data = await self._scrape_detail_page(job.url)
 
-                    detail_posted_date = detail_data.get("date posted", "")
-                    detail_description = detail_data.get("description", "")
+                        detail_posted_date = detail_data.get("date posted", "")
+                        detail_description = detail_data.get("description", "")
 
-                    metadata_description = self._format_detail_metadata(detail_data)
+                        metadata_description = self._format_detail_metadata(detail_data)
 
-                    combined_description = self._join_description_parts(
-                        metadata_description,
-                        detail_description,
-                    )
+                        combined_description = self._join_description_parts(
+                            metadata_description,
+                            detail_description,
+                        )
 
-                    job = Job(
-                        job_id=job.job_id,
-                        company=job.company,
-                        title=job.title,
-                        location=job.location,
-                        url=job.url,
-                        source_url=job.source_url,
-                        posted_date=detail_posted_date or job.posted_date,
-                        description=combined_description or job.description,
-                        scraped_at=datetime.now(timezone.utc).isoformat(),
-                        extracted_experience_parts="",
-                    )
+                        job = Job(
+                            job_id=job.job_id,
+                            company=job.company,
+                            title=job.title,
+                            location=job.location,
+                            url=job.url,
+                            source_url=job.source_url,
+                            posted_date=detail_posted_date or job.posted_date,
+                            description=combined_description or job.description,
+                            scraped_at=datetime.now(timezone.utc).isoformat(),
+                            extracted_experience_parts="",
+                        )
 
-                except Exception as exc:
-                    self.logger.warning(
-                        "Failed to enrich AMD job detail page %s: %s",
-                        job.url,
-                        exc,
-                    )
+                    except Exception as exc:
+                        self.logger.warning(
+                            "Failed to enrich AMD job detail page %s: %s",
+                            job.url,
+                            exc,
+                        )
 
                 if job.job_id:
                     seen_job_ids.add(job.job_id)

@@ -90,37 +90,40 @@ class GoldmanSachsScraper(BaseScraper):
                     continue
 
                 # Enrich with detail page data.
-                try:
-                    detail_data = await self._scrape_detail_page(job.url)
+                if self._should_exclude(job.title):
+                    self.logger.debug("Skipping detail enrichment for: %s", job.title)
+                else:
+                    try:
+                        detail_data = await self._scrape_detail_page(job.url)
 
-                    detail_title = detail_data.get("title", "")
-                    detail_location = detail_data.get("location", "")
-                    detail_description = detail_data.get("description", "")
+                        detail_title = detail_data.get("title", "")
+                        detail_location = detail_data.get("location", "")
+                        detail_description = detail_data.get("description", "")
 
-                    # Only use detail location if it's meaningful (not just icon noise).
-                    location = detail_location
-                    if not location or self._is_icon_noise(location.split(",")[0].strip()):
-                        location = job.location
+                        # Only use detail location if it's meaningful (not just icon noise).
+                        location = detail_location
+                        if not location or self._is_icon_noise(location.split(",")[0].strip()):
+                            location = job.location
 
-                    job = Job(
-                        job_id=job.job_id,
-                        company=job.company,
-                        title=detail_title or job.title,
-                        location=location,
-                        url=job.url,
-                        source_url=job.source_url,
-                        posted_date=job.posted_date,
-                        description=detail_description or job.description,
-                        scraped_at=datetime.now(timezone.utc).isoformat(),
-                        extracted_experience_parts="",
-                    )
+                        job = Job(
+                            job_id=job.job_id,
+                            company=job.company,
+                            title=detail_title or job.title,
+                            location=location,
+                            url=job.url,
+                            source_url=job.source_url,
+                            posted_date=job.posted_date,
+                            description=detail_description or job.description,
+                            scraped_at=datetime.now(timezone.utc).isoformat(),
+                            extracted_experience_parts="",
+                        )
 
-                except Exception as exc:
-                    self.logger.warning(
-                        "Failed to enrich Goldman Sachs detail page %s: %s",
-                        job.url,
-                        exc,
-                    )
+                    except Exception as exc:
+                        self.logger.warning(
+                            "Failed to enrich Goldman Sachs detail page %s: %s",
+                            job.url,
+                            exc,
+                        )
 
                 seen_urls.add(job.url)
                 jobs.append(job)

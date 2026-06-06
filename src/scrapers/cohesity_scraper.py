@@ -153,28 +153,31 @@ class CohesityScraper(BaseScraper):
                     continue
 
                 # ---- Step 5: Enrich with detail page ----
-                try:
-                    detail_data = await self._scrape_detail_page(job.url)
-                    description = detail_data.get("description", "")
+                if self._should_exclude(job.title):
+                    self.logger.debug("Skipping detail enrichment for: %s", job.title)
+                else:
+                    try:
+                        detail_data = await self._scrape_detail_page(job.url)
+                        description = detail_data.get("description", "")
 
-                    job = Job(
-                        job_id=job.job_id,
-                        company=job.company,
-                        title=job.title,
-                        location=job.location,
-                        url=job.url,
-                        source_url=job.source_url,
-                        posted_date=job.posted_date,
-                        description=description or job.description,
-                        scraped_at=datetime.now(timezone.utc).isoformat(),
-                        extracted_experience_parts="",
-                    )
-                except Exception as exc:
-                    self.logger.warning(
-                        "Failed to enrich Cohesity job detail %s: %s",
-                        job.url,
-                        exc,
-                    )
+                        job = Job(
+                            job_id=job.job_id,
+                            company=job.company,
+                            title=job.title,
+                            location=job.location,
+                            url=job.url,
+                            source_url=job.source_url,
+                            posted_date=job.posted_date,
+                            description=description or job.description,
+                            scraped_at=datetime.now(timezone.utc).isoformat(),
+                            extracted_experience_parts="",
+                        )
+                    except Exception as exc:
+                        self.logger.warning(
+                            "Failed to enrich Cohesity job detail %s: %s",
+                            job.url,
+                            exc,
+                        )
 
                 if job.job_id:
                     seen_ids.add(job.job_id)

@@ -167,27 +167,30 @@ class PaloAltoScraper(BaseScraper):
                 continue
 
             # ---- Enrich with detail page ----
-            try:
-                detail_desc = await self._scrape_detail_page(job.url)
-                if detail_desc:
-                    job = Job(
-                        job_id=job.job_id,
-                        company=job.company,
-                        title=job.title,
-                        location=job.location,
-                        url=job.url,
-                        source_url=job.source_url,
-                        posted_date=job.posted_date,
-                        description=detail_desc,
-                        scraped_at=datetime.now(timezone.utc).isoformat(),
-                        extracted_experience_parts="",
+            if self._should_exclude(job.title):
+                self.logger.debug("Skipping detail enrichment for: %s", job.title)
+            else:
+                try:
+                    detail_desc = await self._scrape_detail_page(job.url)
+                    if detail_desc:
+                        job = Job(
+                            job_id=job.job_id,
+                            company=job.company,
+                            title=job.title,
+                            location=job.location,
+                            url=job.url,
+                            source_url=job.source_url,
+                            posted_date=job.posted_date,
+                            description=detail_desc,
+                            scraped_at=datetime.now(timezone.utc).isoformat(),
+                            extracted_experience_parts="",
+                        )
+                except Exception as exc:
+                    self.logger.warning(
+                        "Failed to enrich Palo Alto job detail %s: %s",
+                        job.url,
+                        exc,
                     )
-            except Exception as exc:
-                self.logger.warning(
-                    "Failed to enrich Palo Alto job detail %s: %s",
-                    job.url,
-                    exc,
-                )
 
             if job.job_id:
                 seen_ids.add(job.job_id)

@@ -85,29 +85,32 @@ class SalesforceScraper(BaseScraper):
                     continue
 
                 # Enrich with full detail page description.
-                try:
-                    detail_data = await self._scrape_detail_page(job.url)
-                    detail_description = detail_data.get("description", "")
-                    detail_title = detail_data.get("title", "")
+                if self._should_exclude(job.title):
+                    self.logger.debug("Skipping detail enrichment for: %s", job.title)
+                else:
+                    try:
+                        detail_data = await self._scrape_detail_page(job.url)
+                        detail_description = detail_data.get("description", "")
+                        detail_title = detail_data.get("title", "")
 
-                    job = Job(
-                        job_id=job.job_id,
-                        company=job.company,
-                        title=detail_title or job.title,
-                        location=job.location,
-                        url=job.url,
-                        source_url=job.source_url,
-                        posted_date=job.posted_date,
-                        description=detail_description or job.description,
-                        scraped_at=datetime.now(timezone.utc).isoformat(),
-                        extracted_experience_parts="",
-                    )
-                except Exception as exc:
-                    self.logger.warning(
-                        "Failed to enrich Salesforce job detail page %s: %s",
-                        job.url,
-                        exc,
-                    )
+                        job = Job(
+                            job_id=job.job_id,
+                            company=job.company,
+                            title=detail_title or job.title,
+                            location=job.location,
+                            url=job.url,
+                            source_url=job.source_url,
+                            posted_date=job.posted_date,
+                            description=detail_description or job.description,
+                            scraped_at=datetime.now(timezone.utc).isoformat(),
+                            extracted_experience_parts="",
+                        )
+                    except Exception as exc:
+                        self.logger.warning(
+                            "Failed to enrich Salesforce job detail page %s: %s",
+                            job.url,
+                            exc,
+                        )
 
                 if job.job_id:
                     seen_job_ids.add(job.job_id)

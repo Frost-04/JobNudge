@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from abc import ABC, abstractmethod
 import logging
+import re
 from typing import Any
 
 from bs4 import BeautifulSoup
@@ -132,6 +133,34 @@ class BaseScraper(ABC):
             except Exception:
                 pass
             self.playwright = None
+
+    # ------------------------------------------------------------------
+    # Title exclusion — skip detail-page enrichment for senior-level roles
+    # to reduce network load and speed up scraping.
+    # ------------------------------------------------------------------
+
+    EXCLUDE_TITLE_WORDS: list[str] = [
+        "principal",
+        "senior",
+        "iii",
+        "staff",
+        "sr.",
+        "sr",
+        "lead",
+    ]
+
+    def _should_exclude(self, title: str) -> bool:
+        """Return True if *title* contains a word that marks it as a
+        senior / staff / principal role whose detail page we should skip."""
+        if not title:
+            return False
+        title_lower = title.lower()
+        for word in self.EXCLUDE_TITLE_WORDS:
+            if re.search(r"\b" + re.escape(word) + r"\b", title_lower):
+                return True
+        return False
+
+    # ------------------------------------------------------------------
 
     @abstractmethod
     async def scrape(self) -> list[Job]:

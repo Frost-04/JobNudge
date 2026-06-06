@@ -89,32 +89,35 @@ class QualcommScraper(BaseScraper):
                     continue
 
                 # Enrich with detail page: metadata + description.
-                try:
-                    detail_data = await self._scrape_detail_page(job.url)
+                if self._should_exclude(job.title):
+                    self.logger.debug("Skipping detail enrichment for: %s", job.title)
+                else:
+                    try:
+                        detail_data = await self._scrape_detail_page(job.url)
 
-                    detail_posted_date = detail_data.get("date posted", "")
-                    detail_description = detail_data.get("description", "")
+                        detail_posted_date = detail_data.get("date posted", "")
+                        detail_description = detail_data.get("description", "")
 
-                    metadata_desc = self._format_detail_metadata(detail_data)
+                        metadata_desc = self._format_detail_metadata(detail_data)
 
-                    combined = self._join_parts(metadata_desc, detail_description)
+                        combined = self._join_parts(metadata_desc, detail_description)
 
-                    job = Job(
-                        job_id=job.job_id,
-                        company=job.company,
-                        title=job.title,
-                        location=job.location,
-                        url=job.url,
-                        source_url=job.source_url,
-                        posted_date=detail_posted_date or job.posted_date,
-                        description=combined or job.description,
-                        scraped_at=datetime.now(timezone.utc).isoformat(),
-                        extracted_experience_parts="",
-                    )
-                except Exception as exc:
-                    self.logger.warning(
-                        "Failed to enrich Qualcomm job detail %s: %s", job.url, exc
-                    )
+                        job = Job(
+                            job_id=job.job_id,
+                            company=job.company,
+                            title=job.title,
+                            location=job.location,
+                            url=job.url,
+                            source_url=job.source_url,
+                            posted_date=detail_posted_date or job.posted_date,
+                            description=combined or job.description,
+                            scraped_at=datetime.now(timezone.utc).isoformat(),
+                            extracted_experience_parts="",
+                        )
+                    except Exception as exc:
+                        self.logger.warning(
+                            "Failed to enrich Qualcomm job detail %s: %s", job.url, exc
+                        )
 
                 if job.job_id:
                     seen_job_ids.add(job.job_id)
