@@ -1,4 +1,19 @@
 companies:
+  - name: Airbnb
+    scraper: airbnb
+    url: "https://careers.airbnb.com/positions/?_search_input=Software%20Engineer&_where_you_work=india%2Cbangalore-india%2Cremote-bangalore-india&_jobs_sort=updated_at"
+    enabled: false
+
+  - name: Intel
+    scraper: intel
+    url: "https://intel.wd1.myworkdayjobs.com/External?locations=1e4a4eb3adf101f44070f976bf8184cf&jobFamilyGroup=ace7a3d23b7e01a0544279031a0ec85c"
+    enabled: false
+
+  - name: Nutanix
+    scraper: nutanix
+    url: "https://careers.nutanix.com/en/jobs/?search=&country=India&team=Engineering&type=Full-Time&type=New+Grad&type=Fixed-Term+Contract&type=Talent+Community&pagesize=20#results"
+    enabled: false
+
   - name: Google
     scraper: google
     url: "https://www.google.com/about/careers/applications/jobs/results/?q=software%20Engineer&hl=en&location=India&target_level=EARLY"
@@ -65,6 +80,43 @@ companies:
   - name: Quince
     scraper: quince
     url: "https://job-boards.greenhouse.io/quince?offices%5B%5D=4045689008&departments%5B%5D=4021013008"
+    enabled: false
+
+  - name: Stripe
+    scraper: stripe
+    urls:
+      - "https://stripe.com/jobs/search?query=Software+Engineer&teams=University&remote_locations=Asia+Pacific--India+Remote&office_locations=Asia+Pacific--Bengaluru"
+      - "https://stripe.com/jobs/search?query=Software+Engineer&remote_locations=Asia+Pacific--India+Remote&office_locations=Asia+Pacific--Bengaluru"
+    enabled: false
+
+  - name: Meesho
+    scraper: meesho
+    url: "https://www.meesho.io/jobs?d=engineering"
+    enabled: false
+
+  - name: DocuSign
+    scraper: docusign
+    url: "https://careers.docusign.com/careers-home/jobs?keywords=Engineer&sortBy=posted_date&page=1&categories=Engineering%7CIT%20Infrastructure%20%26%20Operations&locations=Bengaluru,Karnataka,India&descending=true&limit=10"
+    enabled: false
+
+  - name: Twilio
+    scraper: twilio
+    url: "https://jobs.twilio.com/careers?start=0&location=India&pid=1099553538803&sort_by=timestamp&filter_include_remote=1&filter_custom_department=product+%26+engineering"
+    enabled: false
+
+  - name: Red Hat
+    scraper: redhat
+    url: "https://redhat.wd5.myworkdayjobs.com/jobs/?a=c4f78be1a8f14da0ab49ce1162348a5e&d=c18026e77576010f6ef6126f4e43ec4a"
+    enabled: false
+
+  - name: Dell
+    scraper: dell
+    url: "https://iawmqy.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/careers/jobs?lastSelectedFacet=TITLES&mode=location&selectedLocationsFacet=300000000471053&selectedTitlesFacet=ENGREDEV"
+    enabled: false
+
+  - name: Target
+    scraper: target
+    url: "https://indiajobs.target.com/search-jobs?k=&ac=67611&orgIds=1118"
     enabled: true
 
   - name: Goldman Sachs
