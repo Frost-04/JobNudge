@@ -1,4 +1,42 @@
 companies:
+  - name: Cohesity
+    scraper: cohesity
+    url: "https://www.cohesity.com/careers/open-positions/"
+    search_keyword: "Software Engineer"
+    filter_department: "Engineering"
+    filter_location: "India"
+    enabled: false
+
+  - name: Kotak Mahindra Bank
+    scraper: kotak
+    url: "https://hcbt.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/jobs?keyword=Software+Engineer&lastSelectedFacet=POSTING_DATES&location=India&locationId=300000000258248&locationLevel=country&mode=location&selectedCategoriesFacet=300012518259928&selectedPostingDatesFacet=30"
+    enabled: false
+
+  - name: Ciena
+    scraper: ciena
+    url: "https://ciena.wd5.myworkdayjobs.com/Careers?Location_Country=c4f78be1a8f14da0ab49ce1162348a5e&jobFamilyGroup=f08e25a5d78010903df743451bd7a026&jobFamilyGroup=f08e25a5d78010903df730510aefa016"
+    enabled: true
+
+  - name: IBM
+    scraper: ibm
+    url: "https://www.ibm.com/in-en/careers/search?size=20&field_keyword_08[0]=Software%20Engineering&field_keyword_18[0]=Entry%20Level&field_keyword_05[0]=India&sort=dcdate_desc"
+    enabled: false
+
+  - name: Rippling
+    scraper: rippling
+    url: "https://www.rippling.com/en-IN/careers/open-roles"
+    enabled: false
+
+  - name: Palo Alto Networks
+    scraper: palo_alto
+    url: "https://jobs.paloaltonetworks.com/en/search-jobs?k=&l=India&orgIds=47263"
+    enabled: false
+
+  - name: Arista Networks
+    scraper: arista
+    url: "https://www.arista.com/en/careers/engineering"
+    enabled: false
+
   - name: Airbnb
     scraper: airbnb
     url: "https://careers.airbnb.com/positions/?_search_input=Software%20Engineer&_where_you_work=india%2Cbangalore-india%2Cremote-bangalore-india&_jobs_sort=updated_at"
@@ -117,7 +155,12 @@ companies:
   - name: Target
     scraper: target
     url: "https://indiajobs.target.com/search-jobs?k=&ac=67611&orgIds=1118"
-    enabled: true
+    enabled: false
+
+  - name: eBay
+    scraper: ebay
+    url: "https://jobs.ebayinc.com/us/en/bengaluru"
+    enabled: false
 
   - name: Goldman Sachs
     scraper: goldman_sachs
