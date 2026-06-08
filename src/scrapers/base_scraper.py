@@ -142,6 +142,7 @@ class BaseScraper(ABC):
     EXCLUDE_TITLE_WORDS: list[str] = [
         "principal",
         "senior",
+        "manager",
         "iii",
         "staff",
         "sr.",

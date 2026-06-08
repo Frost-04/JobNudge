@@ -16,83 +16,83 @@ PLAYWRIGHT: PASS
 == Scrapers ==
 - Starting company scrapers (parallel)
 
-Ciena
------
-Extracted jobs: 8
+Sandisk
+-------
+Extracted jobs: 56
 
 Sample Jobs:
 
 [1]
 Job(
-  job_id='R030703',
-  company='Ciena',
-  title='Senior/Lead- AI Application Developer',
-  location='Gurugram',
-  url='https://ciena.wd5.myworkdayjobs.com/en-US/Careers/job/Gurugram/Senior-Lead--AI-Application-Developer_R030703?Location_Country=c4f78be1a8f14da0ab49ce1162348a5e&jobFamilyGroup=f08e25a5d78010903df743451bd7a026&jobFamilyGroup=f08e25a5d78010903df730510aefa016',
-  source_url='https://ciena.wd5.myworkdayjobs.com/Careers?Location_Country=c4f78be1a8f14da0ab49ce1162348a5e&jobFamilyGroup=f08e25a5d78010903df743451bd7a026&jobFamilyGroup=f08e25a5d78010903df730510aefa016',
-  posted_date='Posted 30+ Days Ago',
-  description="As the global leader in high-speed connectivity, Ciena is committed to a people-first approach. Our teams enjoy a culture focused on prioritizing a flexible work environment that empowers individual growth, well-being, and belonging. We’re a technology company that leads with our humanity—driving our business priorities alongside meaningful social, community, and societal impact. How You Will Contribute: You will report to R&D team and play a key role in designing and developing AI-enabled applications for Ciena’s Navigator Network Control Suite. Your work will directly contribute to enhancing network performance, automation, and operational efficiency through cutting-edge AI/ML solutions. In this role, you will: • Design, develop, and deliver AI applications using Generative AI, LLMs, Classical ML, and Agentic AI techniques. • Collaborate with cross-functional teams to integrate AIOps capabilities into Ciena's Navigator platform. • Analyze large datasets to uncover actionable insights and support data-driven decisions. • Fine-tune and train AI models tailored to Ciena’s product and network application needs. • Participate in code reviews, testing, and deployment to ensure high-quality, scalable software. • Research the latest AI technologies and help define best practices for solution development and deployment. The Must Haves: • Bachelor’s degree in Artificial Intelligence, Computer Science, Engineering, or a related field. • 5+ years of experience in developing AI software, particularly for AIOps or Data Science use cases. • Hands-on experience with LLMs, transformers, agentic frameworks, and RAG (Retrieval-Augmented Generation) techniques. • Strong programming skills in Python, Java, or C++. • Experience with machine learning frameworks like TensorFlow or PyTorch. • Familiarity with cloud platforms (e.g., AWS, Azure) and containerization tools such as Docker and Kubernetes. • Proven experience building microservice-based software systems. • Strong grasp of network management protocols and principles. • Effective communicator with the ability to work independently and collaboratively. Assets: • Experience with Ciena network management solutions. • Understanding of AIOps tools and practices. • A Master’s or advanced degree in a related field. • Passion for innovation, continuous learning, and solving complex problems. #LI-FA At Ciena, we are committed to building and fostering an environment in which our employees feel respected, valued, and heard. Ciena values the diversity of its workforce and respects its employees as individuals. We do not tolerate any form of discrimination. Ciena is an Equal Opportunity Employer, including disability and protected veteran status. If contacted in relation to a job opportunity, please advise Ciena of any accommodation measures you may require.",
-  scraped_at='2026-06-06T18:07:01.507589+00:00',
+  job_id='744000112177039',
+  company='Sandisk',
+  title='Staff Engineer, Software Development Engineering (Apps)',
+  location='Bangalore, India',
+  url='https://jobs.smartrecruiters.com/Sandisk/744000112177039-staff-engineer-software-development-engineering-apps-',
+  source_url='https://careers.smartrecruiters.com/Sandisk',
+  posted_date=None,
+  description=None,
+  scraped_at='2026-06-08T16:33:42.501006+00:00',
   extracted_experience_parts='',
 )
 
 [2]
 Job(
-  job_id='R030459',
-  company='Ciena',
-  title='Cloud Platform & AI Engineer',
-  location='Remote- India- Gurugram',
-  url='https://ciena.wd5.myworkdayjobs.com/en-US/Careers/job/Remote--India--Gurugram/Cloud-Platform---AI-Engineer_R030459?Location_Country=c4f78be1a8f14da0ab49ce1162348a5e&jobFamilyGroup=f08e25a5d78010903df743451bd7a026&jobFamilyGroup=f08e25a5d78010903df730510aefa016',
-  source_url='https://ciena.wd5.myworkdayjobs.com/Careers?Location_Country=c4f78be1a8f14da0ab49ce1162348a5e&jobFamilyGroup=f08e25a5d78010903df743451bd7a026&jobFamilyGroup=f08e25a5d78010903df730510aefa016',
-  posted_date='Posted Today',
-  description='As the global leader in high-speed connectivity, Ciena is committed to a people-first approach. Our teams enjoy a culture focused on prioritizing a flexible work environment that empowers individual growth, well-being, and belonging. We’re a technology company that leads with our humanity—driving our business priorities alongside meaningful social, community, and societal impact. Ciena is seeking a Cloud Platform & AI Engineer to join the IT Cloud Infrastructure team and help enable secure, scalable, and intelligent use of public cloud technologies across the organisation. This role plays a critical part in advancing cloud automation, security, compliance, and artificial intelligence (AI) capabilities that empower internal teams to innovate with confidence. The position is remote, with flexibility to transition to a hybrid model if business needs evolve. How you will make an impact: • Design and evolve automation frameworks for public cloud infrastructure deployments at scale. • Enable secure cloud adoption by automating governance, audit, security, and compliance controls. • Use, develop and maintain AI services across AWS Platform (Cloud Native) • Build and maintain infrastructure and application monitoring to detect, prevent, and respond to incidents. • Drive cloud reliability, performance, and cost optimisation through best practices and continuous improvement. • Develop tools and mechanisms that eliminate repetitive operational tasks and improve engineering efficiency. • Review code, assess technical implementations, and provide actionable feedback to improve platform tooling. • Participate in on‑call rotations and serve as an escalation point for cloud service incidents. The must haves: • Bachelor’s degree in Computer Science or a related field, or equivalent practical experience • 4+ years of overall professional experience, including 2+ years supporting multi‑account Amazon Web Services (AWS) platform infrastructure • Efficient in use, maintenance of AWS AI services like Bedrock, Sagemaker while maintaining strong proficiency in AI/ML Concepts • Proficiency in object‑oriented programming and SOLID design principles with hands-on experience with one or more programming languages, such as Python, JavaScript/TypeScript, Ruby, Java, or Go • Strong experience with infrastructure as code (IaC), automation, and continuous integration/continuous delivery (CI/CD) pipelines • Demonstrated knowledge of public cloud security best practices, tooling, and risk identification • Working knowledge of networking fundamentals, including Domain Name System (DNS), load balancing, Secure Sockets Layer (SSL), Transmission Control Protocol/Internet Protocol (TCP/IP), and related concepts. Nice to haves: • Hands‑on experience with container technologies, including Docker and Kubernetes • Understanding of AI security best practices within AWS Platform • Familiarity with cloud‑native application architectures and development practices • Ability to estimate software components and interface effectively with multiple internal partners At Ciena, we are committed to building and fostering an environment in which our employees feel respected, valued, and heard. Ciena values the diversity of its workforce and respects its employees as individuals. We do not tolerate any form of discrimination. Ciena is an Equal Opportunity Employer, including disability and protected veteran status. If contacted in relation to a job opportunity, please advise Ciena of any accommodation measures you may require.',
-  scraped_at='2026-06-06T18:07:03.318377+00:00',
+  job_id='744000130704889',
+  company='Sandisk',
+  title='Technologist Engineer, ASIC Development Engineering (SOC Verification Lead, PCIe Experience)',
+  location='Bengaluru, India',
+  url='https://jobs.smartrecruiters.com/Sandisk/744000130704889-technologist-engineer-asic-development-engineering-soc-verification-lead-pcie-experience-',
+  source_url='https://careers.smartrecruiters.com/Sandisk',
+  posted_date=None,
+  description=None,
+  scraped_at='2026-06-08T16:33:42.508515+00:00',
   extracted_experience_parts='',
 )
 
 [3]
 Job(
-  job_id='R030697',
-  company='Ciena',
-  title='Senior Full Stack Developer',
-  location='Gurugram',
-  url='https://ciena.wd5.myworkdayjobs.com/en-US/Careers/job/Gurugram/Senior-Full-Stack-Developer_R030697?Location_Country=c4f78be1a8f14da0ab49ce1162348a5e&jobFamilyGroup=f08e25a5d78010903df743451bd7a026&jobFamilyGroup=f08e25a5d78010903df730510aefa016',
-  source_url='https://ciena.wd5.myworkdayjobs.com/Careers?Location_Country=c4f78be1a8f14da0ab49ce1162348a5e&jobFamilyGroup=f08e25a5d78010903df743451bd7a026&jobFamilyGroup=f08e25a5d78010903df730510aefa016',
-  posted_date='Posted Yesterday',
-  description='As the global leader in high-speed connectivity, Ciena is committed to a people-first approach. Our teams enjoy a culture focused on prioritizing a flexible work environment that empowers individual growth, well-being, and belonging. We’re a technology company that leads with our humanity—driving our business priorities alongside meaningful social, community, and societal impact. At Ciena, this role contributes to building and modernising enterprise-grade applications that support secure, scalable, and high-performance networks for customers worldwide. Reporting to the Engineering Manager – Application Development, the position partners closely with cross-functional teams across North America to deliver cloud-enabled solutions that matter. How you will make an impact: • Design, build, and maintain web-based and Windows applications using Microsoft .NET technologies• Modernise legacy applications through migration to Microsoft Azure cloud platforms• Develop and support application programming interfaces (APIs), web services, and backend components• Partner with business stakeholders to translate requirements into reliable technical solutions• Contribute to Agile delivery practices, including sprint planning, reviews, and continuous improvement• Support application stability through on-call participation and proactive issue resolution The must haves: • Bachelor’s degree in Computer Science or a related discipline• 7+ years of professional software development experience• Strong proficiency in C#, .NET Core, VB.NET, Python, Angular, JavaScript, HTML, and CSS• Solid backend development experience with Microsoft SQL Server, Transact-SQL (T-SQL), and Language Integrated Query (LINQ)• Hands-on experience with Microsoft Azure services, including App Services, Functions, Containers, and Storage• Working knowledge of DevOps practices, continuous integration and continuous delivery (CI/CD), Git, GitHub, and test-driven development (TDD)• Demonstrated application of secure coding practices, including static application security testing (SAST) and dynamic application security testing (DAST) Nice to haves: • Experience with SQL Server Integration Services (SSIS) and SQL Server Reporting Services (SSRS)• Familiarity with advanced SQL Server features and performance optimisation• Experience using front-end frameworks and tools such as Bootstrap, Telerik, or Kendo UI• Exposure to machine learning technologies or Amazon Web Services (AWS)• Knowledge of Hardware Security Modules (HSM) and Federal Information Processing Standards (FIPS) compliance• Microsoft Azure Developer or DevOps Engineer certification At Ciena, we are committed to building and fostering an environment in which our employees feel respected, valued, and heard. Ciena values the diversity of its workforce and respects its employees as individuals. We do not tolerate any form of discrimination. Ciena is an Equal Opportunity Employer, including disability and protected veteran status. If contacted in relation to a job opportunity, please advise Ciena of any accommodation measures you may require.',
-  scraped_at='2026-06-06T18:07:05.170837+00:00',
+  job_id='744000130704799',
+  company='Sandisk',
+  title='Principal Engineer, VLSI Design Engineering',
+  location='Bengaluru, India',
+  url='https://jobs.smartrecruiters.com/Sandisk/744000130704799-principal-engineer-vlsi-design-engineering-',
+  source_url='https://careers.smartrecruiters.com/Sandisk',
+  posted_date=None,
+  description=None,
+  scraped_at='2026-06-08T16:33:42.508515+00:00',
   extracted_experience_parts='',
 )
 
 [4]
 Job(
-  job_id='R030835',
-  company='Ciena',
-  title='Kinaxis Analyst',
-  location='Gurugram',
-  url='https://ciena.wd5.myworkdayjobs.com/en-US/Careers/job/Gurugram/Kinaxis-Analyst_R030835-1?Location_Country=c4f78be1a8f14da0ab49ce1162348a5e&jobFamilyGroup=f08e25a5d78010903df743451bd7a026&jobFamilyGroup=f08e25a5d78010903df730510aefa016',
-  source_url='https://ciena.wd5.myworkdayjobs.com/Careers?Location_Country=c4f78be1a8f14da0ab49ce1162348a5e&jobFamilyGroup=f08e25a5d78010903df743451bd7a026&jobFamilyGroup=f08e25a5d78010903df730510aefa016',
-  posted_date='Posted 3 Days Ago',
-  description='As the global leader in high-speed connectivity, Ciena is committed to a people-first approach. Our teams enjoy a culture focused on prioritizing a flexible work environment that empowers individual growth, well-being, and belonging. We’re a technology company that leads with our humanity—driving our business priorities alongside meaningful social, community, and societal impact. . In this role, you will work closely with IT and business users globally to manage end-to-end supply chain planning processes using Kinaxis RapidResponse. You’ll have the opportunity to contribute and make a difference in a challenging and exciting high-tech environment. How you’ll make an impact: • Collaborate with users to understand business requirements and configure solutions in RapidResponse • Design, build, test, and deploy RapidResponse resources, including workbooks, alerts, forms, scripts, automation chains, widgets, and dashboards • Apply demonstrated understanding of control tables, data models, and mappings to solve business problems • As a core member of the Kinaxis Center of Excellence (COE) team, apply best practices in RapidResponse configuration to meet business needs • Assist end users with interpreting planning results • Facilitate, plan, and support new functionality releases, including periodic Kinaxis service updates The must haves: • Strong understanding of Material Requirements Planning (MRP) and RapidResponse analytics • Deep understanding of RapidResponse data integration using TALEND or similar ETL tools • Excellent analytical and troubleshooting skills • Exceptional interpersonal skills and ability to communicate effectively, both verbally and in writing • Ability to manage multiple priorities and perform well in a fast-paced environment • Strong work ethic and high attention to detail • Bachelor’s degree in Science, Technology, Engineering, Mathematics, or a related field • 4-6+ years of firsthand experience with Kinaxis RapidResponse or similar planning tools Nice to have: • Experience with supply chain operations in a manufacturing or high-tech environment • Familiarity with Agile project management methodologies • Knowledge of advanced analytics and reporting tools • Experience with scripting languages such as Python or JavaScript • Strong presentation skills #LI-MP1 At Ciena, we are committed to building and fostering an environment in which our employees feel respected, valued, and heard. Ciena values the diversity of its workforce and respects its employees as individuals. We do not tolerate any form of discrimination. Ciena is an Equal Opportunity Employer, including disability and protected veteran status. If contacted in relation to a job opportunity, please advise Ciena of any accommodation measures you may require.',
-  scraped_at='2026-06-06T18:07:07.461822+00:00',
+  job_id='744000130521939',
+  company='Sandisk',
+  title='Principal Engineer, ASIC Development Engineering (Physical Design, PNR, floor plan) 8 to 12 years of experience',
+  location='Bengaluru, India',
+  url='https://jobs.smartrecruiters.com/Sandisk/744000130521939-principal-engineer-asic-development-engineering-physical-design-pnr-floor-plan-8-to-12-years-of-experience',
+  source_url='https://careers.smartrecruiters.com/Sandisk',
+  posted_date=None,
+  description=None,
+  scraped_at='2026-06-08T16:33:42.508515+00:00',
   extracted_experience_parts='',
 )
 
 [5]
 Job(
-  job_id='R030814',
-  company='Ciena',
-  title='Project Manager - Cyber Security',
-  location='Gurugram',
-  url='https://ciena.wd5.myworkdayjobs.com/en-US/Careers/job/Gurugram/Project-Manager---Cyber-Security_R030814?Location_Country=c4f78be1a8f14da0ab49ce1162348a5e&jobFamilyGroup=f08e25a5d78010903df743451bd7a026&jobFamilyGroup=f08e25a5d78010903df730510aefa016',
-  source_url='https://ciena.wd5.myworkdayjobs.com/Careers?Location_Country=c4f78be1a8f14da0ab49ce1162348a5e&jobFamilyGroup=f08e25a5d78010903df743451bd7a026&jobFamilyGroup=f08e25a5d78010903df730510aefa016',
-  posted_date='Posted 5 Days Ago',
-  description='As the global leader in high-speed connectivity, Ciena is committed to a people-first approach. Our teams enjoy a culture focused on prioritizing a flexible work environment that empowers individual growth, well-being, and belonging. We’re a technology company that leads with our humanity—driving our business priorities alongside meaningful social, community, and societal impact. Are you passionate about driving impactful cybersecurity initiatives in a fast-paced, dynamic environment? Join the Security team at Ciena—a tight-knit group of experts dedicated to protecting our company, products, and reputation. With increasing challenges in regulatory requirements, security threats, and customer expectations, we are growing and have exciting opportunities ahead. How you’ll make an impact: • Lead end-to-end project management for cybersecurity initiatives, ensuring seamless execution and delivery • Develop detailed project plans, timelines, budgets, and status reports to keep stakeholders informed • Collaborate across Security, IT, Product, Engineering, and Compliance teams to align priorities • Identify risks and dependencies, implementing proactive mitigation strategies • Optimize resource allocation for maximum project efficiency and effectiveness • Provide regular reports and metrics to management and executive teams, showcasing improvements in security posture • Drive continuous improvement in project management practices and governance • Build and foster cross-functional teams, ensuring collaboration and successful project delivery The must haves: • Bachelor’s degree in Computer Science, Information Security, or related field (Master’s degree is a plus) • 6+ years of proven project management experience, ideally in cybersecurity or information security • Strong expertise in Agile methodologies (Scrum, Kanban) and Agile coaching principles • Proficiency in tools like JIRA, Confluence, and Office 365 for project management and documentation • Knowledge of security frameworks such as NIST, CIS, and ISO standards • Exceptional communication skills to engage technical and non-technical stakeholders effectively • Security certifications like CISSP, CISM, or PMP • Agile/Scrum certifications such as CSM, CSPO, or CSP-SM Nice to have: • In-depth knowledge of cybersecurity principles, best practices, and industry standards • Familiarity with frameworks like NIST Cybersecurity Framework, ISO 27001, or CIS Controls • Experience managing diverse teams of cybersecurity professionals • Proven track record of delivering results in Agile project environments #LI-MP1 At Ciena, we are committed to building and fostering an environment in which our employees feel respected, valued, and heard. Ciena values the diversity of its workforce and respects its employees as individuals. We do not tolerate any form of discrimination. Ciena is an Equal Opportunity Employer, including disability and protected veteran status. If contacted in relation to a job opportunity, please advise Ciena of any accommodation measures you may require.',
-  scraped_at='2026-06-06T18:07:11.772627+00:00',
+  job_id='744000130419669',
+  company='Sandisk',
+  title='Staff Engineer, Firmware Verification Engineering',
+  location='Bengaluru, India',
+  url='https://jobs.smartrecruiters.com/Sandisk/744000130419669-staff-engineer-firmware-verification-engineering',
+  source_url='https://careers.smartrecruiters.com/Sandisk',
+  posted_date=None,
+  description=None,
+  scraped_at='2026-06-08T16:33:42.508515+00:00',
   extracted_experience_parts='',
 )
 
 == Summary ==
-Completed in 32.5s
+Completed in 23.1s
 
 Final status: PASS

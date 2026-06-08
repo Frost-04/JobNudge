@@ -13,9 +13,9 @@ from src.scrapers.base_scraper import BaseScraper
 from src.utils.url_utils import extract_job_id, make_absolute_url
 
 
-class JPMorganChaseScraper(BaseScraper):
+class EXLScraper(BaseScraper):
     """
-    Scraper for JPMorgan Chase Oracle Cloud Candidate Experience pages.
+    Scraper for EXL Oracle Cloud Candidate Experience pages.
 
     Expected search card structure:
 
@@ -30,7 +30,6 @@ class JPMorganChaseScraper(BaseScraper):
     Expected detail page / overlay structure:
 
     h1.job-details__title
-    div.job-details__subtitle
     ul.job-meta__list
       li.job-meta__item
         span.job-meta__title
@@ -70,8 +69,6 @@ class JPMorganChaseScraper(BaseScraper):
         try:
             await page.goto(source_url, wait_until="domcontentloaded", timeout=60000)
 
-            # Oracle Candidate Experience pages can keep background requests open,
-            # so wait for cards instead of relying on networkidle.
             selector = await self._wait_for_any_selector(page, self.JOB_CARD_SELECTORS)
 
             if not selector:
@@ -99,9 +96,6 @@ class JPMorganChaseScraper(BaseScraper):
                 if job.url in seen_urls:
                     continue
 
-                # Enrich card data by opening the direct job URL.
-                # This avoids having to interact with the overlay and is usually
-                # more stable for Oracle Cloud Candidate Experience pages.
                 if self._should_exclude(job.title):
                     self.logger.debug("Skipping detail enrichment for: %s", job.title)
                     # Also clear the card-level description so excluded roles
@@ -138,7 +132,7 @@ class JPMorganChaseScraper(BaseScraper):
 
                     except Exception as exc:
                         self.logger.warning(
-                            "Failed to enrich JPMorgan Chase job detail page %s: %s",
+                            "Failed to enrich EXL job detail page %s: %s",
                             job.url,
                             exc,
                         )
@@ -178,14 +172,14 @@ class JPMorganChaseScraper(BaseScraper):
         job_id = self._extract_job_id(card, link)
         location = self._extract_location(card)
         posted_date = self._extract_posted_date(card)
-        description = self._extract_short_description(card)
+        description = self._extract_card_description(card)
 
         if not link or not title:
             return None
 
         return Job(
             job_id=job_id,
-            company=self.company_config.get("name", "JPMorgan Chase"),
+            company=self.company_config.get("name", "EXL"),
             title=title,
             location=location,
             url=link,
@@ -207,21 +201,19 @@ class JPMorganChaseScraper(BaseScraper):
         if not href:
             return ""
 
-        return self._make_jpmc_job_url(source_url, str(href))
+        return self._make_exl_job_url(source_url, str(href))
 
     def _extract_title(self, card: Tag) -> str:
         el = card.select_one(self.TITLE_SELECTOR)
         return self._clean_text(el.get_text() if el else "")
 
     def _extract_job_id(self, card: Tag, link: str) -> str:
-        """
-        JPMorgan Chase Oracle Cloud URLs look like:
-
-        https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210733928/?...
+        """EXL Oracle Cloud URLs look like:
+        https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/7725/?...
         """
 
         if link:
-            job_id = self._extract_jpmc_job_id_from_url(link)
+            job_id = self._extract_exl_job_id_from_url(link)
 
             if job_id:
                 return job_id
@@ -245,25 +237,13 @@ class JPMorganChaseScraper(BaseScraper):
         return extract_job_id(link) if link else ""
 
     def _extract_location(self, card: Tag) -> str:
-        """
-        Card job info values normally appear in this order:
-        1. Locations
-        2. Job Function
-        3. Job Family
-
-        Location can include hidden/tooltip text such as:
-        aria-label="Locations,Mumbai, Maharashtra, India,Bengaluru, Karnataka, India"
-        """
-
         locations: list[str] = []
 
-        # Prefer explicit posting-locations block.
         posting_locations = card.select_one("posting-locations")
 
         if posting_locations:
             locations.extend(self._extract_locations_from_posting_locations(posting_locations))
 
-        # Fallback to first job-info value.
         if not locations:
             info_values = card.select(self.JOB_INFO_VALUE_SELECTOR)
 
@@ -278,7 +258,6 @@ class JPMorganChaseScraper(BaseScraper):
     def _extract_locations_from_posting_locations(self, node: Tag) -> list[str]:
         locations: list[str] = []
 
-        # Primary visible location.
         primary_span = node.select_one("span[data-bind*='primaryLocation']")
 
         if primary_span:
@@ -287,8 +266,6 @@ class JPMorganChaseScraper(BaseScraper):
             if primary_text:
                 locations.append(primary_text)
 
-        # Secondary locations are often available in aria-label:
-        # "Locations,Mumbai, Maharashtra, India,Bengaluru, Karnataka, India"
         for el in node.select("[aria-label]"):
             aria_label = self._clean_text(str(el.get("aria-label", "")))
 
@@ -302,37 +279,25 @@ class JPMorganChaseScraper(BaseScraper):
         return self._dedupe_preserve_order(locations)
 
     def _extract_posted_date(self, card: Tag) -> str:
-        """
-        Main cards in the supplied HTML do not always show posted date.
-        Similar-job cards can show:
-        Posted on 03/06/2026
-        """
+        """EXL cards show posting date in job-info items with label "Posting Date"."""
+        info_items = card.select(self.JOB_INFO_ITEM_SELECTOR)
 
-        text = self._clean_text(card.get_text(" "))
+        for item in info_items:
+            label_el = item.select_one(".job-list-item__job-info-label")
 
-        match = re.search(
-            r"Posted\s+on\s+(\d{1,2}/\d{1,2}/\d{4})",
-            text,
-            flags=re.IGNORECASE,
-        )
+            if label_el and "posting date" in label_el.get_text().lower():
+                value_el = item.select_one(self.JOB_INFO_VALUE_SELECTOR)
 
-        if match:
-            return match.group(1)
+                if value_el:
+                    return self._clean_text(value_el.get_text())
 
         return ""
 
-    def _extract_short_description(self, card: Tag) -> str:
+    def _extract_card_description(self, card: Tag) -> str:
         el = card.select_one(self.DESCRIPTION_SELECTOR)
         return self._clean_text(el.get_text() if el else "")
 
     async def _get_detail_page(self) -> Page:
-        """Return a new page for detail scraping.
-
-        Tries the shared ``self.context`` first.  If that context has been
-        closed or is otherwise unusable the old browser stack is torn down
-        and a fresh one is spun up so that one bad detail page cannot poison
-        all subsequent enrichments.
-        """
         if self.context:
             try:
                 return await self.context.new_page()
@@ -340,8 +305,6 @@ class JPMorganChaseScraper(BaseScraper):
                 self.logger.debug(
                     "Shared browser context is no longer usable; discarding and creating a fresh one."
                 )
-                # Close the stale browser stack before creating a new one
-                # to avoid leaking Playwright resources.
                 await self.close_browser()
 
         return await self.new_page()
@@ -390,11 +353,6 @@ class JPMorganChaseScraper(BaseScraper):
         return self._clean_text(el.get_text() if el else "")
 
     def _extract_detail_location(self, soup) -> str:
-        """
-        Prefer full address from Job Information > Locations.
-        Fallback to subtitle location.
-        """
-
         metadata = self._extract_detail_metadata(soup)
 
         detail_location = metadata.get("locations", "")
@@ -425,7 +383,6 @@ class JPMorganChaseScraper(BaseScraper):
             value = ""
 
             if value_el:
-                # Locations can contain multiple pin items.
                 pin_items = value_el.select(".job-meta__pin-item")
 
                 if pin_items:
@@ -458,11 +415,6 @@ class JPMorganChaseScraper(BaseScraper):
         return self._clean_multiline_text(text)
 
     def _format_detail_metadata(self, detail_data: dict[str, str]) -> str:
-        """
-        Job model has no separate metadata fields, so preserve useful JPMC
-        detail fields inside description.
-        """
-
         if not detail_data:
             return ""
 
@@ -476,6 +428,8 @@ class JPMorganChaseScraper(BaseScraper):
             "apply before",
             "job schedule",
             "locations",
+            "job role",
+            "experience (in years)",
         ]
 
         for key in preferred_order:
@@ -491,7 +445,7 @@ class JPMorganChaseScraper(BaseScraper):
         cleaned_parts = [part.strip() for part in parts if part and part.strip()]
         return "\n\n".join(cleaned_parts)
 
-    def _make_jpmc_job_url(self, source_url: str, href: str) -> str:
+    def _make_exl_job_url(self, source_url: str, href: str) -> str:
         href = html.unescape(href).strip()
 
         if href.startswith("http://") or href.startswith("https://"):
@@ -508,7 +462,7 @@ class JPMorganChaseScraper(BaseScraper):
 
         return make_absolute_url(source_url, href)
 
-    def _extract_jpmc_job_id_from_url(self, url: str) -> str:
+    def _extract_exl_job_id_from_url(self, url: str) -> str:
         if not url:
             return ""
 
@@ -520,20 +474,11 @@ class JPMorganChaseScraper(BaseScraper):
         return extract_job_id(url) or ""
 
     def _split_location_text(self, text: str) -> list[str]:
-        """
-        Handles both:
-        - "Bengaluru, Karnataka, India"
-        - "Mumbai, Maharashtra, India,Bengaluru, Karnataka, India"
-
-        Since all examples are India locations, split after each "India".
-        """
-
         text = self._clean_location_text(text)
 
         if not text:
             return []
 
-        # Remove UI text like "and 1 more" but preserve actual locations.
         text = re.sub(r"\band\s+\d+\s+more\b", "", text, flags=re.IGNORECASE)
         text = self._clean_text(text)
 
@@ -557,6 +502,7 @@ class JPMorganChaseScraper(BaseScraper):
             "locations",
             "location",
             "and more",
+            "job location",
         }
 
         if lower_text in noise_values:
@@ -601,85 +547,57 @@ class JPMorganChaseScraper(BaseScraper):
         for value in values:
             normalized = value.lower().strip()
 
-            if not normalized or normalized in seen:
-                continue
-
-            seen.add(normalized)
-            result.append(value)
+            if normalized not in seen:
+                seen.add(normalized)
+                result.append(value)
 
         return result
 
-    async def _fallback_links(
-        self,
-        page: Page,
-        source_url: str,
-        max_jobs: int,
-    ) -> list[Job]:
-        """
-        Fallback for Oracle Cloud DOM changes.
-        Scans all job links and builds basic Job objects.
-        """
-
+    async def _fallback_links(self, page: Page, source_url: str, max_jobs: int) -> list[Job]:
+        """Fallback: extract job links from <a> tags when card selectors fail."""
         soup = await self._get_soup(page)
 
-        anchors = soup.select("a[href*='/job/']")
+        links = soup.select("a[href*='/job/']")
 
-        results: list[Job] = []
-        seen_job_ids: set[str] = set()
+        if not links:
+            return []
+
+        jobs: list[Job] = []
         seen_urls: set[str] = set()
+        seen_ids: set[str] = set()
 
-        for anchor in anchors[:max_jobs]:
-            href = anchor.get("href")
+        for a_tag in links[:max_jobs]:
+            href = str(a_tag.get("href", ""))
 
-            if not href:
+            if not href or "/job/" not in href:
                 continue
 
-            job_url = self._make_jpmc_job_url(source_url, str(href))
-            job_id = self._extract_jpmc_job_id_from_url(job_url)
-
-            if job_id and job_id in seen_job_ids:
-                continue
+            job_url = self._make_exl_job_url(source_url, href)
 
             if job_url in seen_urls:
                 continue
 
-            card = anchor.find_parent("li", attrs={"data-qa": "searchResultItem"})
+            seen_urls.add(job_url)
 
-            title = ""
-            location = ""
-            posted_date = ""
-            description = ""
+            job_id = self._extract_exl_job_id_from_url(job_url)
 
-            if card:
-                title = self._extract_title(card)
-                location = self._extract_location(card)
-                posted_date = self._extract_posted_date(card)
-                description = self._extract_short_description(card)
-
-            if not title:
-                title = self._clean_text(anchor.get_text())
-
-            if not title:
+            if job_id and job_id in seen_ids:
                 continue
 
             if job_id:
-                seen_job_ids.add(job_id)
+                seen_ids.add(job_id)
 
-            seen_urls.add(job_url)
+            jobs.append(Job(
+                job_id=job_id,
+                company=self.company_config.get("name", "EXL"),
+                title="",
+                location="",
+                url=job_url,
+                source_url=source_url,
+                posted_date=None,
+                description=None,
+                scraped_at=datetime.now(timezone.utc).isoformat(),
+                extracted_experience_parts="",
+            ))
 
-            results.append(
-                Job(
-                    job_id=job_id,
-                    company=self.company_config.get("name", "JPMorgan Chase"),
-                    title=title,
-                    location=location,
-                    url=job_url,
-                    source_url=source_url,
-                    posted_date=posted_date or None,
-                    description=description or None,
-                    scraped_at=datetime.now(timezone.utc).isoformat(),
-                    extracted_experience_parts="",
-                )
-            )
-
-        return results
+        return jobs

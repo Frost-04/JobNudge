@@ -74,7 +74,19 @@ async def _scrape_one(name: str, url: str, scraper, settings: dict, logger) -> _
             },
         )
     except Exception:
+        exc = sys.exc_info()[1]
         logger.exception("Scraper failed for %s", name)
+        # Distinguish common error types in the user-facing reason.
+        error_type = type(exc).__name__ if exc else "UnknownError"
+        error_msg = str(exc) if exc else ""
+        if "TargetClosedError" in error_type or "closed" in error_msg.lower():
+            reason = "browser closed unexpectedly (resource contention — page or context was killed)"
+        elif "TimeoutError" in error_type or "timeout" in error_msg.lower():
+            reason = "page load timed out (site may be slow or blocking the bot)"
+        elif "ERR_" in error_msg or "net::" in error_msg:
+            reason = "network error (DNS, connection refused, or site unreachable)"
+        else:
+            reason = "scraping error (network issue, page change, or selector mismatch)"
         return _ScrapeResult(
             company_name=name,
             company_url=url,
@@ -82,7 +94,7 @@ async def _scrape_one(name: str, url: str, scraper, settings: dict, logger) -> _
             fault={
                 "company": name,
                 "url": url,
-                "reason": "scraping error (network issue, page change, or selector mismatch)",
+                "reason": reason,
             },
         )
 
@@ -130,8 +142,22 @@ async def run() -> tuple[int, list[dict]]:
 
     logger.info("Started job scraper")
 
-    # ── Phase 1: Scrape all enabled companies in parallel ──────────────
+    # ── Phase 1: Scrape all enabled companies with bounded concurrency ──
+    #
+    # Each scraper launches its own Chromium browser (~300-500 MB RAM).  Running
+    # every scraper at once easily exhausts system memory, which causes the OS
+    # to kill browser processes → TargetClosedError cascades across scrapers.
+    #
+    # The semaphore caps how many browsers can be alive at the same time.
+    # This gives the best trade-off between speed and stability.
     enabled_companies = [c for c in companies if c.get("enabled", True)]
+    max_concurrent = int(settings.get("run", {}).get("max_concurrent_scrapers", 3))
+    sem = asyncio.Semaphore(max_concurrent)
+
+    async def _scrape_with_semaphore(name, url, scraper_obj, settings, logger):
+        async with sem:
+            return await _scrape_one(name, url, scraper_obj, settings, logger)
+
     tasks = []
     for company in enabled_companies:
         name = company.get("name", "Unknown")
@@ -140,7 +166,7 @@ async def run() -> tuple[int, list[dict]]:
         if not scraper:
             logger.warning("Skipping %s (unsupported scraper: %s)", name, company.get("scraper"))
             continue
-        tasks.append(_scrape_one(name, url, scraper, settings, logger))
+        tasks.append(_scrape_with_semaphore(name, url, scraper, settings, logger))
 
     if not tasks:
         logger.warning("No enabled companies with valid scrapers found.")

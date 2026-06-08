@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import asyncio
 import csv
+import html
 import logging
 import os
 import sys
@@ -137,10 +138,10 @@ async def _send_faulty_alert(faulty_companies: list[dict], settings: dict) -> No
     ]
 
     for f in faulty_companies:
-        lines.append(f"<b>{f['company']}</b>")
-        lines.append(f"Reason: {f['reason']}")
+        lines.append(f"<b>{html.escape(f['company'])}</b>")
+        lines.append(f"Reason: {html.escape(f['reason'])}")
         if f.get("url"):
-            lines.append(f"URL: {f['url']}")
+            lines.append(f"URL: {html.escape(f['url'])}")
         lines.append("")
 
     lines.append("<i>Check the page structure or network — selectors may need updating.</i>")
@@ -184,11 +185,11 @@ def _read_jobs_to_send(path: str) -> list[dict[str, str]]:
 
 def _format_csv_job_for_telegram(job: dict[str, str]) -> str:
     """Format a single job dict (from CSV) into a Telegram message."""
-    company = job.get("company", "Unknown").strip()
-    title = job.get("title", "Unknown").strip()
-    url = job.get("url", "").strip()
-    job_id = job.get("job_id", "").strip()
-    location = job.get("location", "").strip()
+    company = html.escape(job.get("company", "Unknown").strip())
+    title = html.escape(job.get("title", "Unknown").strip())
+    url = html.escape(job.get("url", "").strip(), quote=True)
+    job_id = html.escape(job.get("job_id", "").strip())
+    location = html.escape(job.get("location", "").strip())
 
     lines = [
         f"{ROCKET} <b>AI-Selected Job</b> {ROBOT}",

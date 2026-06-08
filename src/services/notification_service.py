@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import html
 import logging
 import os
 
@@ -77,22 +78,22 @@ def format_telegram_job_message(job: Job) -> str:
     lines = [
         f"{ROCKET} New job found",
         "",
-        f"Company: {job.company}",
-        f"Role: {job.title}",
+        f"Company: {html.escape(job.company)}",
+        f"Role: {html.escape(job.title)}",
     ]
 
     if job.job_id and job.job_id != "0":
-        lines.append(f"Job ID: {job.job_id}")
+        lines.append(f"Job ID: {html.escape(job.job_id)}")
 
     lines.extend(
         [
-            f"Location: {job.location}",
-            f"Link: {job.url}",
+            f"Location: {html.escape(job.location)}",
+            f"Link: {html.escape(job.url)}",
         ]
     )
 
     if job.extracted_experience_parts:
-        lines.extend(["", f"Experience snippets: {job.extracted_experience_parts}"])
+        lines.extend(["", f"Experience snippets: {html.escape(job.extracted_experience_parts)}"])
 
     return "\n".join(lines)
 

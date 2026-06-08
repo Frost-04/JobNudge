@@ -13,28 +13,38 @@ from src.scrapers.ciena_scraper import CienaScraper
 from src.scrapers.goldman_sachs_scraper import GoldmanSachsScraper
 from src.scrapers.google_scraper import GoogleScraper
 from src.scrapers.ibm_scraper import IbmScraper
+from src.scrapers.infineon_scraper import InfineonScraper
 from src.scrapers.intel_scraper import IntelScraper
 from src.scrapers.intuit_scraper import IntuitScraper
 from src.scrapers.jpmorganchase_scraper import JPMorganChaseScraper
 from src.scrapers.kotak_scraper import KotakScraper
 from src.scrapers.linkedin_scraper import LinkedInScraper
 from src.scrapers.meesho_scraper import MeeshoScraper
+from src.scrapers.mercari_scraper import MercariScraper
+from src.scrapers.merck_scraper import MerckScraper
 from src.scrapers.microsoft_scraper import MicrosoftScraper
+from src.scrapers.netapp_scraper import NetAppScraper
 from src.scrapers.nutanix_scraper import NutanixScraper
 from src.scrapers.nvidia_scraper import NvidiaScraper
+from src.scrapers.omnissa_scraper import OmnissaScraper
+from src.scrapers.optum_scraper import OptumScraper
 from src.scrapers.palo_alto_scraper import PaloAltoScraper
 from src.scrapers.oracle_scraper import OracleScraper
 from src.scrapers.qualcomm_scraper import QualcommScraper
 from src.scrapers.dell_scraper import DellScraper
 from src.scrapers.docusign_scraper import DocusignScraper
 from src.scrapers.ebay_scraper import EbayScraper
+from src.scrapers.ericsson_scraper import EricssonScraper
+from src.scrapers.exl_scraper import EXLScraper
 from src.scrapers.quince_scraper import QuinceScraper
 from src.scrapers.redhat_scraper import RedhatScraper
 from src.scrapers.rippling_scraper import RipplingScraper
 from src.scrapers.salesforce_scraper import SalesforceScraper
+from src.scrapers.sandisk_scraper import SandiskScraper
 from src.scrapers.servicenow_scraper import ServiceNowScraper
 from src.scrapers.stripe_scraper import StripeScraper
 from src.scrapers.target_scraper import TargetScraper
+from src.scrapers.tesco_scraper import TescoScraper
 from src.scrapers.twilio_scraper import TwilioScraper
 
 
@@ -71,14 +81,24 @@ def get_scraper(
         return LinkedInScraper(company_config, settings)
     if scraper_name == "meesho":
         return MeeshoScraper(company_config, settings)
+    if scraper_name == "mercari":
+        return MercariScraper(company_config, settings)
+    if scraper_name == "merck":
+        return MerckScraper(company_config, settings)
+    if scraper_name == "netapp":
+        return NetAppScraper(company_config, settings)
     if scraper_name == "salesforce":
         return SalesforceScraper(company_config, settings)
+    if scraper_name == "sandisk":
+        return SandiskScraper(company_config, settings)
     if scraper_name == "oracle":
         return OracleScraper(company_config, settings)
     if scraper_name == "servicenow":
         return ServiceNowScraper(company_config, settings)
     if scraper_name == "ibm":
         return IbmScraper(company_config, settings)
+    if scraper_name == "infineon":
+        return InfineonScraper(company_config, settings)
     if scraper_name == "intel":
         return IntelScraper(company_config, settings)
     if scraper_name == "intuit":
@@ -99,12 +119,22 @@ def get_scraper(
         return DocusignScraper(company_config, settings)
     if scraper_name == "ebay":
         return EbayScraper(company_config, settings)
+    if scraper_name == "ericsson":
+        return EricssonScraper(company_config, settings)
+    if scraper_name == "exl":
+        return EXLScraper(company_config, settings)
     if scraper_name == "nutanix":
         return NutanixScraper(company_config, settings)
+    if scraper_name == "omnissa":
+        return OmnissaScraper(company_config, settings)
+    if scraper_name == "optum":
+        return OptumScraper(company_config, settings)
     if scraper_name == "stripe":
         return StripeScraper(company_config, settings)
     if scraper_name == "target":
         return TargetScraper(company_config, settings)
+    if scraper_name == "tesco":
+        return TescoScraper(company_config, settings)
     if scraper_name == "twilio":
         return TwilioScraper(company_config, settings)
 
