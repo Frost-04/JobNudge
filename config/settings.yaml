@@ -23,7 +23,6 @@ notifications:
   max_jobs_per_alert: 20
 
 health_check:
-  max_sample_jobs_per_company: 5
   scraper_timeout_seconds: 300
 
 ai:

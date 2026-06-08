@@ -1,4 +1,54 @@
 companies:
+  - name: American Express
+    scraper: american_express
+    url: "https://careers.americanexpress.com/en/sites/CX_1/jobs?intlink=us-amex-career-en-us-search&lastSelectedFacet=AttributeChar6&selectedFlexFieldsFacets=%22AttributeChar6%7CTechnology%22&selectedLocationsFacet=300000000228786&sortBy=POSTING_DATES_DESC"
+    enabled: false
+
+  - name: Bloomberg
+    scraper: bloomberg
+    url: "https://bloomberg.avature.net/careers/SearchJobs/?1845=%5B162477%2C162478%2C162575%5D&1845_format=3996&2562=%5B219290%5D&2562_format=6594&listFilterMode=1&jobRecordsPerPage=12&"
+    enabled: false
+
+  - name: Cerebras Systems
+    scraper: cerebras
+    url: "https://www.cerebras.ai/open-positions?department=4046597003&office=4032901003"
+    enabled: false
+
+  - name: Apple
+    scraper: apple
+    url: "https://jobs.apple.com/en-in/search?sort=newest&location=india-INDC&team=apps-and-frameworks-SFTWR-AF+cloud-and-infrastructure-SFTWR-CLD+core-operating-systems-SFTWR-COS+devops-and-site-reliability-SFTWR-DSR+information-systems-and-technology-SFTWR-ISTECH+machine-learning-SFTWR-MCHLN+security-and-privacy-SFTWR-SEC+software-quality-automation-tools-SFTWR-SQAT+wireless-software-SFTWR-WSFT+internships-STDNT-INTRN+corporate-STDNT-CORP"
+    enabled: true
+
+  - name: Cisco
+    scraper: cisco
+    url: "https://careers.cisco.com/global/en/search-results"
+    enabled: false
+
+  - name: EverPure
+    scraper: everpure
+    url: "https://www.everpuredata.com/company/careers/opportunities.html#engineering&india&"
+    enabled: false
+
+  - name: Booking Holdings
+    scraper: booking_holdings
+    url: "https://www.bookingholdings-coe.com/bookingholdings-coe/jobs?stretchUnit=MILES&stretch=25&location=India&woe=12&regionCode=IN&categories=Engineering&page=1"
+    enabled: false
+
+  - name: Synopsys
+    scraper: synopsys
+    url: "https://careers.synopsys.com/search-jobs?k=&l=India&orgIds=44408"
+    enabled: false
+
+  - name: Expedia Group
+    scraper: expedia
+    url: "https://careers.expediagroup.com/jobs/?&filter[category]=Technology&filter[country]=India"
+    enabled: false
+
+  - name: MediaTek
+    scraper: mediatek
+    url: "https://careers.mediatek.com/en/jobs?query=&locations=9021,0000009297,0000168800&categorys=9013,9002,9020,9022"
+    enabled: false
+
   - name: Cohesity
     scraper: cohesity
     url: "https://www.cohesity.com/careers/open-positions/"
@@ -225,4 +275,19 @@ companies:
   - name: Sandisk
     scraper: sandisk
     url: "https://careers.smartrecruiters.com/Sandisk"
-    enabled: true
+    enabled: false
+
+  - name: Ixigo
+    scraper: ixigo
+    url: "https://careers.smartrecruiters.com/Ixigo"
+    enabled: false
+
+  - name: Mastercard
+    scraper: mastercard
+    url: "https://careers.mastercard.com/us/en/search-results"
+    enabled: false
+
+  - name: Visa
+    scraper: visa
+    url: "https://visa.wd5.myworkdayjobs.com/en-US/Visa?locationCountry=c4f78be1a8f14da0ab49ce1162348a5e&jobFamily=2745bc1368021016a991f65e710a3b1e&jobFamily=b7106cb62669100c686bc832c23b0000&jobFamily=2745bc1368021016a991a83acf5a3ad0&jobFamily=ad45ef80fd47018bd5538fe7856817d3&jobFamily=31f1c52f685c018679c336da4b46da8e&jobFamily=ad45ef80fd4701f3e09a4bdd856804d3&jobFamily=2745bc1368021016a991afa3ad023ada&jobFamily=2745bc1368021016a991fc4c76523b26"
+    enabled: false

@@ -230,7 +230,7 @@ async def run() -> int:
 
         # ── Phase 2: Print/output results sequentially ─────────────────
         max_samples = settings.get("health_check", {}).get(
-            "max_sample_jobs_per_company", 5
+            "max_sample_jobs_per_company", None
         )
 
         for name, jobs, error in scrape_results:
@@ -250,10 +250,11 @@ async def run() -> int:
             output.write(f"Extracted jobs: {len(jobs)}\n")
 
             if jobs:
-                print("Sample:")
-                output.write("\nSample Jobs:\n")
+                print("All jobs:")
+                output.write("\nAll Jobs:\n")
 
-                for index, job in enumerate(jobs[:max_samples], start=1):
+                jobs_to_show = jobs if max_samples is None else jobs[:max_samples]
+                for index, job in enumerate(jobs_to_show, start=1):
                     job_id_suffix = (
                         f" | {job.job_id}"
                         if job.job_id and job.job_id != "0"

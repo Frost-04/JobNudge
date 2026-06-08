@@ -4,7 +4,14 @@ import logging
 from typing import Any
 
 from src.scrapers.airbnb_scraper import AirbnbScraper
+from src.scrapers.american_express_scraper import AmericanExpressScraper
+from src.scrapers.apple_scraper import AppleScraper
 from src.scrapers.arista_scraper import AristaScraper
+from src.scrapers.bloomberg_scraper import BloombergScraper
+from src.scrapers.booking_holdings_scraper import BookingHoldingsScraper
+from src.scrapers.cerebras_scraper import CerebrasScraper
+from src.scrapers.cisco_scraper import CiscoScraper
+from src.scrapers.mediatek_scraper import MediatekScraper
 from src.scrapers.amd_scraper import AmdScraper
 from src.scrapers.amazon_scraper import AmazonScraper
 from src.scrapers.base_scraper import BaseScraper
@@ -16,10 +23,12 @@ from src.scrapers.ibm_scraper import IbmScraper
 from src.scrapers.infineon_scraper import InfineonScraper
 from src.scrapers.intel_scraper import IntelScraper
 from src.scrapers.intuit_scraper import IntuitScraper
+from src.scrapers.ixigo_scraper import IxigoScraper
 from src.scrapers.jpmorganchase_scraper import JPMorganChaseScraper
 from src.scrapers.kotak_scraper import KotakScraper
 from src.scrapers.linkedin_scraper import LinkedInScraper
 from src.scrapers.meesho_scraper import MeeshoScraper
+from src.scrapers.mastercard_scraper import MastercardScraper
 from src.scrapers.mercari_scraper import MercariScraper
 from src.scrapers.merck_scraper import MerckScraper
 from src.scrapers.microsoft_scraper import MicrosoftScraper
@@ -35,6 +44,8 @@ from src.scrapers.dell_scraper import DellScraper
 from src.scrapers.docusign_scraper import DocusignScraper
 from src.scrapers.ebay_scraper import EbayScraper
 from src.scrapers.ericsson_scraper import EricssonScraper
+from src.scrapers.everpure_scraper import EverpureScraper
+from src.scrapers.expedia_scraper import ExpediaScraper
 from src.scrapers.exl_scraper import EXLScraper
 from src.scrapers.quince_scraper import QuinceScraper
 from src.scrapers.redhat_scraper import RedhatScraper
@@ -43,9 +54,11 @@ from src.scrapers.salesforce_scraper import SalesforceScraper
 from src.scrapers.sandisk_scraper import SandiskScraper
 from src.scrapers.servicenow_scraper import ServiceNowScraper
 from src.scrapers.stripe_scraper import StripeScraper
+from src.scrapers.synopsys_scraper import SynopsysScraper
 from src.scrapers.target_scraper import TargetScraper
 from src.scrapers.tesco_scraper import TescoScraper
 from src.scrapers.twilio_scraper import TwilioScraper
+from src.scrapers.visa_scraper import VisaScraper
 
 
 def get_scraper(
@@ -55,6 +68,20 @@ def get_scraper(
 
     if scraper_name == "airbnb":
         return AirbnbScraper(company_config, settings)
+    if scraper_name == "apple":
+        return AppleScraper(company_config, settings)
+    if scraper_name == "american_express":
+        return AmericanExpressScraper(company_config, settings)
+    if scraper_name == "bloomberg":
+        return BloombergScraper(company_config, settings)
+    if scraper_name == "booking_holdings":
+        return BookingHoldingsScraper(company_config, settings)
+    if scraper_name == "cerebras":
+        return CerebrasScraper(company_config, settings)
+    if scraper_name == "cisco":
+        return CiscoScraper(company_config, settings)
+    if scraper_name == "mediatek":
+        return MediatekScraper(company_config, settings)
     if scraper_name == "arista":
         return AristaScraper(company_config, settings)
     if scraper_name == "cohesity":
@@ -81,6 +108,8 @@ def get_scraper(
         return LinkedInScraper(company_config, settings)
     if scraper_name == "meesho":
         return MeeshoScraper(company_config, settings)
+    if scraper_name == "mastercard":
+        return MastercardScraper(company_config, settings)
     if scraper_name == "mercari":
         return MercariScraper(company_config, settings)
     if scraper_name == "merck":
@@ -103,6 +132,8 @@ def get_scraper(
         return IntelScraper(company_config, settings)
     if scraper_name == "intuit":
         return IntuitScraper(company_config, settings)
+    if scraper_name == "ixigo":
+        return IxigoScraper(company_config, settings)
     if scraper_name == "qualcomm":
         return QualcommScraper(company_config, settings)
     if scraper_name == "goldman_sachs":
@@ -121,6 +152,10 @@ def get_scraper(
         return EbayScraper(company_config, settings)
     if scraper_name == "ericsson":
         return EricssonScraper(company_config, settings)
+    if scraper_name == "expedia":
+        return ExpediaScraper(company_config, settings)
+    if scraper_name == "everpure":
+        return EverpureScraper(company_config, settings)
     if scraper_name == "exl":
         return EXLScraper(company_config, settings)
     if scraper_name == "nutanix":
@@ -131,12 +166,16 @@ def get_scraper(
         return OptumScraper(company_config, settings)
     if scraper_name == "stripe":
         return StripeScraper(company_config, settings)
+    if scraper_name == "synopsys":
+        return SynopsysScraper(company_config, settings)
     if scraper_name == "target":
         return TargetScraper(company_config, settings)
     if scraper_name == "tesco":
         return TescoScraper(company_config, settings)
     if scraper_name == "twilio":
         return TwilioScraper(company_config, settings)
+    if scraper_name == "visa":
+        return VisaScraper(company_config, settings)
 
     logging.getLogger("job_alert_bot").warning(
         "Unsupported scraper: %s", company_config.get("scraper")
