@@ -24,8 +24,9 @@ Cisco                   done
 Qualcomm                done
 Quince                  done
 Docusign                done
+UIPath                  
 
-Meta Platforms
+Meta Platforms          done
 Apple                   done
 NVIDIA                  done
 Intel                   done
@@ -50,7 +51,7 @@ Shopify
 Zoho Corporation
 Freshworks
 Nutanix                     done
-InMobi
+InMobi                      done
 Meesho                      done
 Swiggy
 Zomato
@@ -87,6 +88,7 @@ American Express            done
 Rippling                    done
 Bloomberg                   done
 Target                      done
+Lowe's                      done
 eBay                        done
 Yahoo
 Indeed
@@ -117,32 +119,36 @@ omnissa                     done
 tesco                       done
 sandisk                     done
 ixigo                       done
-western digital
-samsung
-pega
-porter
-bosch
-augnito
-concert ai
+western digital             done
+samsung                     done
+pega                        cloudflare protection
+mobisy / bizom              trash website
+porter                      cant find openings
+bosch                       slow website
+augnito                     no software openings
+concert ai                  done
 angel one
 analog devices
 ampere
-micron
-scapia
+micron                      mostly hardware roles
+scapia                      done
 publicis sapient
-outmarket ai
-wells fargo
-natoma
-data weave
-deel
+outmarket ai                done
+wells fargo                 done
+natoma                      no jobs available
+data weave                  no jobs available
+deel                        done
 dp world
 de shaw co
-arcesium
-arm
+arcesium                    done
+arm                         done
 icici
-hpe
-media.net
-thought spot
-siemens
-morgan stanley
+hpe                         done
+media.net                   cant see openings check later
+thought spot                done
+siemens                     done
+morgan stanley                  
 optum                       done
+MakeMyTrip                  done
+ClearTrip                   cant see openings
+notion                      done

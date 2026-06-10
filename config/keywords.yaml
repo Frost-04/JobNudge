@@ -55,6 +55,9 @@ auto_reject:
     - head
     - vice president
     - vp
+    - expert
+    - phd
+    - mba
   # Year-pattern rejection: job descriptions mentioning "X+ years", "X years",
   # "X-year", "X+year" etc. where X is between 2 and 20 (inclusive) are
   # rejected.  Patterns like "0-2 years" are NOT rejected because the

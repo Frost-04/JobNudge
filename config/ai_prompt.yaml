@@ -36,12 +36,12 @@ prompt: |
   - The experience requirement cannot be confidently determined from the description.
 
   Decision policy:
-  - When uncertain, EXCLUDE the job.
-  - When qualification requirements are ambiguous, EXCLUDE the job.
-  - When the description is missing, empty, or only contains generic company boilerplate, EXCLUDE the job.
+  - When uncertain, INCLUDE the job.
+  - When qualification requirements are ambiguous, INCLUDE the job.
+  - When the description is missing, empty, or only contains generic company boilerplate, INCLUDE the job.
   - When multiple interpretations are possible, choose the interpretation LEAST favorable to fresher eligibility (be conservative).
   - Include ONLY when the description clearly and unambiguously confirms fresher eligibility.
-  - Use the description as the primary source of truth. If the description provides no useful signal about experience requirements, EXCLUDE.
+  - Use the description as the primary source of truth. If the description provides no useful signal about experience requirements, INCLUDE.
 
   Output:
   Return ONLY a valid JSON array of matching job_id values.

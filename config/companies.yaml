@@ -17,7 +17,7 @@ companies:
   - name: Apple
     scraper: apple
     url: "https://jobs.apple.com/en-in/search?sort=newest&location=india-INDC&team=apps-and-frameworks-SFTWR-AF+cloud-and-infrastructure-SFTWR-CLD+core-operating-systems-SFTWR-COS+devops-and-site-reliability-SFTWR-DSR+information-systems-and-technology-SFTWR-ISTECH+machine-learning-SFTWR-MCHLN+security-and-privacy-SFTWR-SEC+software-quality-automation-tools-SFTWR-SQAT+wireless-software-SFTWR-WSFT+internships-STDNT-INTRN+corporate-STDNT-CORP"
-    enabled: true
+    enabled: false
 
   - name: Cisco
     scraper: cisco
@@ -123,6 +123,11 @@ companies:
   - name: Nutanix
     scraper: nutanix
     url: "https://careers.nutanix.com/en/jobs/?search=&country=India&team=Engineering&type=Full-Time&type=New+Grad&type=Fixed-Term+Contract&type=Talent+Community&pagesize=20#results"
+    enabled: false
+
+  - name: Outmarket AI
+    scraper: outmarket_ai
+    url: "https://outmarket.ai/careers"
     enabled: false
 
   - name: Optum
@@ -282,9 +287,114 @@ companies:
     url: "https://careers.smartrecruiters.com/Ixigo"
     enabled: false
 
+  - name: Wells Fargo
+    scraper: wells_fargo
+    url: "https://www.wellsfargojobs.com/en/jobs/?country=India&team=Technology&pagesize=20#results"
+    enabled: false
+
+  - name: Western Digital
+    scraper: western_digital
+    url: "https://careers.smartrecruiters.com/WesternDigital"
+    enabled: false
+
+  - name: Meta
+    scraper: meta
+    url: "https://www.metacareers.com/jobsearch?sort_by_new=true&teams[0]=University%20Grad%20-%20Engineering%2C%20Tech%20%26%20Design&teams[1]=Software%20Engineering&teams[2]=Artificial%20Intelligence&offices[0]=Mumbai%2C%20India&offices[1]=Gurgaon%2C%20India&offices[2]=Bangalore%2C%20India&offices[3]=Hyderabad%2C%20India&offices[4]=New%20Delhi%2C%20India&roles[0]=Full%20time%20employment&roles[1]=Internship"
+    enabled: false
+
+  - name: InMobi
+    scraper: inmobi
+    url: "https://job-boards.greenhouse.io/inmobi?offices%5B%5D=84644&departments%5B%5D=88449&departments%5B%5D=288376&departments%5B%5D=77827&departments%5B%5D=77798"
+    enabled: false
+
+  - name: Rubrik
+    scraper: rubrik
+    urls:
+      - "https://www.rubrik.com/company/careers/departments/engineering"
+      - "https://www.rubrik.com/company/careers/departments/information-technology-services"
+    enabled: false
+
+  - name: Samsung
+    scraper: samsung
+    url: "https://sec.wd3.myworkdayjobs.com/Samsung_Careers?locations=0c974e8c1228010867596ab21b3c3469"
+    enabled: false
+
+  - name: Lowe's
+    scraper: lowes
+    url: "https://talent.lowes.com/in/en/search-results?qcountry=India"
+    enabled: false
+
   - name: Mastercard
     scraper: mastercard
     url: "https://careers.mastercard.com/us/en/search-results"
+    enabled: false
+
+  - name: ThoughtSpot
+    scraper: thoughtspot
+    url: "https://thoughtspot.wd5.myworkdayjobs.com/careers?locations=939fa72d127c102407550fd31fc20000&locations=939fa72d127c10240754e9ffc8580000&locations=939fa72d127c102407550c3724bc0000&jobFamilyGroup=a925daa791b71000f87f035c7ae20000"
+    enabled: false
+
+  - name: Siemens
+    scraper: siemens
+    url: "https://jobs.siemens.com/en_US/externaljobs/SearchJobs/software?42386=%5B812053%5D&42386_format=17546&42389=%5B102127%5D&42389_format=17549&listFilterMode=1&folderSort=postedDate&folderSortDirection=ASC&folderRecordsPerPage=6&"
+    enabled: false
+
+  - name: MakeMyTrip
+    scraper: makemytrip
+    url: "https://careers.makemytrip.com/prod/jobs"
+    enabled: false
+
+  - name: HPE
+    scraper: hpe
+    url: "https://careers.hpe.com/us/en/search-results"
+    enabled: false
+
+  - name: Arcesium
+    scraper: arcesium
+    url: "https://www.arcesium.com/careers#open-positions"
+    enabled: false
+
+  - name: ARM
+    scraper: arm
+    url: "https://careers.arm.com/search-jobs"
+    enabled: true
+
+  - name: Concert AI
+    scraper: concert_ai
+    url: "https://careers.concertai.com/us/en/search-results"
+    filter_location: "India"
+    enabled: false
+
+  - name: Scapia
+    scraper: scapia
+    url: "https://scapia.freshteam.com/jobs?location=[]&department=[%226000203002%22]&jobType=[]&title=&isRemoteLocation=false"
+    enabled: false
+
+  - name: Deel
+    scraper: deel
+    url: "https://www.deel.com/careers/?location=india&department=engineering"
+    enabled: false
+
+  - name: Notion
+    scraper: notion
+    urls:
+      - "https://www.notion.com/careers?location=hyderabad-india&department=engineering#open-positions"
+      - "https://www.notion.com/careers?location=hyderabad-india&department=engineering-early-career#open-positions"
+    enabled: false
+
+  - name: BlackRock
+    scraper: blackrock
+    url: "https://careers.blackrock.com/location/india-jobs/45831/1269750/2"
+    filter_teams:
+      - Engineering
+      - Technology
+    enabled: false
+
+  - name: UiPath
+    scraper: uipath
+    url: "https://www.uipath.com/careers/jobs"
+    search_keyword: "India"
+    filter_department: "Engineering"
     enabled: false
 
   - name: Visa
