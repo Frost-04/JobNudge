@@ -24,7 +24,7 @@ Cisco                   done
 Qualcomm                done
 Quince                  done
 Docusign                done
-UIPath                  
+UIPath                  done
 
 Meta Platforms          done
 Apple                   done
@@ -63,13 +63,13 @@ ShareChat
 Gojek
 
 Palantir Technologies
-Rubrik
+Rubrik                  done
 Confluent
 Elastic
 Okta
 Palo Alto Networks          done
 CrowdStrike
-Pure Storage
+Pure Storage                done
 Arista Networks             done
 Synopsys                    done
 Cadence Design Systems
@@ -97,12 +97,13 @@ Indeed
 companies from minds
 
 SLB labs?
-mediatek                    
+mediatek                    done
 axtria
 akamai
 HSBC
 kotak                       done
 cohesity                    done
+blackrock                   done
 IBM                         done
 cerebras                    done
 ciena                       done
@@ -112,7 +113,7 @@ mercari                     done
 infineon                    done
 math work                   AKAMAI BOT!
 netapp                      done
-harness
+harness 
 merck                       done
 applied materials           a lot of other engg roles (mech electrical)
 omnissa                     done
@@ -127,18 +128,18 @@ porter                      cant find openings
 bosch                       slow website
 augnito                     no software openings
 concert ai                  done
-angel one
+angel one                   no openings available
 analog devices
-ampere
+ampere  
 micron                      mostly hardware roles
 scapia                      done
-publicis sapient
+publicis sapient            done
 outmarket ai                done
 wells fargo                 done
 natoma                      no jobs available
 data weave                  no jobs available
 deel                        done
-dp world
+dp world                    done
 de shaw co
 arcesium                    done
 arm                         done

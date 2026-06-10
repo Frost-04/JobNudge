@@ -48,11 +48,13 @@ from src.scrapers.nvidia_scraper import NvidiaScraper
 from src.scrapers.omnissa_scraper import OmnissaScraper
 from src.scrapers.optum_scraper import OptumScraper
 from src.scrapers.outmarket_ai_scraper import OutmarketAIScraper
+from src.scrapers.publicis_sapient_scraper import PublicisSapientScraper
 from src.scrapers.palo_alto_scraper import PaloAltoScraper
 from src.scrapers.oracle_scraper import OracleScraper
 from src.scrapers.qualcomm_scraper import QualcommScraper
 from src.scrapers.deel_scraper import DeelScraper
 from src.scrapers.dell_scraper import DellScraper
+from src.scrapers.dp_world_scraper import DPWorldScraper
 from src.scrapers.docusign_scraper import DocusignScraper
 from src.scrapers.ebay_scraper import EbayScraper
 from src.scrapers.ericsson_scraper import EricssonScraper
@@ -194,6 +196,8 @@ def get_scraper(
         return DellScraper(company_config, settings)
     if scraper_name == "deel":
         return DeelScraper(company_config, settings)
+    if scraper_name == "dp_world":
+        return DPWorldScraper(company_config, settings)
     if scraper_name == "docusign":
         return DocusignScraper(company_config, settings)
     if scraper_name == "ebay":
@@ -214,6 +218,8 @@ def get_scraper(
         return OmnissaScraper(company_config, settings)
     if scraper_name == "outmarket_ai":
         return OutmarketAIScraper(company_config, settings)
+    if scraper_name == "publicis_sapient":
+        return PublicisSapientScraper(company_config, settings)
     if scraper_name == "optum":
         return OptumScraper(company_config, settings)
     if scraper_name == "siemens":

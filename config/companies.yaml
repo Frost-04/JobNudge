@@ -354,6 +354,16 @@ companies:
     url: "https://www.arcesium.com/careers#open-positions"
     enabled: false
 
+  - name: Publicis Sapient
+    scraper: publicis_sapient
+    url: "https://careers.publicissapient.com/job-search?country=India&teams=Technology%20and%20Engineering"
+    enabled: false
+
+  - name: DP World
+    scraper: dp_world
+    url: "https://ehpv.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs?keyword=software+development+engineer&lastSelectedFacet=TITLES&mode=location&selectedLocationsFacet=300000000273955&selectedTitlesFacet=DPW_INFORMATION_TECH%3BDPW_ENGINEERING&sortBy=POSTING_DATES_DESC"
+    enabled: false
+
   - name: ARM
     scraper: arm
     url: "https://careers.arm.com/search-jobs"

@@ -16,83 +16,223 @@ PLAYWRIGHT: PASS
 == Scrapers ==
 - Starting company scrapers (parallel)
 
-BlackRock
----------
-Extracted jobs: 5
+ARM
+---
+Extracted jobs: 15
 
 All Jobs:
 
 [1]
 Job(
-  job_id='93947096912',
-  company='BlackRock',
-  title='DevOps Engineer | Engineering Team Manager , Vice President',
-  location='Mumbai, Maharashtra',
-  url='https://careers.blackrock.com/job/mumbai/devops-engineer-engineering-team-manager-vice-president/45831/93947096912',
-  source_url='https://careers.blackrock.com/location/india-jobs/45831/1269750/2',
-  posted_date='',
+  job_id='96199783792',
+  company='ARM',
+  title='Senior DevOps/Automation Engineer',
+  location='Bengaluru, India',
+  url='https://careers.arm.com/job/bengaluru/senior-devops-automation-engineer/33099/96199783792',
+  source_url='https://careers.arm.com/search-jobs',
+  posted_date=None,
   description=None,
-  scraped_at='2026-06-10T14:06:41.401915+00:00',
+  scraped_at='2026-06-10T14:52:49.018559+00:00',
   extracted_experience_parts='',
 )
 
 [2]
 Job(
-  job_id='85990357184',
-  company='BlackRock',
-  title='Java Backend Engineer, Aladdin Engineering, Vice President',
-  location='Mumbai, Maharashtra',
-  url='https://careers.blackrock.com/job/mumbai/java-backend-engineer-aladdin-engineering-vice-president/45831/85990357184',
-  source_url='https://careers.blackrock.com/location/india-jobs/45831/1269750/2',
-  posted_date='',
-  description='<p style="text-align:left"><b>About this role</b></p><p style="text-align:inherit"></p><p style="text-align:inherit"></p>About this role Are you interested in building innovative technology that shapes the financial markets? Do you like working at the speed of a startup, but want to solve some of the world’s most complex problems? Do you want to work with, and learn from, hands-on leaders in technology and finance? At BlackRock, we are looking for Software Engineers who like to innovate and solve complex problems. We recognize that strength comes from diversity, and will embrace your unique skills, curiosity, drive, and passion while giving you the opportunity to grow technically and as an individual. With over USD $10 trillion of assets, we have an exceptional responsibility: our technology empowers millions of investors to save for retirement, pay for college, buy a home and improve their financial wellbeing. Being a developer at BlackRock means you get the best of both worlds: working for one of the most advanced financial companies and being part of a software development team responsible for next generation technology and solutions. What is Aladdin Engineering? Our development team\'s sit inside Aladdin Engineering. We collaboratively build the next generation technology that changes the way information, people, and technology intersect for global investment firms. We build and package tools that manage trillions in assets and support millions of financial instruments. We perform risk calculations and process millions of transactions for thousands of users every day worldwide. Which team will you be in? You will be working as a key member of our core Private Markets technology team. Your team is part of the wider team responsible for engineering our cloud-first Private Markets platform using a microservice architecture. This platform supports hundreds of client businesses, managing and analysing their portfolios. Example projects range from permissions management, document management, and business-facing investment services. Being a member of Aladdin Engineering you will be: Tenacious: Work in a fast paced and highly complex environment Creative thinker: Analyse multiple solutions and deploy technologies in a flexible way. Great teammate: Think and work collaboratively and communicate effectively. Fast learner: Pick up new concepts and apply them quickly. Responsibilities: Be inquisitive, enthusiastic and open to quickly learning the business and our systems. Design, develop, and implement secure, scalable, and reliable micro-services to deliver client-facing applications built on Java technologies, using both REST and gRPC where required. Contribute to individual project priorities, deadlines and deliverables using AGILE methodologies. Deliver highly efficient, highly available, concurrent and fault tolerant software systems. Work with your team, product management and business users to deliver the roadmap for the product. Design and develop innovative solutions to complex problems, identifying issues and roadblocks. To get involved in the wider organization beyond the team and become an integral part of the wider Aladdin Engineering organization. Qualifications: 8+ years hands-on experience in Java/Spring Framework/Spring Boot Experience of Java 17+ preferable. Experience designing and building scalable micro-services using API-First principles using at least one of REST/gRPC. Exposure to Open Container Initiative (OCI) container packaging and runtime, Cloud-Native distributed containerized microservice orchestration and cloud services is beneficial. Experience in message brokers such as Real-time distributed event streaming platform is a plus. Demonstrable experience building modern software using engineering tools such as git, maven, unit testing and integration testing tools, mocking frameworks. Effective communication and presentation skills (written and verbal) are required. A real-world practitioner of OO development coupled with an understanding of applying standard Design Patterns to your software design. Strong analytical problem-solving skills with an ability to pick up new concepts quickly. Friendly, positive and can-do attitude. Bachelor or Master\'s Degree in Computer Science or Engineering preferred.<p style="text-align:inherit"></p><p style="text-align:left"><b><span>Our benefits</span></b><br><br><span>To help you stay energized, engaged and inspired, we offer a wide range of benefits including a strong retirement plan, tuition reimbursement, comprehensive healthcare, support for working parents and Flexible Time Off (FTO) so you can relax, recharge and be there for the people you care about.</span></p><p style="text-align:inherit"></p><p style="text-align:inherit"></p><p style="text-align:left"><b>Our hybrid work model</b></p><p style="text-align:inherit"></p><p style="text-align:left">BlackRock’s hybrid work model is designed to enable a culture of collaboration and apprenticeship tha...',
-  scraped_at='2026-06-10T14:06:46.587413+00:00',
+  job_id='94812113808',
+  company='ARM',
+  title='Senior Software Engineer - Linux Kernel',
+  location='Bengaluru, India',
+  url='https://careers.arm.com/job/bengaluru/senior-software-engineer-linux-kernel/33099/94812113808',
+  source_url='https://careers.arm.com/search-jobs',
+  posted_date=None,
+  description=None,
+  scraped_at='2026-06-10T14:52:49.018559+00:00',
   extracted_experience_parts='',
 )
 
 [3]
 Job(
-  job_id='84737016816',
-  company='BlackRock',
-  title='ServiceNow Architect/Solution Architect, Vice President',
-  location='Gurgaon, Haryana',
-  url='https://careers.blackrock.com/job/gurgaon/servicenow-architect-solution-architect-vice-president/45831/84737016816',
-  source_url='https://careers.blackrock.com/location/india-jobs/45831/1269750/2',
-  posted_date='',
-  description='<p style="text-align:left"><b>About this role</b></p><p style="text-align:inherit"></p><p style="text-align:inherit"></p><p><b>Key Responsibilities:</b></p><p>The HSE Technology Lead is responsible for the strategic and operational management of technology platforms that support the Health, Safety and Environment (HSE) function. This includes serving as the system owner and administrator for the HSE instance of ServiceNow, managing assistive and emergency technologies, and overseeing other HSE-related digital platforms. The ideal candidate will bridge the gap between business needs and technical solutions, ensuring systems are secure, efficient, and aligned with organizational goals.</p><p></p><p><b>ServiceNow HSE Module</b></p><ul><li><p>Serve as the primary administrator and authority for the HSE instance of ServiceNow.</p></li><li><p>Gather and summarize new business requirements and system modification requests.</p></li><li><p>Collaborate with developers to design, test, and implement system enhancements.</p></li><li><p>Conduct quality assurance (QA) testing for new features and updates.</p></li><li><p>Manage user roles, permissions, and recertification processes.</p></li><li><p>Monitor system performance and ensure smooth day-to-day operations.</p></li><li><p>Participate in disaster recovery planning and testing.</p></li><li><p>Coordinate and support system upgrades and patching activities.</p></li></ul><p></p><p><b>Technology Program Oversight</b></p><ul><li><p>Lead the management of the organization’s assistive technology program, ensuring accessibility and compliance.</p></li><li><p>Oversee emergency technology systems, including automated external defibrillators (AEDs), ensuring readiness and maintenance.</p></li><li><p>Administer and maintain other HSE-related subscription platforms, ensuring data integrity, user access, and vendor coordination.</p></li></ul><p></p><p><b>Cross-Functional Collaboration</b></p><ul><li><p>Act as a liaison between HSE, Technology, and other business units to align technology solutions with organizational needs.</p></li><li><p>Offer training and support to end-users and collaborators.</p></li><li><p>Develop and maintain documentation, including system configurations, workflows, and user guides.</p></li></ul><p></p><p><b>Skills/Qualifications:</b></p><ul><li><p>Bachelor’s degree in Information Technology, Environmental Health &amp; Safety, or a related field.</p></li><li><p>10+ years of experience in ServiceNow Architecture, ServiceNow Solution Architecture, ServiceNow Development, systems management or enterprise IT systems administration.</p></li><li><p>Experience with ServiceNow administration and configuration is required.</p></li><li><p>Good understanding of HSE operations and system needs</p></li><li><p>Proficiency in system administration, user access management, and QA testing.</p></li><li><p>Excellent analytical, problem-solving, and communication skills.</p></li><li><p>Ability to manage multiple projects and priorities in a fast-paced environment.</p></li><li><p>Familiarity with assistive and emergency technologies.</p></li><li><p>Experience working effectively in a matrix organization</p></li></ul><p style="text-align:inherit"></p><p style="text-align:left"><b><span>Our benefits</span></b><br><br><span>To help you stay energized, engaged and inspired, we offer a wide range of benefits including a strong retirement plan, tuition reimbursement, comprehensive healthcare, support for working parents and Flexible Time Off (FTO) so you can relax, recharge and be there for the people you care about.</span></p><p style="text-align:inherit"></p><p style="text-align:inherit"></p><p style="text-align:left"><b>Our hybrid work model</b></p><p style="text-align:inherit"></p><p style="text-align:left">BlackRock’s hybrid work model is designed to enable a culture of collaboration and apprenticeship that enriches the experience of our employees, while supporting flexibility for all. Employees are currently required to work at least 4 days in the office per week, with the flexibility to work from home 1 day a week. Some business groups may require more time in the office due to their roles and responsibilities. We remain focused on increasing the impactful moments that arise when we work together in person – aligned with our commitment to performance and innovation. As a new joiner, you can count on this hybrid model to accelerate your learning and onboarding experience here at BlackRock.</p><p style="text-align:inherit"></p><p style="text-align:inherit"></p><p style="text-align:left"><b>About BlackRock</b></p><p style="text-align:inherit"></p><p style="text-align:left">At BlackRock, we are all connected by one mission: to help more and more people experience financial well-being. &nbsp;Our clients, and the people they serve, are saving for retirement, paying for their children’s educations, buying homes and starting businesses. Their investments also help to strengthen the gl...',
-  scraped_at='2026-06-10T14:06:50.956045+00:00',
+  job_id='95839452256',
+  company='ARM',
+  title='Staff/Principal Validation Engineer',
+  location='Bengaluru, India',
+  url='https://careers.arm.com/job/bengaluru/staff-principal-validation-engineer/33099/95839452256',
+  source_url='https://careers.arm.com/search-jobs',
+  posted_date=None,
+  description=None,
+  scraped_at='2026-06-10T14:52:49.018559+00:00',
   extracted_experience_parts='',
 )
 
 [4]
 Job(
-  job_id='91402735152',
-  company='BlackRock',
-  title='Full Stack Engineer (Java/React), Aladdin Engineering, Vice President',
-  location='Gurgaon, Haryana',
-  url='https://careers.blackrock.com/job/gurgaon/full-stack-engineer-java-react-aladdin-engineering-vice-president/45831/91402735152',
-  source_url='https://careers.blackrock.com/location/india-jobs/45831/1269750/2',
-  posted_date='',
-  description='<p style="text-align:left"><b>About this role</b></p><p style="text-align:inherit"></p><p style="text-align:inherit"></p><p><b>Job Description</b></p><p>Are you interested in building innovative technology that crafts financial markets? Do you like working at the speed of a startup, and solving some of the world’s most exciting challenges? Do you want to work with, and learn from, hands-on leaders in technology and finance?&nbsp;</p><p>At BlackRock, we are looking for Software Engineers who like to innovate and solve sophisticated problems. We recognize that strength comes from diversity, and will embrace your outstanding skills, curiosity, and passion while giving you the opportunity to grow technically and as an individual.&nbsp;</p><p></p><p>We invest and protect over $11 trillion (USD) of assets and have an extraordinary responsibility to our clients all over the world. Our technology empowers millions of investors to save for retirement, pay for college, buy a home, and improve their financial well-being.&nbsp;</p><p>Being a technologist at BlackRock means you get the best of both worlds: working for one of the most sophisticated financial companies and being part of a software development team responsible for next generation technology and solutions.&nbsp;</p><p></p><p><b>What are Aladdin and Trading Engineering?</b></p><ul><li><p>You will be working on BlackRock\'s investment operating system called Aladdin. Aladdin is used both internally within BlackRock and externally by many financial institutions. Aladdin combines sophisticated risk analytics with comprehensive portfolio management, trading, and operations tools on a single platform to power informed decision-making and create a connective tissue for thousands of users investing worldwide.&nbsp;</p></li></ul><ul><li><p>Our development teams are embedded within the Trading Engineering group. Together, we drive the evolution of trading technology that transforms how Aladdin interacts across global investment firms. We design and deliver applications that enable the seamless execution of trades, support a wide range of trading workflows, and handle millions of orders passing through our systems every day. By supporting mission-critical trading applications, we empower thousands of users worldwide to efficiently manage and execute trades on behalf of clients, ensuring speed, accuracy, and reliability at scale.&nbsp;</p></li></ul><p></p><p><b>Being a member of Trading Engineering, you will be:</b></p><ul><li><p>Tenacious: Work in a fast paced and highly complex environment&nbsp;</p></li></ul><ul><li><p>Creative thinker: Analyze multiple solutions and deploy technologies in a flexible way.&nbsp;</p></li></ul><ul><li><p>Great teammate: Think and work collaboratively and communicate effectively.&nbsp;</p></li></ul><ul><li><p>Fast learner: Pick up new concepts and apply them quickly.&nbsp;</p></li></ul><ul><li><p>Show Initiative: Demonstrate your proactive attitude by identifying opportunities for improvement and acting on them<b>.</b></p></li></ul><p></p><p><b>Qualifications:</b></p><ul><li><p>B.E./ B.TECH./ MCA or any other relevant engineering degree from a reputed university.&nbsp;</p></li></ul><ul><li><p>7+ years of experience&nbsp;</p></li></ul><p></p><p><b>Skills and Experience:</b></p><ul><li><p>Proven experience leading and managing a team of four or more engineers&nbsp;&nbsp;</p></li></ul><ul><li><p>Fostering a collaborative environment and driving projects to successful completion.&nbsp;&nbsp;</p></li></ul><ul><li><p>Strong leadership and mentorship skills are essential to guide team members and support their professional growth.&nbsp;</p></li></ul><ul><li><p>The candidate is expected to actively participate in coding while also providing effective leadership and management to team members.&nbsp;</p></li></ul><ul><li><p>7+ years of experience in full stack software development using Java 17+ and JavaScript related technologies (React Preferred).&nbsp;</p></li></ul><ul><li><p>Strong knowledge of Data Structures, Object Oriented Programing concepts and design patterns.&nbsp;</p></li></ul><ul><li><p>Experience working with Spring Framework and Spring Boot web services.&nbsp;</p></li></ul><ul><li><p>Experience working with Rest APIs and GraphQL is a plus.&nbsp;&nbsp;</p></li></ul><ul><li><p>Strong knowledge of Open-Source technology stack (Spring, Hibernate, JPA, Maven, JUnit, Kafka, Ignite etc.).&nbsp;</p></li></ul><ul><li><p>Demonstrate an ability to build real-time applications or apps that process large volumes of data yet remain highly responsive even in high-latency environments.&nbsp;</p></li></ul><ul><li><p>Experience working with end users, and UX designers when building user interfaces.&nbsp;</p></li></ul><ul><li><p>Exposure to the whole web stack, including protocols, web client server performance tuning and optimization techniques.&nbsp;</p></li></ul><ul><li><p>Experience with the <b>Agile SDLC</b>, with a quality-first mindset and high...',
-  scraped_at='2026-06-10T14:06:55.391987+00:00',
+  job_id='95839451184',
+  company='ARM',
+  title='Staff Firmware Engineer - Memory Subsystem Lead',
+  location='Bengaluru, India',
+  url='https://careers.arm.com/job/bengaluru/staff-firmware-engineer-memory-subsystem-lead/33099/95839451184',
+  source_url='https://careers.arm.com/search-jobs',
+  posted_date=None,
+  description=None,
+  scraped_at='2026-06-10T14:52:49.018559+00:00',
   extracted_experience_parts='',
 )
 
 [5]
 Job(
-  job_id='91898124672',
-  company='BlackRock',
-  title='Application Engineer, Vice President',
-  location='Mumbai, Maharashtra',
-  url='https://careers.blackrock.com/job/mumbai/application-engineer-vice-president/45831/91898124672',
-  source_url='https://careers.blackrock.com/location/india-jobs/45831/1269750/2',
-  posted_date='',
-  description='<p style="text-align:left"><b>About this role</b></p><p style="text-align:inherit"></p><p style="text-align:inherit"></p><p><b>About this role</b></p><p></p><p>Are you interested in building innovative technology that crafts the financial markets? Do you like working at the speed of a startup, and solving some of the world’s most exciting challenges? Do you want to work with, and learn from, hands-on leaders in technology and finance?</p><p>At BlackRock, we are looking for Software Engineers who like to innovate and solve sophisticated problems. We recognize that strength comes from diversity, and will embrace your outstanding skills, curiosity, and passion while giving you the opportunity to grow technically and as an individual.</p><p>We invest and protect over $11 trillion (USD) of assets and have an extraordinary responsibility to our clients all over the world. Our technology empowers millions of investors to save for retirement, pay for college, buy a home, and improve their financial well-being.</p><p>Being a technologist at BlackRock means you get the best of both worlds: working for one of the most sophisticated financial companies and being part of a software development team responsible for next generation technology and solutions.</p><p></p><p><b>What are Aladdin and Aladdin Engineering?</b></p><ul><li><p>You will be working on BlackRock\'s investment operating system called Aladdin. Aladdin is used both internally within BlackRock and externally by many financial institutions. Aladdin combines sophisticated risk analytics with comprehensive portfolio management, trading, and operations tools on a single platform to power informed decision-making and create a connective tissue for thousands of users investing worldwide.</p></li><li><p>Our development teams reside inside the Aladdin Engineering group. We collaboratively build the next generation of technology that changes the way information, people, and technology intersect for global investment firms. We build and package tools that manage trillions in assets and supports millions of financial instruments. We perform risk calculations and process millions of transactions for thousands of users every day worldwide!</p></li></ul><p></p><p><b>Being a member of Aladdin Engineering, you will be:</b></p><ul><li><p>Tenacious: Work in a fast paced and highly complex environment</p></li><li><p>Creative thinker: Analyse multiple solutions and deploy technologies in a flexible way.</p></li><li><p>Great teammate: Think and work collaboratively and communicate effectively.</p></li><li><p>Fast learner: Pick up new concepts and apply them quickly.</p></li></ul><p></p><p><b>Responsibilities include:</b></p><ul><li><p>Collaborate with team members in a multi-office, multi-country environment.</p></li><li><p>Deliver high efficiency, high availability, concurrent and fault tolerant software systems.</p></li><li><p>Leverage AI in code generation, code analysis and test automation.</p></li><li><p>Significantly contribute to development of Aladdin’s global, multi-asset trading platform.</p></li><li><p>Work with product management and business users to define the roadmap for the product.</p></li><li><p>Design and develop innovative solutions to complex problems, identifying issues and roadblocks.</p></li><li><p>Apply validated quality software engineering practices through all phases of development.</p></li><li><p>Ensure resilience and stability through quality code reviews, unit, regression and user acceptance testing, dev ops and level two production support.</p></li><li><p>Be a leader with vision and a partner in brainstorming solutions for team productivity, efficiency, guiding and motivating others.</p></li><li><p>Drive a strong culture by bringing principles of inclusion and diversity to the team and setting the tone through specific recruiting, management actions and employee engagement.</p></li><li><p>Candidate should be able to lead individual projects priorities, deadlines and deliverables using AGILE methodologies.</p></li></ul><p></p><p><b>Qualifications:</b></p><ul><li><p>B.E./ B.TECH./ MCA or any other relevant engineering degree from a reputed university.</p></li><li><p>8+ years of proven experience</p></li></ul><p></p><p><b>Skills and Experience:</b></p><ul><li><p>A proven foundation in core Java and related technologies, with OO skills and design patterns</p></li><li><p>Experience with AI platforms, APIs, or internal frameworks to integrate AI LLM/Models into your projects for Agentic capabilities.</p></li><li><p>Track record building high quality software with design-focused and test-driven approaches</p></li><li><p>Good hands-on object-oriented programming knowledge in Java, Spring, Microservices,</p></li><li><p>Strong knowledge of Open-Source technology stack (Spring, Hibernate, Maven, JUnit, etc.).</p></li><li><p>Experience with relational database and/or NoSQL Database (e.g., Apache Cassandra)</p></li><li><p>Great analytical, problem-solving and...',
-  scraped_at='2026-06-10T14:06:59.794159+00:00',
+  job_id='90816066992',
+  company='ARM',
+  title='Principal Software Engineer',
+  location='Bengaluru, India',
+  url='https://careers.arm.com/job/bengaluru/principal-software-engineer/33099/90816066992',
+  source_url='https://careers.arm.com/search-jobs',
+  posted_date=None,
+  description=None,
+  scraped_at='2026-06-10T14:52:49.019956+00:00',
+  extracted_experience_parts='',
+)
+
+[6]
+Job(
+  job_id='91327318256',
+  company='ARM',
+  title='Senior Software Engineer – Networking for AI',
+  location='Bengaluru, India',
+  url='https://careers.arm.com/job/bengaluru/senior-software-engineer-networking-for-ai/33099/91327318256',
+  source_url='https://careers.arm.com/search-jobs',
+  posted_date=None,
+  description=None,
+  scraped_at='2026-06-10T14:52:49.019956+00:00',
+  extracted_experience_parts='',
+)
+
+[7]
+Job(
+  job_id='94564327792',
+  company='ARM',
+  title='Senior Manager – Manufacturing Test Operations',
+  location='Bengaluru, India',
+  url='https://careers.arm.com/job/bengaluru/senior-manager-manufacturing-test-operations/33099/94564327792',
+  source_url='https://careers.arm.com/search-jobs',
+  posted_date=None,
+  description=None,
+  scraped_at='2026-06-10T14:52:49.021158+00:00',
+  extracted_experience_parts='',
+)
+
+[8]
+Job(
+  job_id='94472367616',
+  company='ARM',
+  title='Senior Software Engineer EDK',
+  location='Bengaluru, India',
+  url='https://careers.arm.com/job/bengaluru/senior-software-engineer-edk/33099/94472367616',
+  source_url='https://careers.arm.com/search-jobs',
+  posted_date=None,
+  description=None,
+  scraped_at='2026-06-10T14:52:49.021158+00:00',
+  extracted_experience_parts='',
+)
+
+[9]
+Job(
+  job_id='94434952912',
+  company='ARM',
+  title='Principal Software Engineer',
+  location='Bengaluru, India',
+  url='https://careers.arm.com/job/bengaluru/principal-software-engineer/33099/94434952912',
+  source_url='https://careers.arm.com/search-jobs',
+  posted_date=None,
+  description=None,
+  scraped_at='2026-06-10T14:52:49.022160+00:00',
+  extracted_experience_parts='',
+)
+
+[10]
+Job(
+  job_id='93101913968',
+  company='ARM',
+  title='Senior/Staff ATE Test Engineer',
+  location='Bengaluru, India',
+  url='https://careers.arm.com/job/bengaluru/senior-staff-ate-test-engineer/33099/93101913968',
+  source_url='https://careers.arm.com/search-jobs',
+  posted_date=None,
+  description=None,
+  scraped_at='2026-06-10T14:52:49.023034+00:00',
+  extracted_experience_parts='',
+)
+
+[11]
+Job(
+  job_id='92911291184',
+  company='ARM',
+  title='Senior Embedded Build & Release Engineer',
+  location='Bengaluru, India',
+  url='https://careers.arm.com/job/bengaluru/senior-embedded-build-and-release-engineer/33099/92911291184',
+  source_url='https://careers.arm.com/search-jobs',
+  posted_date=None,
+  description=None,
+  scraped_at='2026-06-10T14:52:49.023543+00:00',
+  extracted_experience_parts='',
+)
+
+[12]
+Job(
+  job_id='86309347216',
+  company='ARM',
+  title='Senior SOC Modeling Engineer',
+  location='Bengaluru, India',
+  url='https://careers.arm.com/job/bengaluru/senior-soc-modeling-engineer/33099/86309347216',
+  source_url='https://careers.arm.com/search-jobs',
+  posted_date=None,
+  description=None,
+  scraped_at='2026-06-10T14:52:49.023543+00:00',
+  extracted_experience_parts='',
+)
+
+[13]
+Job(
+  job_id='86497988400',
+  company='ARM',
+  title='Staff SOC Modeling Engineer',
+  location='Bengaluru, India',
+  url='https://careers.arm.com/job/bengaluru/staff-soc-modeling-engineer/33099/86497988400',
+  source_url='https://careers.arm.com/search-jobs',
+  posted_date=None,
+  description=None,
+  scraped_at='2026-06-10T14:52:49.024559+00:00',
+  extracted_experience_parts='',
+)
+
+[14]
+Job(
+  job_id='90747571072',
+  company='ARM',
+  title='Staff Software Engineer',
+  location='Bengaluru, India',
+  url='https://careers.arm.com/job/bengaluru/staff-software-engineer/33099/90747571072',
+  source_url='https://careers.arm.com/search-jobs',
+  posted_date=None,
+  description=None,
+  scraped_at='2026-06-10T14:52:49.025580+00:00',
+  extracted_experience_parts='',
+)
+
+[15]
+Job(
+  job_id='89611383968',
+  company='ARM',
+  title='Software Engineer/ Senior Software Engineer',
+  location='Bengaluru, India',
+  url='https://careers.arm.com/job/bengaluru/software-engineer-senior-software-engineer/33099/89611383968',
+  source_url='https://careers.arm.com/search-jobs',
+  posted_date=None,
+  description=None,
+  scraped_at='2026-06-10T14:52:49.025580+00:00',
   extracted_experience_parts='',
 )
 
 == Summary ==
-Completed in 32.9s
+Completed in 22.1s
 
 Final status: PASS
