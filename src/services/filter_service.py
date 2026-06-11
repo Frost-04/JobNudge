@@ -116,6 +116,9 @@ def pre_filter_jobs(
       3. auto_reject: description contains "X+ years" / "X years" where X ∈ [2, 20]
       4. Everything else → uncertain (goes to AI)
 
+    Auto-accept is checked FIRST — a job matching "software engineer i" is
+    accepted even if the title also contains "sr." or "staff".
+
     Returns:
         (auto_accepted, auto_rejected, uncertain) — three lists of job dicts.
     """

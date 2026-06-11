@@ -41,6 +41,20 @@ class OracleScraper(BaseScraper):
             Job Description / Responsibilities / Qualifications / About Us)
     """
 
+    # Override base exclusion list: "Member of Technical Staff I" at Oracle
+    # is a fresher role, so we do NOT exclude "staff" at the scraper level.
+    EXCLUDE_TITLE_WORDS = [
+        "senior",
+        "principal",
+        "director",
+        "architect",
+        "manager",
+        "iii",
+        "sr.",
+        "sr",
+        "lead",
+    ]
+
     JOB_CARD_SELECTORS = [
         "ul#panel-list li[data-qa='searchResultItem']",
         "li[data-qa='searchResultItem']",

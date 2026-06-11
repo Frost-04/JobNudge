@@ -23,6 +23,7 @@ from src.scrapers.ciena_scraper import CienaScraper
 from src.scrapers.concert_ai_scraper import ConcertAIScraper
 from src.scrapers.goldman_sachs_scraper import GoldmanSachsScraper
 from src.scrapers.google_scraper import GoogleScraper
+from src.scrapers.harness_scraper import HarnessScraper
 from src.scrapers.hpe_scraper import HPEScraper
 from src.scrapers.ibm_scraper import IbmScraper
 from src.scrapers.infineon_scraper import InfineonScraper
@@ -166,6 +167,8 @@ def get_scraper(
         return OracleScraper(company_config, settings)
     if scraper_name == "servicenow":
         return ServiceNowScraper(company_config, settings)
+    if scraper_name == "harness":
+        return HarnessScraper(company_config, settings)
     if scraper_name == "hpe":
         return HPEScraper(company_config, settings)
     if scraper_name == "ibm":

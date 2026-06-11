@@ -108,6 +108,8 @@ async def run_telegram_pipeline() -> int:
                 job.get("company", ""),
                 job.get("title", ""),
             )
+        # Respect Telegram rate limits — 1 message per second
+        await asyncio.sleep(1)
 
     # ── Done ───────────────────────────────────────────────────────────
     print("\n" + "=" * 60)

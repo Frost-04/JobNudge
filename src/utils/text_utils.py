@@ -71,7 +71,7 @@ def extract_experience_snippets(
     if not snippets:
         return ""
 
-    return ", ".join(f'"""{s}"""' for s in snippets)
+    return "; ".join(snippets)
 
 
 def normalize_text(text: str | None) -> str:

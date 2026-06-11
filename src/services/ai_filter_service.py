@@ -8,6 +8,8 @@ import re
 from pathlib import Path
 from typing import Any
 
+import requests
+
 from src.services.filter_service import pre_filter_jobs
 
 
@@ -27,16 +29,26 @@ def read_jobs_from_csv(csv_path: str) -> list[dict[str, str]]:
 
 
 def build_jobs_json(jobs: list[dict[str, str]]) -> str:
-    """Build a compact JSON string containing only the fields Gemini needs."""
+    """Build a compact JSON string containing only the fields Gemini needs.
+
+    Sends extracted_experience_parts instead of the full description so the AI
+    only sees experience-related snippets (up to 8 words before + 3 words after
+    each experience keyword match).  Falls back to description if no snippets
+    were extracted.
+    """
     slim_jobs = []
     for job in jobs:
+        exp_parts = job.get("extracted_experience_parts", "")
+        description = job.get("description", "")
+        # Prefer experience snippets; fall back to full description if empty
+        exp_text = exp_parts.strip() if exp_parts.strip() else description
         slim_jobs.append(
             {
                 "job_id": job.get("job_id", ""),
                 "company": job.get("company", ""),
                 "title": job.get("title", ""),
                 "url": job.get("url", ""),
-                "description": job.get("description", ""),
+                "description": exp_text,
             }
         )
     return json.dumps(slim_jobs, indent=2, ensure_ascii=False)
@@ -67,8 +79,49 @@ def call_gemini(prompt: str, api_key: str, model_name: str) -> str:
     return response.text
 
 
+def call_deepseek(prompt: str, api_key: str, model_name: str) -> str:
+    """Send a prompt to DeepSeek and return the response text.
+
+    Uses the OpenAI-compatible chat completions API.
+    """
+    logger = logging.getLogger("job_alert_bot")
+    logger.info("Calling DeepSeek model: %s", model_name)
+
+    url = "https://api.deepseek.com/v1/chat/completions"
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json",
+    }
+    payload = {
+        "model": model_name,
+        "messages": [{"role": "user", "content": prompt}],
+        "temperature": 0.1,
+    }
+
+    response = requests.post(url, json=payload, headers=headers, timeout=120)
+    response.raise_for_status()
+
+    data = response.json()
+    content = data["choices"][0]["message"]["content"]
+
+    logger.info("DeepSeek response received (%d chars).", len(content))
+    return content
+
+
+def call_ai(
+    prompt: str,
+    api_key: str,
+    model_name: str,
+    provider: str,
+) -> str:
+    """Dispatch to the correct AI provider (gemini or deepseek)."""
+    if provider == "deepseek":
+        return call_deepseek(prompt, api_key, model_name)
+    return call_gemini(prompt, api_key, model_name)
+
+
 def parse_job_ids(response_text: str) -> list[str]:
-    """Extract a JSON array of job_ids from Gemini's response text."""
+    """Extract a JSON array of job_ids from the AI response text."""
     logger = logging.getLogger("job_alert_bot")
 
     # Try to extract JSON array from the response (handles markdown code blocks, extra text, etc.)
@@ -133,13 +186,15 @@ def filter_and_export_with_ai(
     api_key: str,
     settings: dict,
     keywords_config: dict[str, Any] | None = None,
+    provider: str = "gemini",
+    model_name: str = "gemini-2.5-flash",
 ) -> int:
     """
     Full AI filtering pipeline with optional pre-filtering:
 
     1. Read jobs from new_jobs.csv
     2. Pre-filter into auto_accept / auto_reject / uncertain (if keywords_config provided)
-    3. Send uncertain jobs to Gemini AI
+    3. Send uncertain jobs to AI (Gemini or DeepSeek)
     4. Export auto_accepted + AI-matched jobs to jobs_to_send.csv
 
     Returns the number of jobs exported.
@@ -182,7 +237,7 @@ def filter_and_export_with_ai(
 
     # Check API key
     if not api_key:
-        logger.error("GEMINI_API_KEY is not set in .env. Skipping AI filtering.")
+        logger.error("AI API key is not set in .env. Skipping AI filtering.")
         path = Path(jobs_to_send_csv_path)
         path.parent.mkdir(parents=True, exist_ok=True)
         # If we have auto-accepted jobs, export them even without AI
@@ -198,12 +253,12 @@ def filter_and_export_with_ai(
     if uncertain:
         ai_config = settings.get("ai", {})
         max_batch = int(ai_config.get("max_jobs_per_batch", 50))
-        model_name = str(ai_config.get("model", "gemini-2.0-flash"))
 
         if len(uncertain) <= max_batch:
             uncertain_json = build_jobs_json(uncertain)
             ai_matched_ids = _process_single_batch(
-                uncertain, uncertain_json, prompt_template, api_key, model_name
+                uncertain, uncertain_json, prompt_template, api_key,
+                model_name, provider,
             )
         else:
             logger.info("Batching %d uncertain jobs into chunks of %d.", len(uncertain), max_batch)
@@ -212,7 +267,8 @@ def filter_and_export_with_ai(
                 batch = uncertain[i : i + max_batch]
                 batch_json = build_jobs_json(batch)
                 matching_ids = _process_single_batch(
-                    batch, batch_json, prompt_template, api_key, model_name
+                    batch, batch_json, prompt_template, api_key,
+                    model_name, provider,
                 )
                 ai_matched_ids.extend(matching_ids)
     else:
@@ -244,15 +300,19 @@ def _process_single_batch(
     prompt_template: str,
     api_key: str,
     model_name: str,
+    provider: str = "gemini",
 ) -> list[str]:
-    """Process a single batch: build full prompt, call Gemini, parse result."""
+    """Process a single batch: build full prompt, call AI, parse result."""
     logger = logging.getLogger("job_alert_bot")
 
     full_prompt = prompt_template.replace("{jobs_json}", jobs_json)
-    logger.info("Sending %d jobs to Gemini for AI filtering.", len(jobs))
+    logger.info(
+        "Sending %d jobs to %s (%s) for AI filtering.",
+        len(jobs), provider, model_name,
+    )
 
     try:
-        response_text = call_gemini(full_prompt, api_key, model_name)
+        response_text = call_ai(full_prompt, api_key, model_name, provider)
         matching_ids = parse_job_ids(response_text)
         return matching_ids
     except Exception:

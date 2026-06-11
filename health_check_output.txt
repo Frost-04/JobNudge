@@ -16,223 +16,125 @@ PLAYWRIGHT: PASS
 == Scrapers ==
 - Starting company scrapers (parallel)
 
-ARM
----
-Extracted jobs: 15
+Harness
+-------
+Extracted jobs: 8
 
 All Jobs:
 
 [1]
 Job(
-  job_id='96199783792',
-  company='ARM',
-  title='Senior DevOps/Automation Engineer',
-  location='Bengaluru, India',
-  url='https://careers.arm.com/job/bengaluru/senior-devops-automation-engineer/33099/96199783792',
-  source_url='https://careers.arm.com/search-jobs',
+  job_id='5021338007',
+  company='Harness',
+  title='Staff Software Engineer - Cloud',
+  location='Bengaluru, Karnataka, India',
+  url='https://www.harness.io/company/jobs/apply?gh_jid=5021338007',
+  source_url='https://www.harness.io/company/jobs',
   posted_date=None,
-  description=None,
-  scraped_at='2026-06-10T14:52:49.018559+00:00',
+  description='Engineering, Cloud Engineering & DevOps',
+  scraped_at='2026-06-11T12:02:41.163702+00:00',
   extracted_experience_parts='',
 )
 
 [2]
 Job(
-  job_id='94812113808',
-  company='ARM',
-  title='Senior Software Engineer - Linux Kernel',
-  location='Bengaluru, India',
-  url='https://careers.arm.com/job/bengaluru/senior-software-engineer-linux-kernel/33099/94812113808',
-  source_url='https://careers.arm.com/search-jobs',
+  job_id='5047997007',
+  company='Harness',
+  title='Senior Devops Engineer - Customer Engineering Team',
+  location='Bengaluru, Karnataka, India',
+  url='https://www.harness.io/company/jobs/apply?gh_jid=5047997007',
+  source_url='https://www.harness.io/company/jobs',
   posted_date=None,
-  description=None,
-  scraped_at='2026-06-10T14:52:49.018559+00:00',
+  description='Engineering, Cloud Engineering & DevOps',
+  scraped_at='2026-06-11T12:02:41.166332+00:00',
   extracted_experience_parts='',
 )
 
 [3]
 Job(
-  job_id='95839452256',
-  company='ARM',
-  title='Staff/Principal Validation Engineer',
-  location='Bengaluru, India',
-  url='https://careers.arm.com/job/bengaluru/staff-principal-validation-engineer/33099/95839452256',
-  source_url='https://careers.arm.com/search-jobs',
+  job_id='5112168007',
+  company='Harness',
+  title='Senior Software Engineer - Systems (CLI)',
+  location='Bengaluru, Karnataka, India',
+  url='https://www.harness.io/company/jobs/apply?gh_jid=5112168007',
+  source_url='https://www.harness.io/company/jobs',
   posted_date=None,
-  description=None,
-  scraped_at='2026-06-10T14:52:49.018559+00:00',
+  description='Engineering, Cloud Engineering & DevOps',
+  scraped_at='2026-06-11T12:02:41.166332+00:00',
   extracted_experience_parts='',
 )
 
 [4]
 Job(
-  job_id='95839451184',
-  company='ARM',
-  title='Staff Firmware Engineer - Memory Subsystem Lead',
-  location='Bengaluru, India',
-  url='https://careers.arm.com/job/bengaluru/staff-firmware-engineer-memory-subsystem-lead/33099/95839451184',
-  source_url='https://careers.arm.com/search-jobs',
+  job_id='5089235007',
+  company='Harness',
+  title='Senior Data Analyst',
+  location='Bengaluru, Karnataka, India',
+  url='https://www.harness.io/company/jobs/apply?gh_jid=5089235007',
+  source_url='https://www.harness.io/company/jobs',
   posted_date=None,
-  description=None,
-  scraped_at='2026-06-10T14:52:49.018559+00:00',
+  description='Engineering, Eng Ops',
+  scraped_at='2026-06-11T12:02:41.166332+00:00',
   extracted_experience_parts='',
 )
 
 [5]
 Job(
-  job_id='90816066992',
-  company='ARM',
-  title='Principal Software Engineer',
-  location='Bengaluru, India',
-  url='https://careers.arm.com/job/bengaluru/principal-software-engineer/33099/90816066992',
-  source_url='https://careers.arm.com/search-jobs',
+  job_id='4681087007',
+  company='Harness',
+  title='Engineering Manager',
+  location='Bengaluru, Karnataka, India',
+  url='https://www.harness.io/company/jobs/apply?gh_jid=4681087007',
+  source_url='https://www.harness.io/company/jobs',
   posted_date=None,
-  description=None,
-  scraped_at='2026-06-10T14:52:49.019956+00:00',
+  description='Engineering, Software Development',
+  scraped_at='2026-06-11T12:02:41.166332+00:00',
   extracted_experience_parts='',
 )
 
 [6]
 Job(
-  job_id='91327318256',
-  company='ARM',
-  title='Senior Software Engineer – Networking for AI',
-  location='Bengaluru, India',
-  url='https://careers.arm.com/job/bengaluru/senior-software-engineer-networking-for-ai/33099/91327318256',
-  source_url='https://careers.arm.com/search-jobs',
+  job_id='4917794007',
+  company='Harness',
+  title='Staff Software Engineer - Data Platform',
+  location='Bengaluru, Karnataka, India',
+  url='https://www.harness.io/company/jobs/apply?gh_jid=4917794007',
+  source_url='https://www.harness.io/company/jobs',
   posted_date=None,
-  description=None,
-  scraped_at='2026-06-10T14:52:49.019956+00:00',
+  description='Engineering, Software Development',
+  scraped_at='2026-06-11T12:02:41.166332+00:00',
   extracted_experience_parts='',
 )
 
 [7]
 Job(
-  job_id='94564327792',
-  company='ARM',
-  title='Senior Manager – Manufacturing Test Operations',
-  location='Bengaluru, India',
-  url='https://careers.arm.com/job/bengaluru/senior-manager-manufacturing-test-operations/33099/94564327792',
-  source_url='https://careers.arm.com/search-jobs',
+  job_id='4948399007',
+  company='Harness',
+  title='Staff Security Research Engineer',
+  location='Bengaluru, Karnataka, India',
+  url='https://www.harness.io/company/jobs/apply?gh_jid=4948399007',
+  source_url='https://www.harness.io/company/jobs',
   posted_date=None,
-  description=None,
-  scraped_at='2026-06-10T14:52:49.021158+00:00',
+  description='Engineering, Software Development',
+  scraped_at='2026-06-11T12:02:41.167344+00:00',
   extracted_experience_parts='',
 )
 
 [8]
 Job(
-  job_id='94472367616',
-  company='ARM',
-  title='Senior Software Engineer EDK',
-  location='Bengaluru, India',
-  url='https://careers.arm.com/job/bengaluru/senior-software-engineer-edk/33099/94472367616',
-  source_url='https://careers.arm.com/search-jobs',
+  job_id='4968709007',
+  company='Harness',
+  title='Staff Software Engineer - Billing & Licensing',
+  location='Bengaluru, Karnataka, India',
+  url='https://www.harness.io/company/jobs/apply?gh_jid=4968709007',
+  source_url='https://www.harness.io/company/jobs',
   posted_date=None,
-  description=None,
-  scraped_at='2026-06-10T14:52:49.021158+00:00',
-  extracted_experience_parts='',
-)
-
-[9]
-Job(
-  job_id='94434952912',
-  company='ARM',
-  title='Principal Software Engineer',
-  location='Bengaluru, India',
-  url='https://careers.arm.com/job/bengaluru/principal-software-engineer/33099/94434952912',
-  source_url='https://careers.arm.com/search-jobs',
-  posted_date=None,
-  description=None,
-  scraped_at='2026-06-10T14:52:49.022160+00:00',
-  extracted_experience_parts='',
-)
-
-[10]
-Job(
-  job_id='93101913968',
-  company='ARM',
-  title='Senior/Staff ATE Test Engineer',
-  location='Bengaluru, India',
-  url='https://careers.arm.com/job/bengaluru/senior-staff-ate-test-engineer/33099/93101913968',
-  source_url='https://careers.arm.com/search-jobs',
-  posted_date=None,
-  description=None,
-  scraped_at='2026-06-10T14:52:49.023034+00:00',
-  extracted_experience_parts='',
-)
-
-[11]
-Job(
-  job_id='92911291184',
-  company='ARM',
-  title='Senior Embedded Build & Release Engineer',
-  location='Bengaluru, India',
-  url='https://careers.arm.com/job/bengaluru/senior-embedded-build-and-release-engineer/33099/92911291184',
-  source_url='https://careers.arm.com/search-jobs',
-  posted_date=None,
-  description=None,
-  scraped_at='2026-06-10T14:52:49.023543+00:00',
-  extracted_experience_parts='',
-)
-
-[12]
-Job(
-  job_id='86309347216',
-  company='ARM',
-  title='Senior SOC Modeling Engineer',
-  location='Bengaluru, India',
-  url='https://careers.arm.com/job/bengaluru/senior-soc-modeling-engineer/33099/86309347216',
-  source_url='https://careers.arm.com/search-jobs',
-  posted_date=None,
-  description=None,
-  scraped_at='2026-06-10T14:52:49.023543+00:00',
-  extracted_experience_parts='',
-)
-
-[13]
-Job(
-  job_id='86497988400',
-  company='ARM',
-  title='Staff SOC Modeling Engineer',
-  location='Bengaluru, India',
-  url='https://careers.arm.com/job/bengaluru/staff-soc-modeling-engineer/33099/86497988400',
-  source_url='https://careers.arm.com/search-jobs',
-  posted_date=None,
-  description=None,
-  scraped_at='2026-06-10T14:52:49.024559+00:00',
-  extracted_experience_parts='',
-)
-
-[14]
-Job(
-  job_id='90747571072',
-  company='ARM',
-  title='Staff Software Engineer',
-  location='Bengaluru, India',
-  url='https://careers.arm.com/job/bengaluru/staff-software-engineer/33099/90747571072',
-  source_url='https://careers.arm.com/search-jobs',
-  posted_date=None,
-  description=None,
-  scraped_at='2026-06-10T14:52:49.025580+00:00',
-  extracted_experience_parts='',
-)
-
-[15]
-Job(
-  job_id='89611383968',
-  company='ARM',
-  title='Software Engineer/ Senior Software Engineer',
-  location='Bengaluru, India',
-  url='https://careers.arm.com/job/bengaluru/software-engineer-senior-software-engineer/33099/89611383968',
-  source_url='https://careers.arm.com/search-jobs',
-  posted_date=None,
-  description=None,
-  scraped_at='2026-06-10T14:52:49.025580+00:00',
+  description='Engineering, Software Development',
+  scraped_at='2026-06-11T12:02:41.167344+00:00',
   extracted_experience_parts='',
 )
 
 == Summary ==
-Completed in 22.1s
+Completed in 48.3s
 
 Final status: PASS

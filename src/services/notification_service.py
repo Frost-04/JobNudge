@@ -3,6 +3,7 @@ from __future__ import annotations
 import html
 import logging
 import os
+import time
 
 import requests
 
@@ -72,6 +73,8 @@ def _send_telegram(
         except Exception:
             logger.exception("Failed to send Telegram alert.")
             break
+        # Respect Telegram rate limits — 1 message per second
+        time.sleep(1)
 
 
 def format_telegram_job_message(job: Job) -> str:

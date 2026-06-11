@@ -21,13 +21,10 @@ experience_keywords:
   - entry.level
   - early career
   - campus
-  - 0.year
-  - 1.year
-  - 2.year
-  - 3.year
-  - 4.year
-  - 5.year
-  - 6.year
+  - year
+  - years
+  - year(s)
+
 
 # ── Pre-AI Filtering ───────────────────────────────────────────────────
 # Jobs are classified into three buckets BEFORE they reach the AI:
@@ -58,6 +55,8 @@ auto_reject:
     - expert
     - phd
     - mba
+    - iii
+    - ii
   # Year-pattern rejection: job descriptions mentioning "X+ years", "X years",
   # "X-year", "X+year" etc. where X is between 2 and 20 (inclusive) are
   # rejected.  Patterns like "0-2 years" are NOT rejected because the

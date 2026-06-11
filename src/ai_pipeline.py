@@ -62,11 +62,26 @@ async def run_ai_pipeline() -> tuple[int, list[dict]]:
         logging.exception("Failed to load config for AI pipeline.")
         return 1, faulty_companies
 
-    api_key = os.getenv("GEMINI_API_KEY", "").strip()
-    if not api_key:
-        print("❌ ERROR: GEMINI_API_KEY is not set in your .env file.")
-        print("   Add a line like: GEMINI_API_KEY=your-key-here")
-        return 1, faulty_companies
+    ai_config = settings.get("ai", {})
+    provider = str(ai_config.get("provider", "gemini")).lower()
+
+    # Load the appropriate API key based on provider
+    if provider == "deepseek":
+        api_key = os.getenv("DEEPSEEK_API_KEY", "").strip()
+        provider_model_cfg = ai_config.get("deepseek", {})
+        model_name = str(provider_model_cfg.get("model", "deepseek-v4-pro"))
+        if not api_key:
+            print("❌ ERROR: DEEPSEEK_API_KEY is not set in your .env file.")
+            print("   Add a line like: DEEPSEEK_API_KEY=your-key-here")
+            return 1, faulty_companies
+    else:
+        api_key = os.getenv("GEMINI_API_KEY", "").strip()
+        provider_model_cfg = ai_config.get("gemini", {})
+        model_name = str(provider_model_cfg.get("model", "gemini-2.5-flash"))
+        if not api_key:
+            print("❌ ERROR: GEMINI_API_KEY is not set in your .env file.")
+            print("   Add a line like: GEMINI_API_KEY=your-key-here")
+            return 1, faulty_companies
 
     prompt_template = prompt_config.get("prompt", "")
     if not prompt_template:
@@ -80,6 +95,8 @@ async def run_ai_pipeline() -> tuple[int, list[dict]]:
         "jobs_to_send_csv_path", "data/jobs_to_send.csv"
     )
 
+    print(f"🤖 Using AI provider: {provider} | model: {model_name}")
+
     # ── Step 3: Pre-filter + AI filtering and export ──────────────────
     try:
         count = filter_and_export_with_ai(
@@ -89,6 +106,8 @@ async def run_ai_pipeline() -> tuple[int, list[dict]]:
             api_key=api_key,
             settings=settings,
             keywords_config=keywords_config,
+            provider=provider,
+            model_name=model_name,
         )
     except Exception:
         logging.exception("AI filtering pipeline failed.")
