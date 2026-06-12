@@ -27,7 +27,7 @@ health_check:
 
 ai:
   # Which AI provider to use: "gemini" or "deepseek"
-  provider: "gemini"
+  provider: "deepseek"
 
   # Gemini settings
   gemini:
@@ -39,6 +39,6 @@ ai:
     # Models: deepseek-v4-pro, deepseek-v4-flash
     # deepseek-v4-pro   → highest accuracy, slower
     # deepseek-v4-flash → faster, cheaper
-    model: "deepseek-v4-pro"
+    model: "deepseek-v4-flash"
 
-  max_jobs_per_batch: 50
+  max_jobs_per_batch: 15

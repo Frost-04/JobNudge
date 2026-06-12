@@ -2,52 +2,119 @@ companies:
   - name: American Express
     scraper: american_express
     url: "https://careers.americanexpress.com/en/sites/CX_1/jobs?intlink=us-amex-career-en-us-search&lastSelectedFacet=AttributeChar6&selectedFlexFieldsFacets=%22AttributeChar6%7CTechnology%22&selectedLocationsFacet=300000000228786&sortBy=POSTING_DATES_DESC"
-    enabled: true
+    enabled: false
 
   - name: Bloomberg
     scraper: bloomberg
     url: "https://bloomberg.avature.net/careers/SearchJobs/?1845=%5B162477%2C162478%2C162575%5D&1845_format=3996&2562=%5B219290%5D&2562_format=6594&listFilterMode=1&jobRecordsPerPage=12&"
-    enabled: true
+    enabled: false
 
   - name: Cerebras Systems
     scraper: cerebras
     url: "https://www.cerebras.ai/open-positions?department=4046597003&office=4032901003"
+    enabled: false
+
+  - name: Razorpay
+    scraper: razorpay
+    url: "https://razorpay.com/jobs/jobs-all/"
+    enabled: true
+
+  - name: Adobe
+    scraper: adobe
+    url: "https://careers.adobe.com/us/en/search-results?qcountry=India&category=Engineering+and+Product&category=Information+Technology&sortBy=Most+recent"
+    enabled: false
+
+  - name: Analog Devices
+    scraper: analog_devices
+    url: "https://analogdevices.wd1.myworkdayjobs.com/External?locationCountry=c4f78be1a8f14da0ab49ce1162348a5e&jobFamilyGroup=633b03df4f5d1000ec247e24e03b0000"
+    enabled: false
+
+  - name: Anthropic
+    scraper: anthropic
+    url: "https://job-boards.greenhouse.io/anthropic?departments%5B%5D=4002061008&departments%5B%5D=4079949008&departments%5B%5D=4050633008&departments%5B%5D=4019632008&departments%5B%5D=4010154008&offices%5B%5D=4051957008"
+    enabled: false
+
+  - name: OpenAI
+    scraper: openai
+    url: "https://jobs.ashbyhq.com/openai"
     enabled: true
 
   - name: Apple
     scraper: apple
     url: "https://jobs.apple.com/en-in/search?sort=newest&location=india-INDC&team=apps-and-frameworks-SFTWR-AF+cloud-and-infrastructure-SFTWR-CLD+core-operating-systems-SFTWR-COS+devops-and-site-reliability-SFTWR-DSR+information-systems-and-technology-SFTWR-ISTECH+machine-learning-SFTWR-MCHLN+security-and-privacy-SFTWR-SEC+software-quality-automation-tools-SFTWR-SQAT+wireless-software-SFTWR-WSFT+internships-STDNT-INTRN+corporate-STDNT-CORP"
-    enabled: true
+    enabled: false
 
   - name: Cisco
     scraper: cisco
     url: "https://careers.cisco.com/global/en/search-results"
-    enabled: true
+    enabled: false
 
   - name: EverPure
     scraper: everpure
     url: "https://www.everpuredata.com/company/careers/opportunities.html#engineering&india&"
+    enabled: false
+
+  - name: Atlassian
+    scraper: atlassian
+    url: "https://www.atlassian.com/company/careers/all-jobs?location=India"
     enabled: true
 
+  - name: BrowserStack
+    scraper: browserstack
+    url: "https://browserstack.wd3.myworkdayjobs.com/External?jobFamilyGroup=0cb9174e33c9100190f156427de80000&jobFamilyGroup=0cb9174e33c91001910b070812780000"
+    enabled: true
+  - name: CrowdStrike
+    scraper: crowdstrike
+    url: "https://crowdstrike.wd5.myworkdayjobs.com/en-GB/crowdstrikecareers?locationCountry=c4f78be1a8f14da0ab49ce1162348a5e&Job_Family=cb19f044639b1001f6a02595bc920000&Job_Family=1408861ee6e201641be2c2f6b000c00b&Job_Family=1408861ee6e20197f95adbf6b000d20b&Job_Family=1408861ee6e201b287b816f7b000020c"
+    enabled: true
+  - name: Databricks
+    scraper: databricks
+    url: "https://www.databricks.com/company/careers/open-positions?department=Engineering,University%20Recruiting&location=India"
+    enabled: true
   - name: Booking Holdings
     scraper: booking_holdings
     url: "https://www.bookingholdings-coe.com/bookingholdings-coe/jobs?stretchUnit=MILES&stretch=25&location=India&woe=12&regionCode=IN&categories=Engineering&page=1"
+    enabled: false
+
+  - name: Cadence
+    scraper: cadence
+    url: "https://cadence.wd1.myworkdayjobs.com/External_Careers?Location_Country=c4f78be1a8f14da0ab49ce1162348a5e"
+    enabled: true
+
+  - name: Uber
+    scraper: uber
+    url: "https://www.uber.com/tz/en/careers/list/?department=Engineering&department=Data%20Science&department=University&location=IND-Karn%C4%81taka-Bangalore&location=IND-Telang%C4%81na-Hyderabad"
+    enabled: true
+
+  - name: Walmart
+    scraper: walmart
+    url: "https://walmart.wd504.myworkdayjobs.com/en-US/WalmartExternal?locationCountry=c4f78be1a8f14da0ab49ce1162348a5e&jobFamilyGroup=e83ebdbd2a0a01e7e1477a8948e904c6&jobFamily=e83ebdbd2a0a01e6af60e95a47e972c4&jobFamily=e83ebdbd2a0a018f6ae2795a47e938c4"
     enabled: true
 
   - name: Synopsys
     scraper: synopsys
     url: "https://careers.synopsys.com/search-jobs?k=&l=India&orgIds=44408"
+    enabled: false
+
+  - name: Swiggy
+    scraper: swiggy
+    url: "https://careers.swiggy.com/#/careers?career_page_category=Technology"
+    enabled: true
+
+  - name: Freshworks
+    scraper: freshworks
+    url: "https://careers.smartrecruiters.com/Freshworks"
     enabled: true
 
   - name: Expedia Group
     scraper: expedia
     url: "https://careers.expediagroup.com/jobs/?&filter[category]=Technology&filter[country]=India"
-    enabled: true
+    enabled: false
 
   - name: MediaTek
     scraper: mediatek
     url: "https://careers.mediatek.com/en/jobs?query=&locations=9021,0000009297,0000168800&categorys=9013,9002,9020,9022"
-    enabled: true
+    enabled: false
 
   - name: Cohesity
     scraper: cohesity
@@ -55,59 +122,74 @@ companies:
     search_keyword: "Software Engineer"
     filter_department: "Engineering"
     filter_location: "India"
-    enabled: true
+    enabled: false
 
   - name: Kotak Mahindra Bank
     scraper: kotak
     url: "https://hcbt.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX/jobs?keyword=Software+Engineer&lastSelectedFacet=POSTING_DATES&location=India&locationId=300000000258248&locationLevel=country&mode=location&selectedCategoriesFacet=300012518259928&selectedPostingDatesFacet=30"
-    enabled: true
+    enabled: false
+
+  - name: Chubb
+    scraper: chubb
+    url: "https://fa-ewgu-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2001/jobs?lastSelectedFacet=TITLES&selectedLocationsFacet=300000000467203&selectedTitlesFacet=ENG&sortBy=POSTING_DATES_DESC"
+    enabled: false
 
   - name: Ciena
     scraper: ciena
     url: "https://ciena.wd5.myworkdayjobs.com/Careers?Location_Country=c4f78be1a8f14da0ab49ce1162348a5e&jobFamilyGroup=f08e25a5d78010903df743451bd7a026&jobFamilyGroup=f08e25a5d78010903df730510aefa016"
-    enabled: true
+    enabled: false
 
   - name: IBM
     scraper: ibm
     url: "https://www.ibm.com/in-en/careers/search?size=20&field_keyword_08[0]=Software%20Engineering&field_keyword_18[0]=Entry%20Level&field_keyword_05[0]=India&sort=dcdate_desc"
-    enabled: true
+    enabled: false
 
   - name: Rippling
     scraper: rippling
     url: "https://www.rippling.com/en-IN/careers/open-roles"
-    enabled: true
+    enabled: false
 
   - name: Palo Alto Networks
     scraper: palo_alto
     url: "https://jobs.paloaltonetworks.com/en/search-jobs?k=&l=India&orgIds=47263"
-    enabled: true
+    enabled: false
 
   - name: Arista Networks
     scraper: arista
     url: "https://www.arista.com/en/careers/engineering"
-    enabled: true
+    enabled: false
+
+  - name: BCG
+    scraper: bcg
+    url: "https://careers.bcg.com/global/en/search-results?rk=page-targeted-jobs-page1305-prod-7TrB23bK"
+    enabled: false
 
   - name: Airbnb
     scraper: airbnb
     url: "https://careers.airbnb.com/positions/?_search_input=Software%20Engineer&_where_you_work=india%2Cbangalore-india%2Cremote-bangalore-india&_jobs_sort=updated_at"
-    enabled: true
+    enabled: false
+
+  - name: Indeed
+    scraper: indeed
+    url: "https://in.indeed.com/cmp/Indeed/jobs?q=((Engineer))&l=&start=0"
+    enabled: false
 
   - name: Infineon
     scraper: infineon
     url: "https://jobs.infineon.com/careers?start=0&location=india&pid=563808970647124&sort_by=timestamp&filter_include_remote=0&filter_join_as=graduate+%28incl.+graduate+programs%29%2Cstudent%2Fintern%2Ftrainee&filter_job_family=information+technology%2Cresearch+%26+development"
-    enabled: true
+    enabled: false
 
   - name: Intel
     scraper: intel
     url: "https://intel.wd1.myworkdayjobs.com/External?locations=1e4a4eb3adf101f44070f976bf8184cf&jobFamilyGroup=ace7a3d23b7e01a0544279031a0ec85c"
-    enabled: true
+    enabled: false
 
   - name: Merck
     scraper: merck
     url: "https://careers.merckgroup.com/global/en/search-results"
     filter_location: "India"
     filter_category: "Information Technology"
-    enabled: true
+    enabled: false
 
   - name: NetApp
     scraper: netapp
@@ -118,284 +200,374 @@ companies:
       - Software Engineering
       - Systems Engineering
     filter_country: "India"
+    enabled: false
+
+  - name: Netflix
+    scraper: netflix
+    url: "https://explore.jobs.netflix.net/careers?location=india&Teams=Engineering&Teams=Engineering%20Operations&domain=netflix.com&sort_by=relevance&triggerGoButton=true&triggerGoButton=false&pid=790314479309"
     enabled: true
 
   - name: Nutanix
     scraper: nutanix
     url: "https://careers.nutanix.com/en/jobs/?search=&country=India&team=Engineering&type=Full-Time&type=New+Grad&type=Fixed-Term+Contract&type=Talent+Community&pagesize=20#results"
-    enabled: true
+    enabled: false
 
   - name: Outmarket AI
     scraper: outmarket_ai
     url: "https://outmarket.ai/careers"
-    enabled: true
+    enabled: false
 
   - name: Optum
     scraper: optum
     url: "https://careers.unitedhealthgroup.com/search-jobs/%20/India?orgIds=34088&kt=1&alp=1269750&alt=2"
     filter_category: "Technology"
-    enabled: true
+    enabled: false
 
   - name: Omnissa
     scraper: omnissa
     url: "https://www.omnissa.com/careers/jobs/?location=bengaluru-india%2Cchennai-india-office%2Coffice-india-bangalore-office-kalyani-vista%2Cremote---india&department=software-engineering&job_type=full-time#listing"
-    enabled: true
+    enabled: false
 
   - name: Tesco
     scraper: tesco
     url: "https://careers.tesco.com/en_GB/careers/SearchJobs"
-    enabled: true
+    enabled: false
 
   - name: Google
     scraper: google
     url: "https://www.google.com/about/careers/applications/jobs/results/?q=software%20Engineer&hl=en&location=India&target_level=EARLY"
-    enabled: true
+    enabled: false
 
   - name: Amazon
     scraper: amazon
     url: "https://www.amazon.jobs/en/search?offset=0&result_limit=10&sort=recent&distanceType=Mi&radius=24km&industry_experience=less_than_1_year&latitude=&longitude=&loc_group_id=&loc_query=India&base_query=software%20engineer&city=&country=IND&region=&county=&query_options=&"
-    enabled: true
+    enabled: false
 
   - name: Microsoft
     scraper: microsoft
     url: "https://apply.careers.microsoft.com/careers?query=Software+Engineer&start=0&location=India%2C+Multiple+Locations%2C+Multiple+Locations&pid=1970393556871135&sort_by=timestamp&filter_include_remote=1&filter_seniority=Entry"
+    enabled: false
+
+  - name: MongoDB
+    scraper: mongodb
+    url: "https://www.mongodb.com/company/careers/see-jobs"
     enabled: true
 
   - name: JPMorgan Chase
     scraper: jpmorgan
     url: "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/jobs?keyword=Software+Engineer&location=India&locationId=300000000289360&locationLevel=country&mode=location&sortBy=POSTING_DATES_DESC"
-    enabled: true
+    enabled: false
 
 
   - name: Salesforce
     scraper: salesforce
     url: "https://www.salesforce.com/company/careers/jobs/?team=Software+Engineering&contractTypes=Full+time&employeeTypes=New+Grads&employeeTypes=Regular&country=India&page=1"
-    enabled: true
+    enabled: false
 
   - name: Oracle
     scraper: oracle
     url: "https://careers.oracle.com/en/sites/jobsearch/jobs?lastSelectedFacet=AttributeChar4&location=India&locationId=300000000106947&selectedCategoriesFacet=300000001917356&selectedFlexFieldsFacets=%22AttributeChar29%7CIndividual+Contributor%7C%7CAttributeChar4%7CEmployee%22&selectedLocationsFacet=300000000106947&selectedPostingDatesFacet=7"
-    enabled: true
+    enabled: false
 
   - name: ServiceNow
     scraper: servicenow
     url: "https://careers.servicenow.com/jobs/?search=&team=Engineering%2C+Infrastructure+and+Operations&country=India&pagesize=20#results"
-    enabled: true
+    enabled: false
 
   - name: Intuit
     scraper: intuit
     url: "https://jobs.intuit.com/search-jobs?k=Software+Enginner&l=Yelahanka%2C+Karnataka%2C+India&orgIds=27595"
     filter_category: "Software Engineering"
     filter_country: "India"
-    enabled: true
+    enabled: false
 
   - name: Qualcomm
     scraper: qualcomm
     url: "https://careers.qualcomm.com/careers?query=engineer&start=0&location=india&pid=446718629365&sort_by=timestamp&filter_include_remote=0&filter_job_family=software+engineering%2Csystems+engineering%2Cit+engineering&filter_seniority=Entry"
-    enabled: true
+    enabled: false
 
   - name: Ericsson
     scraper: ericsson
     url: "https://jobs.ericsson.com/careers?start=0&location=India&pid=563121772208395&sort_by=timestamp&filter_include_remote=1&filter_function=product+development%2Ctechnology+%26+research"
-    enabled: true
+    enabled: false
 
   - name: EXL
     scraper: exl
     url: "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=POSTING_DATES&location=India&locationId=300000000467203&locationLevel=country&mode=job-location&selectedFlexFieldsFacets=%22AttributeChar23%7CJob_Role582%3BJob_Role110%3BJob_Role104%3BJob_Role136%22&selectedPostingDatesFacet=7"
+    enabled: false
+
+  - name: Glean
+    scraper: glean
+    url: "https://job-boards.greenhouse.io/gleanwork?offices%5B%5D=4002667005&departments%5B%5D=4147066005&departments%5B%5D=4006710005&departments%5B%5D=4007730005"
+    enabled: false
+
+  - name: Waymo
+    scraper: waymo
+    url: "https://careers.withwaymo.com/jobs/search?page=1&department_uids%5B%5D=9edee38059d1b1ce766fe8312f3bc75e&department_uids%5B%5D=2594747f04246632f591a5d6a2bdeaa5&department_uids%5B%5D=451e57010e816b71a8312792faf5740f&country_codes%5B%5D=IN&query"
+    enabled: false
+
+  - name: Schneider Electric
+    scraper: schneider_electric
+    url: "https://careers.se.com/jobs?country=India&page=1&tags=Technical&sortBy=posted_date&descending=true&tags1=Full-Time"
+    enabled: false
+
+  - name: Nike
+    scraper: nike
+    url: "https://careers.nike.com/jobs?location_type=4&filter%5Bcategory%5D%5B0%5D=Machine%20Learning&filter%5Bcategory%5D%5B1%5D=Software%20Engineering&filter%5Bcategory%5D%5B2%5D=Technology%20Operations&filter%5Bemployment_type%5D%5B0%5D=Full%20Time&sort_by=update_date&location_name=India"
+    enabled: false
+
+  - name: NK Securities Research
+    scraper: nk_securities
+    url: "https://job-boards.eu.greenhouse.io/nksecuritiesresearch?departments%5B%5D=4006448101"
+    enabled: false
+
+  - name: Tower Research
+    scraper: tower_research
+    url: "https://www.tower-research.com/open-positions/"
+    enabled: false
+
+  - name: Capco
+    scraper: capco
+    url: "https://www.capco.com/Careers/Job-Search"
+    enabled: false
+
+  - name: Okta
+    scraper: okta
+    url: "https://www.okta.com/company/careers/job-listing/?department=4183&location=5997"
+    enabled: false
+
+  - name: Emergent
+    scraper: emergent
+    url: "https://job-boards.greenhouse.io/emergentlabsinc?departments%5B%5D=4021813009&departments%5B%5D=4013945009"
+    enabled: false
+
+  - name: PhonePe
+    scraper: phonepe
+    url: "https://www.phonepe.com/careers/job-openings/"
+    enabled: false
+
+  - name: Postman
+    scraper: postman
+    url: "https://job-boards.greenhouse.io/postman/?offices%5B%5D=4033388003&departments%5B%5D=4057268003&departments%5B%5D=4075803003"
     enabled: true
+
+  - name: Confluent
+    scraper: confluent
+    url: "https://careers.confluent.io/jobs/india-early_talent-engineering?early_talent=non-engineering&engineering=engineering"
+    enabled: false
+
+  - name: Citi
+    scraper: citi
+    url: "https://jobs.citi.com/search-jobs"
+    enabled: false
 
   - name: AMD
     scraper: amd
     url: "https://careers.amd.com/careers-home/jobs?location=India&woe=12&regionCode=IN&stretchUnit=MILES&stretch=50&page=1&country=India&sortBy=relevance&keywords=software%20engineer"
-    enabled: true
+    enabled: false
 
   - name: NVIDIA
     scraper: nvidia
     url: "https://jobs.nvidia.com/careers?query=software&start=0&location=india&pid=893395449453&sort_by=timestamp&filter_include_remote=1&filter_job_category=engineering&filter_work_location_option=office%2Cremote"
-    enabled: true
+    enabled: false
 
   - name: LinkedIn
     scraper: linkedin
     url: "https://www.linkedin.com/jobs/search/?currentJobId=4410582759&f_C=1337%2C2587638%2C39939&f_E=1%2C2%2C3&geoId=102713980&keywords=Engineer&origin=JOB_SEARCH_PAGE_JOB_FILTER&refresh=true&sortBy=DD&spellCorrectionEnabled=true&position=2&pageNum=0"
-    enabled: true
+    enabled: false
 
   - name: Quince
     scraper: quince
     url: "https://job-boards.greenhouse.io/quince?offices%5B%5D=4045689008&departments%5B%5D=4021013008"
-    enabled: true
+    enabled: false
 
   - name: Stripe
     scraper: stripe
     urls:
       - "https://stripe.com/jobs/search?query=Software+Engineer&teams=University&remote_locations=Asia+Pacific--India+Remote&office_locations=Asia+Pacific--Bengaluru"
       - "https://stripe.com/jobs/search?query=Software+Engineer&remote_locations=Asia+Pacific--India+Remote&office_locations=Asia+Pacific--Bengaluru"
-    enabled: true
+    enabled: false
 
   - name: Mercari
     scraper: mercari
     url: "https://about.in.mercari.com/joinus/"
     search_keyword: "software engineer"
-    enabled: true
+    enabled: false
 
   - name: Meesho
     scraper: meesho
     url: "https://www.meesho.io/jobs?d=engineering"
-    enabled: true
+    enabled: false
 
   - name: DocuSign
     scraper: docusign
     url: "https://careers.docusign.com/careers-home/jobs?keywords=Engineer&sortBy=posted_date&page=1&categories=Engineering%7CIT%20Infrastructure%20%26%20Operations&locations=Bengaluru,Karnataka,India&descending=true&limit=10"
-    enabled: true
+    enabled: false
 
   - name: Twilio
     scraper: twilio
     url: "https://jobs.twilio.com/careers?start=0&location=India&pid=1099553538803&sort_by=timestamp&filter_include_remote=1&filter_custom_department=product+%26+engineering"
-    enabled: true
+    enabled: false
 
   - name: Red Hat
     scraper: redhat
     url: "https://redhat.wd5.myworkdayjobs.com/jobs/?a=c4f78be1a8f14da0ab49ce1162348a5e&d=c18026e77576010f6ef6126f4e43ec4a"
-    enabled: true
+    enabled: false
 
   - name: Dell
     scraper: dell
     url: "https://iawmqy.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/careers/jobs?lastSelectedFacet=TITLES&mode=location&selectedLocationsFacet=300000000471053&selectedTitlesFacet=ENGREDEV"
-    enabled: true
+    enabled: false
+
+  - name: Teradata
+    scraper: teradata
+    url: "https://careers.teradata.com/jobs?location=India&jobCategory=3&datePosted=WITHIN_LAST_MONTH"
+    enabled: false
 
   - name: Target
     scraper: target
     url: "https://indiajobs.target.com/search-jobs?k=&ac=67611&orgIds=1118"
-    enabled: true
+    enabled: false
 
   - name: eBay
     scraper: ebay
     url: "https://jobs.ebayinc.com/us/en/bengaluru"
-    enabled: true
+    enabled: false
 
   - name: Goldman Sachs
     scraper: goldman_sachs
     url: "https://higher.gs.com/results?EXPERIENCE_LEVEL=Analyst|Associate&JOB_FUNCTION=Software%20Engineering&LOCATION=Bengaluru|Hyderabad|Mumbai&page=1&search=software%20enginner&sort=POSTED_DATE"
-    enabled: true
+    enabled: false
 
   - name: Sandisk
     scraper: sandisk
     url: "https://careers.smartrecruiters.com/Sandisk"
-    enabled: true
+    enabled: false
 
   - name: Ixigo
     scraper: ixigo
     url: "https://careers.smartrecruiters.com/Ixigo"
-    enabled: true
+    enabled: false
 
   - name: Wells Fargo
     scraper: wells_fargo
     url: "https://www.wellsfargojobs.com/en/jobs/?country=India&team=Technology&pagesize=20#results"
-    enabled: true
+    enabled: false
 
   - name: Western Digital
     scraper: western_digital
     url: "https://careers.smartrecruiters.com/WesternDigital"
-    enabled: true
+    enabled: false
 
   - name: Meta
     scraper: meta
     url: "https://www.metacareers.com/jobsearch?sort_by_new=true&teams[0]=University%20Grad%20-%20Engineering%2C%20Tech%20%26%20Design&teams[1]=Software%20Engineering&teams[2]=Artificial%20Intelligence&offices[0]=Mumbai%2C%20India&offices[1]=Gurgaon%2C%20India&offices[2]=Bangalore%2C%20India&offices[3]=Hyderabad%2C%20India&offices[4]=New%20Delhi%2C%20India&roles[0]=Full%20time%20employment&roles[1]=Internship"
-    enabled: true
+    enabled: false
 
   - name: InMobi
     scraper: inmobi
     url: "https://job-boards.greenhouse.io/inmobi?offices%5B%5D=84644&departments%5B%5D=88449&departments%5B%5D=288376&departments%5B%5D=77827&departments%5B%5D=77798"
-    enabled: true
+    enabled: false
 
   - name: Rubrik
     scraper: rubrik
     urls:
       - "https://www.rubrik.com/company/careers/departments/engineering"
       - "https://www.rubrik.com/company/careers/departments/information-technology-services"
-    enabled: true
+    enabled: false
 
   - name: Samsung
     scraper: samsung
     url: "https://sec.wd3.myworkdayjobs.com/Samsung_Careers?locations=0c974e8c1228010867596ab21b3c3469"
-    enabled: true
+    enabled: false
 
   - name: Lowe's
     scraper: lowes
     url: "https://talent.lowes.com/in/en/search-results?qcountry=India"
-    enabled: true
+    enabled: false
 
   - name: Mastercard
     scraper: mastercard
     url: "https://careers.mastercard.com/us/en/search-results"
-    enabled: true
+    enabled: false
 
   - name: ThoughtSpot
     scraper: thoughtspot
     url: "https://thoughtspot.wd5.myworkdayjobs.com/careers?locations=939fa72d127c102407550fd31fc20000&locations=939fa72d127c10240754e9ffc8580000&locations=939fa72d127c102407550c3724bc0000&jobFamilyGroup=a925daa791b71000f87f035c7ae20000"
-    enabled: true
+    enabled: false
 
   - name: Siemens
     scraper: siemens
     url: "https://jobs.siemens.com/en_US/externaljobs/SearchJobs/software?42386=%5B812053%5D&42386_format=17546&42389=%5B102127%5D&42389_format=17549&listFilterMode=1&folderSort=postedDate&folderSortDirection=ASC&folderRecordsPerPage=6&"
-    enabled: true
+    enabled: false
 
   - name: MakeMyTrip
     scraper: makemytrip
     url: "https://careers.makemytrip.com/prod/jobs"
-    enabled: true
+    enabled: false
+
+  - name: Honeywell
+    scraper: honeywell
+    url: "https://ibqbjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Honeywell/jobs?lastSelectedFacet=POSTING_DATES&selectedCategoriesFacet=300000017425610&selectedPostingDatesFacet=7&selectedWorkLocationsFacet=300000017420441%3B300000017419733%3B300000017420327&sortBy=POSTING_DATES_DESC"
+    enabled: false
 
   - name: Harness
     scraper: harness
     url: "https://www.harness.io/company/jobs"
-    enabled: true
+    enabled: false
 
   - name: HPE
     scraper: hpe
     url: "https://careers.hpe.com/us/en/search-results"
-    enabled: true
+    enabled: false
 
   - name: Arcesium
     scraper: arcesium
     url: "https://www.arcesium.com/careers#open-positions"
-    enabled: true
+    enabled: false
 
   - name: Publicis Sapient
     scraper: publicis_sapient
     url: "https://careers.publicissapient.com/job-search?country=India&teams=Technology%20and%20Engineering"
-    enabled: true
+    enabled: false
+
+  - name: Electronic Arts
+    scraper: ea
+    url: "https://jobs.ea.com/en_US/careers/Home/?8171=%5B10590%5D&8171_format=5683&4536=%5B8313%2C8301%2C8331%5D&4536_format=3019&4537=%5B8693%2C8691%5D&4537_format=3020&listFilterMode=1&jobSort=id&jobSortDirection=DESC&jobRecordsPerPage=20&"
+    enabled: false
 
   - name: DP World
     scraper: dp_world
     url: "https://ehpv.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs?keyword=software+development+engineer&lastSelectedFacet=TITLES&mode=location&selectedLocationsFacet=300000000273955&selectedTitlesFacet=DPW_INFORMATION_TECH%3BDPW_ENGINEERING&sortBy=POSTING_DATES_DESC"
-    enabled: true
+    enabled: false
 
   - name: ARM
     scraper: arm
     url: "https://careers.arm.com/search-jobs"
-    enabled: true
+    enabled: false
 
   - name: Concert AI
     scraper: concert_ai
     url: "https://careers.concertai.com/us/en/search-results"
     filter_location: "India"
-    enabled: true
+    enabled: false
 
   - name: Scapia
     scraper: scapia
     url: "https://scapia.freshteam.com/jobs?location=[]&department=[%226000203002%22]&jobType=[]&title=&isRemoteLocation=false"
-    enabled: true
+    enabled: false
 
   - name: Deel
     scraper: deel
     url: "https://www.deel.com/careers/?location=india&department=engineering"
-    enabled: true
+    enabled: false
 
   - name: Notion
     scraper: notion
     urls:
       - "https://www.notion.com/careers?location=hyderabad-india&department=engineering#open-positions"
       - "https://www.notion.com/careers?location=hyderabad-india&department=engineering-early-career#open-positions"
-    enabled: true
+    enabled: false
 
   - name: BlackRock
     scraper: blackrock
@@ -403,16 +575,16 @@ companies:
     filter_teams:
       - Engineering
       - Technology
-    enabled: true
+    enabled: false
 
   - name: UiPath
     scraper: uipath
     url: "https://www.uipath.com/careers/jobs"
     search_keyword: "India"
     filter_department: "Engineering"
-    enabled: true
+    enabled: false
 
   - name: Visa
     scraper: visa
     url: "https://visa.wd5.myworkdayjobs.com/en-US/Visa?locationCountry=c4f78be1a8f14da0ab49ce1162348a5e&jobFamily=2745bc1368021016a991f65e710a3b1e&jobFamily=b7106cb62669100c686bc832c23b0000&jobFamily=2745bc1368021016a991a83acf5a3ad0&jobFamily=ad45ef80fd47018bd5538fe7856817d3&jobFamily=31f1c52f685c018679c336da4b46da8e&jobFamily=ad45ef80fd4701f3e09a4bdd856804d3&jobFamily=2745bc1368021016a991afa3ad023ada&jobFamily=2745bc1368021016a991fc4c76523b26"
-    enabled: true
+    enabled: false

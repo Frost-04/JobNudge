@@ -16,125 +16,55 @@ PLAYWRIGHT: PASS
 == Scrapers ==
 - Starting company scrapers (parallel)
 
-Harness
--------
-Extracted jobs: 8
+Swiggy
+------
+Extracted jobs: 3
 
 All Jobs:
 
 [1]
 Job(
-  job_id='5021338007',
-  company='Harness',
-  title='Staff Software Engineer - Cloud',
-  location='Bengaluru, Karnataka, India',
-  url='https://www.harness.io/company/jobs/apply?gh_jid=5021338007',
-  source_url='https://www.harness.io/company/jobs',
+  job_id='26579',
+  company='Swiggy',
+  title='Senior Manager - Data Science',
+  location='Sumadhura Capitol Towers',
+  url='https://careers.swiggy.com/#/careers/jd/26579',
+  source_url='https://careers.swiggy.com/#/careers?career_page_category=Technology',
   posted_date=None,
-  description='Engineering, Cloud Engineering & DevOps',
-  scraped_at='2026-06-11T12:02:41.163702+00:00',
+  description='',
+  scraped_at='2026-06-12T15:00:43.880316+00:00',
   extracted_experience_parts='',
 )
 
 [2]
 Job(
-  job_id='5047997007',
-  company='Harness',
-  title='Senior Devops Engineer - Customer Engineering Team',
-  location='Bengaluru, Karnataka, India',
-  url='https://www.harness.io/company/jobs/apply?gh_jid=5047997007',
-  source_url='https://www.harness.io/company/jobs',
+  job_id='26359',
+  company='Swiggy',
+  title='Senior Data Scientist',
+  location='Bangalore',
+  url='https://careers.swiggy.com/#/careers/jd/26359',
+  source_url='https://careers.swiggy.com/#/careers?career_page_category=Technology',
   posted_date=None,
-  description='Engineering, Cloud Engineering & DevOps',
-  scraped_at='2026-06-11T12:02:41.166332+00:00',
+  description='',
+  scraped_at='2026-06-12T15:00:43.881311+00:00',
   extracted_experience_parts='',
 )
 
 [3]
 Job(
-  job_id='5112168007',
-  company='Harness',
-  title='Senior Software Engineer - Systems (CLI)',
-  location='Bengaluru, Karnataka, India',
-  url='https://www.harness.io/company/jobs/apply?gh_jid=5112168007',
-  source_url='https://www.harness.io/company/jobs',
+  job_id='24519',
+  company='Swiggy',
+  title='Staff Data scientist',
+  location='Sumadhura Capitol Towers',
+  url='https://careers.swiggy.com/#/careers/jd/24519',
+  source_url='https://careers.swiggy.com/#/careers?career_page_category=Technology',
   posted_date=None,
-  description='Engineering, Cloud Engineering & DevOps',
-  scraped_at='2026-06-11T12:02:41.166332+00:00',
-  extracted_experience_parts='',
-)
-
-[4]
-Job(
-  job_id='5089235007',
-  company='Harness',
-  title='Senior Data Analyst',
-  location='Bengaluru, Karnataka, India',
-  url='https://www.harness.io/company/jobs/apply?gh_jid=5089235007',
-  source_url='https://www.harness.io/company/jobs',
-  posted_date=None,
-  description='Engineering, Eng Ops',
-  scraped_at='2026-06-11T12:02:41.166332+00:00',
-  extracted_experience_parts='',
-)
-
-[5]
-Job(
-  job_id='4681087007',
-  company='Harness',
-  title='Engineering Manager',
-  location='Bengaluru, Karnataka, India',
-  url='https://www.harness.io/company/jobs/apply?gh_jid=4681087007',
-  source_url='https://www.harness.io/company/jobs',
-  posted_date=None,
-  description='Engineering, Software Development',
-  scraped_at='2026-06-11T12:02:41.166332+00:00',
-  extracted_experience_parts='',
-)
-
-[6]
-Job(
-  job_id='4917794007',
-  company='Harness',
-  title='Staff Software Engineer - Data Platform',
-  location='Bengaluru, Karnataka, India',
-  url='https://www.harness.io/company/jobs/apply?gh_jid=4917794007',
-  source_url='https://www.harness.io/company/jobs',
-  posted_date=None,
-  description='Engineering, Software Development',
-  scraped_at='2026-06-11T12:02:41.166332+00:00',
-  extracted_experience_parts='',
-)
-
-[7]
-Job(
-  job_id='4948399007',
-  company='Harness',
-  title='Staff Security Research Engineer',
-  location='Bengaluru, Karnataka, India',
-  url='https://www.harness.io/company/jobs/apply?gh_jid=4948399007',
-  source_url='https://www.harness.io/company/jobs',
-  posted_date=None,
-  description='Engineering, Software Development',
-  scraped_at='2026-06-11T12:02:41.167344+00:00',
-  extracted_experience_parts='',
-)
-
-[8]
-Job(
-  job_id='4968709007',
-  company='Harness',
-  title='Staff Software Engineer - Billing & Licensing',
-  location='Bengaluru, Karnataka, India',
-  url='https://www.harness.io/company/jobs/apply?gh_jid=4968709007',
-  source_url='https://www.harness.io/company/jobs',
-  posted_date=None,
-  description='Engineering, Software Development',
-  scraped_at='2026-06-11T12:02:41.167344+00:00',
+  description='',
+  scraped_at='2026-06-12T15:00:43.883327+00:00',
   extracted_experience_parts='',
 )
 
 == Summary ==
-Completed in 48.3s
+Completed in 5.3s
 
 Final status: PASS
