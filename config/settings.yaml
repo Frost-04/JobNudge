@@ -27,7 +27,7 @@ health_check:
 
 ai:
   # Which AI provider to use: "gemini" or "deepseek"
-  provider: "deepseek"
+  provider: "gemini"
 
   # Gemini settings
   gemini:

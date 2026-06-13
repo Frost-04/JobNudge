@@ -5,7 +5,7 @@ import pyperclip
 # CONFIG
 # ==========================================
 
-MAX_DEPTH = 20
+MAX_DEPTH = 10
 MAX_SIMILAR_SIBLINGS = 4
 
 

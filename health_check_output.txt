@@ -16,55 +16,111 @@ PLAYWRIGHT: PASS
 == Scrapers ==
 - Starting company scrapers (parallel)
 
-Swiggy
-------
-Extracted jobs: 3
+Sprinklr
+--------
+Extracted jobs: 7
 
 All Jobs:
 
 [1]
 Job(
-  job_id='26579',
-  company='Swiggy',
-  title='Senior Manager - Data Science',
-  location='Sumadhura Capitol Towers',
-  url='https://careers.swiggy.com/#/careers/jd/26579',
-  source_url='https://careers.swiggy.com/#/careers?career_page_category=Technology',
-  posted_date=None,
-  description='',
-  scraped_at='2026-06-12T15:00:43.880316+00:00',
+  job_id='113071-JOB',
+  company='Sprinklr',
+  title='Associate Product Manager ( WFM )',
+  location='India - Karnataka - Bangalore',
+  url='https://sprinklr.wd1.myworkdayjobs.com/en-US/careers/job/India---Karnataka---Bangalore/Associate-Product-Manager---WFM--_113071-JOB-1?locationCountry=c4f78be1a8f14da0ab49ce1162348a5e&jobFamilyGroup=c0a7c42494e701247f567aa7db035f64',
+  source_url='https://sprinklr.wd1.myworkdayjobs.com/careers?locationCountry=c4f78be1a8f14da0ab49ce1162348a5e&jobFamilyGroup=c0a7c42494e701247f567aa7db035f64',
+  posted_date='Posted 4 Days Ago',
+  description=None,
+  scraped_at='2026-06-13T20:36:11.117407+00:00',
   extracted_experience_parts='',
 )
 
 [2]
 Job(
-  job_id='26359',
-  company='Swiggy',
-  title='Senior Data Scientist',
-  location='Bangalore',
-  url='https://careers.swiggy.com/#/careers/jd/26359',
-  source_url='https://careers.swiggy.com/#/careers?career_page_category=Technology',
-  posted_date=None,
-  description='',
-  scraped_at='2026-06-12T15:00:43.881311+00:00',
+  job_id='112934-JOB',
+  company='Sprinklr',
+  title='Operations Engineer II',
+  location='India - Karnataka - Bangalore',
+  url='https://sprinklr.wd1.myworkdayjobs.com/en-US/careers/job/India---Karnataka---Bangalore/Operations-Engineer-II_112934-JOB?locationCountry=c4f78be1a8f14da0ab49ce1162348a5e&jobFamilyGroup=c0a7c42494e701247f567aa7db035f64',
+  source_url='https://sprinklr.wd1.myworkdayjobs.com/careers?locationCountry=c4f78be1a8f14da0ab49ce1162348a5e&jobFamilyGroup=c0a7c42494e701247f567aa7db035f64',
+  posted_date='Posted 4 Days Ago',
+  description='Sprinklr is the definitive, AI-native platform for Unified Customer Experience Management (Unified-CXM), empowering brands to deliver extraordinary experiences at scale — across every customer touchpoint. By combining human instinct with the speed and efficiency of AI, Sprinklr helps brands earn trust and loyalty through personalized, seamless, and efficient customer interactions. Sprinklr’s unified platform provides powerful solutions for every customer-facing team — spanning social media management, marketing, advertising, customer feedback, and omnichannel contact center management — enabling enterprises to unify data, break down silos, and act on real-time insights. Today, 1,900+ enterprises and 60% of the Fortune 100 rely on Sprinklr to help them deliver consistent, trusted customer experiences worldwide.  Job Description  Monitor system performance for high‑traffic and cloud-based environments using PagerDuty.Respond quickly to alerts to maintain optimal uptime.Use monitoring tools such as InfluxDB and Graylog for log analysis and metrics review.Troubleshoot issues in real time and provide immediate response to incidents.Work with DevOps teams to identify and close infrastructure gaps.Coordinate with QA and Development teams to ensure smooth daily deployments and module updates.Deploy patches, releases, and system changes using Jenkins.Maintain and improve CI pipelines (build, test, package).Work within Agile, CI/CD environments using tools like Git.Act proactively to minimize downtime and ensure uninterrupted service delivery.Maintain clear communication across teams to resolve issues efficiently and keep stakeholders aligned.  Key Skills:  Basic Linux OS knowledge for backend and system-level troubleshooting.Familiarity with AWS, Azure, GCP services with 2+ years of experience.Understanding of Python/Bash scripting and linux and CI/CD tools (Jenkins, Git)Hands-on experience with Ansible and Terraform (IaC/Configuration Management).Cloud platforms (AWS / Azure / GCP), Infrastructure-as-Code (Ansible, Terraform )Understanding of deployment pipelines We focus on our mission: Sprinklr was founded in 2009 to solve a big problem: growing enterprise complexity that separated brands from their customers. Our vision was clear: to unify fragmented teams, tools and data — helping large organizations build deeper, more meaningful connections with the people they serve. Today, Sprinklr has a unified, AI-native platform for four product suites: Sprinklr Service, Sprinklr Social, Sprinklr Marketing, and Sprinklr Insights. Sprinklr is here to do three things: Lead a new category of enterprise software that we call Unified-CXM. Empower companies to deliver next generation, unified engagement journeys that reimagine the customer experience. Create a culture of customer obsession, with trust, teamwork, and accountability. We believe in our product: Customers who value exceptional customer experiences have what they need on our single unified platform, built with an operating system approach on a single codebase. That means that everything — and everyone — can work together to service, respond, sell, and market to customers on the channels they prefer. While Unified Customer Experience Management (Unified-CXM) as a category is just getting started, we are well on our way to creating a no-compromise, unified approach to better customer experiences for the world’s leading enterprise brands. We invest in our people: We offer a comprehensive suite of benefits designed to help each member of our team thrive. Sprinklr believes that you should be able to get the type of care you need for your personal well-being when you need it. We offer you and your family voluntary healthcare coverage in countries where applicable. We believe it is important to take time off – it is essential for your mental and physical wellbeing. We provide Sprinklrites with paid time off to recharge and spend time with loved ones. We want to grow our talent with purpose. Our open Mentoring Program is designed to create meaningful connections that support growth and amplify our focus. To learn more about employee benefits by region, click here. To learn more about all-things-Sprinklr, visit our candidate resource hub here. EEO - Our philosophy: Our goal is to ensure every employee feels like they belong and are operating in a collaborative environment. We fervently believe every employee matters and should be respected and heard. We believe we are stronger when we belong because collectively, we’re more innovative, creative, and successful. Sprinklr is proud to be an equal-opportunity workplace and complies with all applicable federal, state, and local fair employment practices laws. We are committed to equal employment opportunity regardless of race, color, religion, creed, national origin or ancestry, ethnicity, sex (including gender, pregnancy, sexual orientation, and gender identity), age, physical or mental disability, citizenship, past, current, or...',
+  scraped_at='2026-06-13T20:36:15.380343+00:00',
   extracted_experience_parts='',
 )
 
 [3]
 Job(
-  job_id='24519',
-  company='Swiggy',
-  title='Staff Data scientist',
-  location='Sumadhura Capitol Towers',
-  url='https://careers.swiggy.com/#/careers/jd/24519',
-  source_url='https://careers.swiggy.com/#/careers?career_page_category=Technology',
-  posted_date=None,
-  description='',
-  scraped_at='2026-06-12T15:00:43.883327+00:00',
+  job_id='113030-JOB',
+  company='Sprinklr',
+  title='Senior Manager Software Engineering',
+  location='India - Haryana - Gurgaon',
+  url='https://sprinklr.wd1.myworkdayjobs.com/en-US/careers/job/India---Haryana---Gurgaon/Senior-Manager-Software-Engineering_113030-JOB?locationCountry=c4f78be1a8f14da0ab49ce1162348a5e&jobFamilyGroup=c0a7c42494e701247f567aa7db035f64',
+  source_url='https://sprinklr.wd1.myworkdayjobs.com/careers?locationCountry=c4f78be1a8f14da0ab49ce1162348a5e&jobFamilyGroup=c0a7c42494e701247f567aa7db035f64',
+  posted_date='Posted 4 Days Ago',
+  description=None,
+  scraped_at='2026-06-13T20:36:15.383765+00:00',
+  extracted_experience_parts='',
+)
+
+[4]
+Job(
+  job_id='113046-JOB',
+  company='Sprinklr',
+  title='Sr. UX Writer',
+  location='India - Haryana - Gurgaon',
+  url='https://sprinklr.wd1.myworkdayjobs.com/en-US/careers/job/India---Haryana---Gurgaon/Sr-UX-Writer_113046-JOB?locationCountry=c4f78be1a8f14da0ab49ce1162348a5e&jobFamilyGroup=c0a7c42494e701247f567aa7db035f64',
+  source_url='https://sprinklr.wd1.myworkdayjobs.com/careers?locationCountry=c4f78be1a8f14da0ab49ce1162348a5e&jobFamilyGroup=c0a7c42494e701247f567aa7db035f64',
+  posted_date='Posted 8 Days Ago',
+  description=None,
+  scraped_at='2026-06-13T20:36:15.385775+00:00',
+  extracted_experience_parts='',
+)
+
+[5]
+Job(
+  job_id='112906-JOB',
+  company='Sprinklr',
+  title='Senior Analyst - ML Services',
+  location='India - Karnataka - Bangalore',
+  url='https://sprinklr.wd1.myworkdayjobs.com/en-US/careers/job/India---Karnataka---Bangalore/Analyst-II---ML-Services_112906-JOB?locationCountry=c4f78be1a8f14da0ab49ce1162348a5e&jobFamilyGroup=c0a7c42494e701247f567aa7db035f64',
+  source_url='https://sprinklr.wd1.myworkdayjobs.com/careers?locationCountry=c4f78be1a8f14da0ab49ce1162348a5e&jobFamilyGroup=c0a7c42494e701247f567aa7db035f64',
+  posted_date='Posted 12 Days Ago',
+  description=None,
+  scraped_at='2026-06-13T20:36:15.389297+00:00',
+  extracted_experience_parts='',
+)
+
+[6]
+Job(
+  job_id='112322-JOB',
+  company='Sprinklr',
+  title='Senior SDET',
+  location='India - Haryana - Gurgaon',
+  url='https://sprinklr.wd1.myworkdayjobs.com/en-US/careers/job/India---Haryana---Gurgaon/Senior-SDET_112322-JOB?locationCountry=c4f78be1a8f14da0ab49ce1162348a5e&jobFamilyGroup=c0a7c42494e701247f567aa7db035f64',
+  source_url='https://sprinklr.wd1.myworkdayjobs.com/careers?locationCountry=c4f78be1a8f14da0ab49ce1162348a5e&jobFamilyGroup=c0a7c42494e701247f567aa7db035f64',
+  posted_date='Posted 30+ Days Ago',
+  description=None,
+  scraped_at='2026-06-13T20:36:15.394325+00:00',
+  extracted_experience_parts='',
+)
+
+[7]
+Job(
+  job_id='109853-JOB',
+  company='Sprinklr',
+  title='Lead VOIP Engineer',
+  location='India - Haryana - Gurgaon',
+  url='https://sprinklr.wd1.myworkdayjobs.com/en-US/careers/job/India---Haryana---Gurgaon/VOIP-Engineering_109853-JOB?locationCountry=c4f78be1a8f14da0ab49ce1162348a5e&jobFamilyGroup=c0a7c42494e701247f567aa7db035f64',
+  source_url='https://sprinklr.wd1.myworkdayjobs.com/careers?locationCountry=c4f78be1a8f14da0ab49ce1162348a5e&jobFamilyGroup=c0a7c42494e701247f567aa7db035f64',
+  posted_date='Posted 30+ Days Ago',
+  description=None,
+  scraped_at='2026-06-13T20:36:15.398070+00:00',
   extracted_experience_parts='',
 )
 
 == Summary ==
-Completed in 5.3s
+Completed in 19.9s
 
 Final status: PASS
